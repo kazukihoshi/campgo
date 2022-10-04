@@ -2,24 +2,24 @@ Rails.application.routes.draw do
   
   scope module: :public do
     root to: 'homes#top'
-    resouces :users, only: [:index, :edit, :update]
+    resources :users, only: [:index, :edit, :update]
     get 'users/unsubscribe'
     patch 'users/withdraw'
-    resouces :posts, only: [:new, :index, :show, :edit, :create, :update, :destroy]
+    resources :posts, only: [:new, :index, :show, :edit, :create, :update, :destroy]
     get 'posts/search'
-    resouces :comments, only: [:create, :edit, :update, :destroy]
-    resouces :tags, only: [:create, :destroy]
-    resouces :favorites, only: [:index, :create, :destroy]
-    resouces :camps, only: [:new, :show, :edit, :update, :destroy]
-    resouces :checklists, only: [:edit]
-    reosuces :checklist_manages, only: [:update]
+    resources :comments, only: [:create, :edit, :update, :destroy]
+    resources :tags, only: [:create, :destroy]
+    resources :favorites, only: [:index, :create, :destroy]
+    resources :camps, only: [:new, :show, :edit, :update, :destroy]
+    resources :checklists, only: [:edit]
+    resources :checklist_manages, only: [:update]
   end
   
   namespace :admin do
-    resouces :checklists, only: [:index, :show, :edit, :update]
-    resouces :users, only: [:index, :show, :edit, :update]
-    resouces :posts, only: [:show, :edti, :update, :destroy]
-    resouces :categories, only: [:create, :destroy]
+    resources :checklists, only: [:index, :show, :edit, :update]
+    resources :users, only: [:index, :show, :edit, :update]
+    resources :posts, only: [:show, :edti, :update, :destroy]
+    resources :categories, only: [:create, :destroy]
     get '/' => 'homes#top'
   end
   
