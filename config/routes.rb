@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :edit, :update]
     get 'users/unsubscribe'
     patch 'users/withdraw'
+    get 'users/my_page' => 'users#show'
     resources :posts, only: [:new, :index, :show, :edit, :create, :update, :destroy]
     get 'posts/search'
     resources :comments, only: [:create, :edit, :update, :destroy]
@@ -18,8 +19,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :checklists, only: [:index, :show, :edit, :update]
     resources :users, only: [:index, :show, :edit, :update]
-    resources :posts, only: [:show, :edti, :update, :destroy]
+    resources :posts, only: [:index, :show, :edti, :update, :destroy]
     resources :categories, only: [:create, :destroy]
+    resources :camps, only: [:index]
     get '/' => 'homes#top'
   end
   
