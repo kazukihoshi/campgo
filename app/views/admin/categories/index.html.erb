@@ -1,0 +1,22 @@
+<div class="container">
+  <%= form_with model: @category, url: admin_categories_path, local: true, method: :POST do |f| %>
+    <div class="row">
+      <div class="col-2">
+        <div class="form-group mr-5 mt-5">
+          <%= f.label :category, "カテゴリー" %>
+        </div>
+      </div>
+      
+      <div class="col-2">
+        <div class="form-group mr-5 mt-5">
+          <%= f.text_field :category_name, placeholder: "カテゴリー名", class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="form-group mr-5 mt-5">
+          <%= f.submit '登録', class: "btn-success" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

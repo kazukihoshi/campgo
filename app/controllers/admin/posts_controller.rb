@@ -1,4 +1,7 @@
 class Admin::PostsController < ApplicationController
+  def index
+  end
+ 
   def show
   end
 
@@ -10,4 +13,6 @@ class Admin::PostsController < ApplicationController
 
   def destroy
   end
+  
+  
 end
