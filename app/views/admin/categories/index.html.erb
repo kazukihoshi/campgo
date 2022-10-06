@@ -1,22 +1,42 @@
 <div class="container">
   <%= form_with model: @category, url: admin_categories_path, local: true, method: :POST do |f| %>
-    <div class="row">
-      <div class="col-2">
-        <div class="form-group mr-5 mt-5">
-          <%= f.label :category, "カテゴリー" %>
-        </div>
-      </div>
-      
-      <div class="col-2">
-        <div class="form-group mr-5 mt-5">
-          <%= f.text_field :category_name, placeholder: "カテゴリー名", class: "form-control" %>
-        </div>
-      </div>
-      <div class="col-2">
-        <div class="form-group mr-5 mt-5">
-          <%= f.submit '登録', class: "btn-success" %>
-        </div>
+  <div class="row">
+    <div class="col-4">
+      <div class="form-group mr-5 mt-5">
+        <%= f.label :category, "カテゴリー" %>
       </div>
     </div>
+      
+    <div class="col-4">
+      <div class="form-group mr-5 mt-5">
+        <%= f.text_field :category_name, placeholder: "カテゴリー名", class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-group mr-5 mt-5">
+      　　<%= f.submit '登録', class: "btn-success" %>
+      </div>
+    </div>
+  </div>
   <% end %>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>カテゴリー一覧</th>
+        <th><%#= link_to '削除', admin_category_path, method: :delete, data: {:confilm => "本当に削除してもよろしいですか?"}, class: 'button' %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+          <td><%= category.category_name %></td>
+          <td><%= link_to "編集", edit_admin_category_path(@category_id), class: "btn btn-sussce" %></td>
+          <td><%= link_to "チェックリスト", admin_checklists_path, class: "btn btn-sussce" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  
 </div>
