@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :checklists, only: [:index, :show, :edit, :update]
     resources :users, only: [:index, :show, :edit, :update]
     resources :posts, only: [:index, :show, :edti, :update, :destroy]
-    resources :categories, only: [:index, :create, :destroy]
+    resources :categories, only: [:index, :create, :destroy, :edit]
     resources :camps, only: [:index]
     get '/' => 'homes#top'
   end
