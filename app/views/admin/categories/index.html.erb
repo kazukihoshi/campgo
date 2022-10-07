@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-4">
       <div class="form-group mr-5 mt-5">
-        <%= f.label :category, "カテゴリー" %>
+        <%= f.label :category_name, "カテゴリー" %>
       </div>
     </div>
       
@@ -25,7 +25,7 @@
     <thead>
       <tr>
         <th>カテゴリー一覧</th>
-        <th><%= link_to '削除', admin_category_path, method: :DELETE, data: {:confilm => "本当に削除してもよろしいですか?"}, class: 'btn btn-sussce' %></th>
+        <th><%#= link_to '削除', admin_category_path(@category.id), local: true, method: :DELETE, data: {:confilm => "本当に削除してもよろしいですか?"}, class: 'btn btn-sussce' %></th>
       </tr>
     </thead>
     <tbody>

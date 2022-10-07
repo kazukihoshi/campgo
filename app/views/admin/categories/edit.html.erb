@@ -1,0 +1,23 @@
+<div class="container">
+  <%= form_with model: @category, url: admin_category_path, local: true, method: :PATCH do |f| %>
+  <div class="row">
+    <div class="col-4">
+      <div class="form-group mr-5 mt-5">
+        <%= f.label :category_name, "カテゴリー編集" %>
+      </div>
+    </div>
+      
+    <div class="col-4">
+      <div class="form-group mr-5 mt-5">
+        <%= f.text_field :category_name,  class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-group mr-5 mt-5">
+      　　<%= f.submit '更新', class: "btn-success" %>
+      </div>
+    </div>
+    
+  </div>
+  <% end %>
+</div>
