@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   
   namespace :admin do
     resources :checklists, only: [:index, :show, :edit, :update]
+    get 'checklists/cooking' => 'checklists#cooking'
+    get 'checklists/construction' => 'checklists#construction'
+    get 'checklists/Lodging' => 'checklists#Lodging'
     resources :users, only: [:index, :show, :edit, :update]
     resources :posts, only: [:index, :show, :edti, :update, :destroy]
     resources :categories, only: [:index, :create, :destroy, :edit, :update]
