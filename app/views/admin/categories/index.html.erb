@@ -20,17 +20,19 @@
   </div>
   <% end %>
   
+  
   <table class="table">
     <thead>
       <tr>
         <th>カテゴリー一覧</th>
-        <th><%= link_to '削除', admin_category_path, method: :delete, data: {:confilm => "本当に削除してもよろしいですか?"}, class: 'btn btn-sussce' %></th>
+        <th><%= link_to '削除', admin_category_path, method: :DELETE, data: {:confilm => "本当に削除してもよろしいですか?"}, class: 'btn btn-sussce' %></th>
       </tr>
     </thead>
     <tbody>
       <% @categories.each do |category| %>
         <tr>
           <td><%#= collection_check_boxes(:category_ids, category, :id, :category_name) %></td>
+          <td><%= check_box :category_name, {multiple: true} %></td>
           <td><%= category.category_name %></td>
           <td><%= link_to "編集", edit_admin_category_path(category.id), class: "btn btn-sussce" %></td>
           <td><%= link_to "チェックリスト", admin_checklists_path, class: "btn btn-sussce" %></td>
@@ -38,6 +40,7 @@
       <% end %>
     </tbody>
   </table>
+  
   
   
 </div>
