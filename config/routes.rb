@@ -17,13 +17,17 @@ Rails.application.routes.draw do
   end
   
   namespace :admin do
-    resources :checklists, only: [:index, :show, :edit, :update]
-    get 'checklists/cooking' => 'checklists#cooking'
-    get 'checklists/construction' => 'checklists#construction'
-    get 'checklists/Lodging' => 'checklists#Lodging'
+    
+   
     resources :users, only: [:index, :show, :edit, :update]
     resources :posts, only: [:index, :show, :edti, :update, :destroy]
-    resources :categories, only: [:index, :create, :destroy, :edit, :update]
+    resources :categories, only: [:index, :create, :edit, :update] do
+      resources :checklists, only: [:index, :show, :edit, :update]
+      get 'checklists/cooking' => 'checklists#cooking'
+      get 'checklists/construction' => 'checklists#construction'
+      get 'checklists/Lodging' => 'checklists#Lodging'
+    end
+    delete 'categories/destroy_all' => 'categories#destroy_all'
     resources :camps, only: [:index, :show]
     get '/' => 'homes#top'
   end

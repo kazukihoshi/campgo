@@ -4,10 +4,16 @@ class Admin::CategoriesController < ApplicationController
     @categories = Category.all
   end
 
-  def destroy
-    category = Category.find(params[:id])
-    category.destroy
-    redirect_to admin_categories_path
+  def destroy_all
+    checked_date = params[:deletes].keys
+    if Category.destroy_by(checked_date)
+      redirect_to admin_categories_path
+    else
+      render :index
+    end
+    #category = Category.find(params[:id])
+    #category.destroy
+    #redirect_to admin_categories_path
   end
   
   def create
