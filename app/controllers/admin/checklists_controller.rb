@@ -20,6 +20,15 @@ class Admin::ChecklistsController < ApplicationController
   def edit
   end
   
+  def destroy_all
+    checked_date = params[:deletes].keys
+    if Checklist.destroy_by(checked_date)
+      redirect_to admin_category_checklists_path(@category)
+    else
+      render :index
+    end 
+  end
+  
   private
   
   def checklist_params

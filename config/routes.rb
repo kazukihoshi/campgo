@@ -23,9 +23,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show, :edti, :update, :destroy]
     resources :categories, only: [:index, :create, :edit, :update] do
       resources :checklists, only: [:index, :create, :show, :edit, :update]
-      get 'checklists/cooking' => 'checklists#cooking'
-      get 'checklists/construction' => 'checklists#construction'
-      get 'checklists/Lodging' => 'checklists#Lodging'
+      delete 'checklists/destroy_all' => 'checklists#destroy_all'
     end
     delete 'categories/destroy_all' => 'categories#destroy_all'
     resources :camps, only: [:index, :show]
