@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <h4>キャンプ一覧</h4>
+    </div>
+  </div>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>会員ID</th>
+        <th>名前</th>
+        <th>作成日</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @camps.each do |camp| %>
+      <tr>
+        <td>
+          <%= camp.user_id %>
+        </td>
+        <td>
+          <%= camp.user_name %>
+        </td>
+        <td>
+          <%= l camp.create_at %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
