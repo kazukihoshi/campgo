@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update]
     resources :posts, only: [:index, :show, :edti, :update, :destroy]
     resources :categories, only: [:index, :create, :destroy, :edit, :update]
-    resources :camps, only: [:index]
+    resources :camps, only: [:index, :show]
     get '/' => 'homes#top'
   end
   
