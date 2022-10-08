@@ -1,2 +1,41 @@
-<h1>Admin::Checklists#index</h1>
-<p>Find me in app/views/admin/checklists/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <h4>チェックリスト一覧</h4>
+    </div>
+  </div>
+  
+  <%= form_with model: @checklist, url: admin_category_checklists_path(@category), local: true, method: :POST do |f| %>
+  <div class="row">
+    <div class="col-4">
+      <div class="form-group mr-5 mt-5">
+        <%= f.text_field :checklist_name,placeholder: "アイテム名", class: "form-control" %>
+      </div>
+    </div>
+      
+    <div class="col-4">
+      <div class="form-group mr-5 mt-5">
+        <%= f.text_field :comment, placeholder: "コメント", class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-group mr-5 mt-5">
+      　　<%= f.submit '追加' %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  
+  <table class="table">
+    <% @checklists.each do |checklist| %>
+    <tbody>
+      <tr>
+        <th><%#= check_box "deletes[#{@checklist.id}]", @checklist.id %></th>
+        <th><%= checklist.checklist_name %></th>
+        <td><%= checklist.comment %></td>
+        <td><%= link_to "編集", edit_admin_category_checklist_path(@category,checklist.id), class: "btn btn-sussce" %></td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
+</div>

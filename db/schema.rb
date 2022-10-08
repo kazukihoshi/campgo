@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_04_122444) do
+ActiveRecord::Schema.define(version: 2022_10_08_091700) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2022_10_04_122444) do
 
   create_table "checklists", force: :cascade do |t|
     t.integer "category_id", null: false
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.string "checklist_name", null: false
     t.text "comment", null: false
     t.datetime "created_at", precision: 6, null: false
