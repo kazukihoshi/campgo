@@ -27,6 +27,10 @@ class Admin::CategoriesController < ApplicationController
     category.update(category_params)
     redirect_to admin_categories_path
   end
+  
+  def edit
+    @category = Category.find(params[:id])
+  end
 
   private
   
