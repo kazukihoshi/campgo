@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-3">
-      <h4>チェックリスト一覧</h4>
+      <h4>チェックリスト作成</h4>
     </div>
   </div>
   
@@ -26,11 +26,18 @@
   </div>
   <% end %>
   
+  <%= form_with model: @checklist, url:  admin_category_checklists_destroy_all_path(@category), local: true,method: :DELETE do |f| %>
   <table class="table">
+    <thead>
+      <tr>
+        <th>チェックリスト一覧</th>
+        <th><%= f.submit '削除',data: {:confilm => "本当に削除してもよろしいですか?"}, class: 'btn btn-sussce' %></th>
+      </tr>
+    </thead>
     <% @checklists.each do |checklist| %>
     <tbody>
       <tr>
-        <th><%#= check_box "deletes[#{@checklist.id}]", @checklist.id %></th>
+        <th><%= check_box "deletes[#{checklist.id}]", checklist.id %></th>
         <th><%= checklist.checklist_name %></th>
         <td><%= checklist.comment %></td>
         <td><%= link_to "編集", edit_admin_category_checklist_path(@category,checklist.id), class: "btn btn-sussce" %></td>
@@ -38,4 +45,5 @@
     </tbody>
     <% end %>
   </table>
+  <% end %>
 </div>
