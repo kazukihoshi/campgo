@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update]
     resources :posts, only: [:index, :show, :edti, :update, :destroy]
     resources :categories, only: [:index, :create, :edit, :update] do
-      resources :checklists, only: [:index, :show, :edit, :update]
+      resources :checklists, only: [:index, :create, :show, :edit, :update]
       get 'checklists/cooking' => 'checklists#cooking'
       get 'checklists/construction' => 'checklists#construction'
       get 'checklists/Lodging' => 'checklists#Lodging'
