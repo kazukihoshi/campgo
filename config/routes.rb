@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     end
     delete 'categories/destroy_all' => 'categories#destroy_all'
     resources :camps, only: [:index, :show]
+    get 'camps/search' => 'camps#search'
     get '/' => 'homes#top'
   end
   
