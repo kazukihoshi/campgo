@@ -26,7 +26,7 @@
       <tr>
         <th>カテゴリー一覧</th>
         <th><%#= link_to '削除', admin_categories_destroy_all_path(@category.id), local: true, method: :DELETE, data: {:confilm => "本当に削除してもよろしいですか?"}, class: 'btn btn-sussce' %></th>
-        <th><%= f.submit '削除',data: {:confilm => "本当に削除してもよろしいですか?"}, class: 'btn btn-sussce' %></th>
+        <th><%= f.submit '削除', data: { confirm: "本当に削除してもよろしいですか?"}, class: 'btn btn-sussce' %></th>
       </tr>
     </thead>
     <tbody>

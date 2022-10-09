@@ -31,7 +31,7 @@
     <thead>
       <tr>
         <th>チェックリスト一覧</th>
-        <th><%= f.submit '削除',data: {:confilm => "本当に削除してもよろしいですか?"}, class: 'btn btn-sussce' %></th>
+        <th><%= f.submit '削除', data: {confirm: "本当に削除してもよろしいですか?"}, class: 'btn btn-sussce' %></th>
       </tr>
     </thead>
     <% @checklists.each do |checklist| %>

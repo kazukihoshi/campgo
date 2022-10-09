@@ -5,6 +5,7 @@
   	</div>
   </div>
   
+  
   <table class="table">
   	<tbody>
   		<tr>
@@ -20,8 +21,8 @@
   			<td><%= @camp.number_of_people %></td>
   		</tr>
   		<tr>
-  			<th>チェックリスト検索</th>
-  			<td></td>
+  			<th>チェックリスト</th>
+  			<td><%= link_to "表示", admin_camps_search_path %></td>
   		</tr>
   	</tbody>
   </table>
