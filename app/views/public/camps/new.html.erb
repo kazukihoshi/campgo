@@ -1,2 +1,28 @@
-<h1>Public::Camps#new</h1>
-<p>Find me in app/views/public/camps/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <h4>キャンプに行く</h4>
+    </div>
+  </div>
+
+  <%= form_with model: @camp, url: new_camp_path, local: true, method: :POST do |f| %>
+  <div class="row">
+    <div class="col-3">
+      <%= f.label :schedule, "日程" %>
+    </div>
+    <div class="col-3">
+      <%= f.date_field :schedule %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-3">
+      <%= f.label :camp_site, "キャンプ場" %>
+    </div>
+    <div class="col-3">
+      <%= 
+    </div>
+  </div>
+
+  <% end %>
+</div>
