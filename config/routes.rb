@@ -11,8 +11,10 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :edit, :update, :destroy]
     resources :tags, only: [:create, :destroy]
     resources :favorites, only: [:index, :create, :destroy]
-    resources :camps, only: [:new, :create, :show, :edit, :update, :destroy]
-    resources :checklists, only: [:edit]
+    resources :camps, only: [:new, :create, :show, :edit, :update, :destroy] do
+       resources :checklists, only: [:edit]
+    end
+
     resources :checklist_manages, only: [:update]
   end
 
