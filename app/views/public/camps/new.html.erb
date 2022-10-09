@@ -5,7 +5,7 @@
     </div>
   </div>
 
-  <%= form_with model: @camp, url: new_camp_path, local: true, method: :POST do |f| %>
+  <%= form_with model: @camp, url: camps_path, local: true, method: :POST do |f| %>
   <div class="row">
     <div class="col-3">
       <%= f.label :schedule, "日程" %>
@@ -14,13 +14,28 @@
       <%= f.date_field :schedule %>
     </div>
   </div>
-  
+
   <div class="row">
     <div class="col-3">
       <%= f.label :camp_site, "キャンプ場" %>
     </div>
     <div class="col-3">
-      <%= 
+      <%= f.text_field :camp_site %>
+    </div>
+  </div>
+
+　<div class="row">
+　  <div class="col-3">
+　    <%= f.label :number_of_people, "人数" %>
+　  </div>
+　  <div class="col-3">
+　    <%= f.select :number_of_people, *[1..5] %>
+　  </div>
+　</div>
+
+  <div class="row">
+    <div class="col-3">
+      <%= f.submit "チェックリスト作成" %>
     </div>
   </div>
 
