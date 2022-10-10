@@ -4,15 +4,20 @@ class Public::CampsController < ApplicationController
   end
 
   def show
+    @camp = Camp.find(params[:id])
   end
 
   def edit
   end
 
   def create
-    camp = Camp.new(camp_params)
-    camp.save
-    redirect_to edit_camp_checklist_path(camp_id)
+    camp = current_user.camps.new(camp_params)
+    camp.save!
+    #byebug
+    Checklist.all.each do |checklist|
+      ChecklistManage.create(camp_id: camp.id, user_id: current_user.id, checklist_id: checklist.id)
+    end
+    redirect_to camp_path(camp.id)
 
   end
 
