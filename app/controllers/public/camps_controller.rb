@@ -14,11 +14,12 @@ class Public::CampsController < ApplicationController
     camp = current_user.camps.new(camp_params)
     camp.save!
     #byebug
+    camp.checklists
     Checklist.all.each do |checklist|
       ChecklistManage.create(camp_id: camp.id, user_id: current_user.id, checklist_id: checklist.id)
     end
-    redirect_to camp_path(camp.id)
-
+    redirect_to camp_checklists_path(camp.id)
+    #camp_path(camp.id)
   end
 
 

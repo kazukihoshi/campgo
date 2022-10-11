@@ -1,6 +1,7 @@
 class Admin::ChecklistsController < ApplicationController
   def index
     @checklists = Checklist.all
+    @checklist = Checklist.new
     @category = Category.find(params[:category_id])
   end
 
