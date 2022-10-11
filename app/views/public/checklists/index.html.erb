@@ -51,7 +51,7 @@
         role="tabpanel"
         aria-labelledby="home-tab"
       >
-      <% @camp.checklists.each do |checklist| %>
+      <% @checklists.each do |checklist| %>
         <%= checklist.checklist_name %>
         <%= checklist.comment %>
       <% end %>
