@@ -3,8 +3,11 @@ class Public::ChecklistsController < ApplicationController
   end
 
   def index
-    @camp = current_user.camps.new(camp_params)
-    @checklist = Checklist.find(params[:id])
+    #@camp = Camp.find(params[:id])
+    @checklists = Checklist.all
+  end
+
+  def create
   end
 
 
