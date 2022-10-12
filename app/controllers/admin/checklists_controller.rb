@@ -1,14 +1,16 @@
 class Admin::ChecklistsController < ApplicationController
   def index
-    @checklists = Checklist.all
-    @checklist = Checklist.new
     @category = Category.find(params[:category_id])
+    @checklists = @category.checklists
+    @checklist = Checklist.new
+
   end
 
   def create
     checklist = Checklist.new(checklist_params)
-    @category = Category.find(params[:category_id])
     checklist.category = @category
+    @category = Category.find(params[:category_id])
+
     checklist.save
     #byebug
     redirect_to admin_category_checklists_path(@category)
