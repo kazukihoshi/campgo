@@ -14,7 +14,7 @@ class Public::CampsController < ApplicationController
     camp = current_user.camps.new(camp_params)
     camp.save!
     #byebug
-    camp.checklists
+    #camp.checklists
     Checklist.all.each do |checklist|
       ChecklistManage.create(camp_id: camp.id, user_id: current_user.id, checklist_id: checklist.id)
     end

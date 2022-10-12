@@ -6,7 +6,7 @@
         <%= f.label :category_name, "カテゴリー" %>
       </div>
     </div>
-      
+
     <div class="col-4">
       <div class="form-group mr-5 mt-5">
         <%= f.text_field :category_name, placeholder: "カテゴリー名", class: "form-control" %>
@@ -19,7 +19,7 @@
     </div>
   </div>
   <% end %>
-  
+
   <%= form_with model: @category, url: admin_categories_destroy_all_path(@category.id), local: true, method: :DELETE do |f| %>
   <table class="table">
     <thead>
@@ -34,7 +34,7 @@
         <tr>
           <td><%#= collection_check_boxes(:category_ids, category, :id, :category_name) %></td>
           <td><%#= check_box :category_id, {multiple: true} %></td>
-          <td><%= check_box "deletes[#{category.id}]", category.id %></td>
+          <td><%= check_box "deletes", category.id %></td>
           <td><%= category.category_name %></td>
           <td><%= link_to "編集", edit_admin_category_path(category.id), class: "btn btn-sussce" %></td>
           <td><%= link_to "チェックリスト", admin_category_checklists_path(category.id), class: "btn btn-sussce" %></td>
@@ -43,7 +43,7 @@
     </tbody>
   </table>
   <% end %>
-  
-  
-  
+
+
+
 </div>

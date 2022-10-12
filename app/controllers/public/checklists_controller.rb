@@ -5,6 +5,7 @@ class Public::ChecklistsController < ApplicationController
   def index
     #@camp = Camp.find(params[:id])
     @checklists = Checklist.all
+    
   end
 
   def create
