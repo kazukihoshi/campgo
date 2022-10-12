@@ -8,14 +8,10 @@ class Admin::CategoriesController < ApplicationController
     # 1を探して(チェックされているもの),1のkeyを取得する(17が取得できる)
   #  きkeyのかてごりを削除する
     #byebug
-    @category = 
     deletes_hash = params[:deletes].to_unsafe_hash
     deletes_hash.each do |h|
       if h[1] == 1
-        key_array = h.keys
-      else
-        
-        
+        h.keys
       #puts h[0]
       #puts h[1]
     end

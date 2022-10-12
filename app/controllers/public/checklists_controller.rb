@@ -3,9 +3,9 @@ class Public::ChecklistsController < ApplicationController
   end
 
   def index
-    #@camp = Camp.find(params[:id])
-    @checklists = Checklist.all
-    
+    @category = Category.find(params[:category_id])
+    @checklists = @category.checklists
+    @checklist = Checklist.new
   end
 
   def create
@@ -15,7 +15,7 @@ class Public::ChecklistsController < ApplicationController
   private
 
   def checklist_params
-    params.require(:checklist).permit(:checklist_name, :comment)
+    params.require(:checklist).permit(:checklist_name, :comment, :category_id)
   end
 
 end
