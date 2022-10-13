@@ -3,7 +3,7 @@
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
         <button
-          class="nav-link active"
+          class="nav-link"
           id="home-tab"
           data-bs-toggle="tab"
           data-bs-target="#home"
@@ -71,26 +71,48 @@
          その他
        </button>
      </li>
+     <% ['a', 'b', 'c'].each.with_index(1) do |c, i| %>
+       <li class="nav-item" role="presentation">
+         <button
+           class="nav-link active"
+           id="contact-tab"
+           data-bs-toggle="tab"
+           data-bs-target="#contact"
+           type="button"
+           role="tab"
+           aria-controls="contact"
+           aria-selected="false"
+         >
+           <%= i %>
+           <%= c %>
+         </button>
+       </li>
+     <% end %>
     </ul>
     <div class="tab-content" id="myTabContent">
+      <%# @camp.checklists.group_by { |c| c.category.category_name }.each do |key, values| %>
       <div
         class="tab-pane fade show active"
         id="home"
         role="tabpanel"
         aria-labelledby="home-tab"
       >
-      <% @checklists.each do |checklist| %>
+      <% @camp.checklists.site_category.each do |checklist| %>
         <%= checklist.checklist_name %>
         <%= checklist.comment %>
       <% end %>
       </div>
+      <%# end %>
       <div
         class="tab-pane fade"
         id="profile"
         role="tabpanel"
         aria-labelledby="profile-tab"
       >
-      ...
+      <% @camp.checklists.cook_category.each do |checklist| %>
+        <%= checklist.checklist_name %>
+        <%= checklist.comment %>
+      <% end %>
       </div>
       <div
         class="tab-pane fade"
