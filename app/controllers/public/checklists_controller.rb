@@ -11,6 +11,9 @@ class Public::ChecklistsController < ApplicationController
   end
 
   def create
+    Checklist.all.each do |checklist|
+      ChecklistManage.create(camp_id: camp.id, user_id: current_user.id, checklist_id: checklist.id, is_active: is_active)
+    end
   end
 
 
