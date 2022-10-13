@@ -9,13 +9,11 @@ class Admin::CategoriesController < ApplicationController
   #  きkeyのかてごりを削除する
     #byebug
     deletes_hash = params[:deletes].to_unsafe_hash
-    deletes_hash.each do |h|
-      if h[1] == 1
-        h.keys
-      #puts h[0]
-      #puts h[1]
+    deletes_hash.select {|_, v| v == "1" }.each do |k, _|
+      category = Category.find(k)
+      category.destroy
     end
-    checked_date = params[:deletes].keys
+    #checked_date = params[:deletes].keys
     # if Category.destroy_by(checked_date)
       # redirect_to admin_categories_path
     # else
@@ -23,7 +21,7 @@ class Admin::CategoriesController < ApplicationController
     # end
     #category = Category.find(params[:id])
     #category.destroy
-    #redirect_to admin_categories_path
+    redirect_to admin_categories_path
   end
 
   def create
@@ -47,6 +45,5 @@ class Admin::CategoriesController < ApplicationController
   def category_params
     params.require(:category).permit(:category_name)
   end
-
 
 end
