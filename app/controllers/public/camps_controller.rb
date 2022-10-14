@@ -22,6 +22,10 @@ class Public::CampsController < ApplicationController
     #camp_path(camp.id)
   end
 
+  def index
+    @camps = current_user.camps.all
+  end
+
 
   private
 

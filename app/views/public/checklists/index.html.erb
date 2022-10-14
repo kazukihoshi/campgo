@@ -73,7 +73,7 @@
      </li>
     </ul>
 
-    <%= form_with model: @checklist, url: checklist_manage_path(@checklist_manage.id), local: true, method: :PATCH do |f| %>
+    <%#= form_with model: @checklist_manage, url: checklist_manage_path(@checklist_manage.id), local: true, method: :PATCH do |f| %>
     <div class="tab-content" id="myTabContent">
       <%# @camp.checklists.group_by { |c| c.category.category_name }.each do |key, values| %>
       <div
@@ -118,6 +118,6 @@
       ...
       </div>
     </div>
-    <% end %>
+    <%# end %>
   </div>
 </div>
