@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-3">
-      <h4>キャンプの予定</h4>
+      <h4>マイキャンプ一覧</h4>
     </div>
   </div>
 
@@ -10,24 +10,25 @@
       <tr>
         <th>日程</th>
         <th>場所</th>
+        <th>作成日</th>
       </tr>
     </thead>
     <tbody>
+      <% @camps.each do |camp| %>
       <tr>
         <td>
-          <%= @camp.schedule %>
+          <%= link_to camp_path(camp.id) do %>
+            <%= camp.schedule %>
+          <% end %>
         </td>
         <td>
-          <%= @camp.camp_site %>
+          <%= camp.camp_site %>
+        </td>
+        <td>
+          <%= l camp.created_at %>
         </td>
       </tr>
+      <% end %>
     </tbody>
   </table>
-  
-  <div class="row">
-    <div class="col">
-      <h2>あと</h2>
-      <%= 
-    </div>
-  </div>
 </div>

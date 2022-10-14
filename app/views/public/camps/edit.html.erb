@@ -1,2 +1,6 @@
 <h1>Public::Camps#edit</h1>
 <p>Find me in app/views/public/camps/edit.html.erb</p>
+<% @camp.checklists.each do |checklist| %>
+  <%= checklist.checklist_name %>
+  <%= checklist.comment %>
+<% end %>
