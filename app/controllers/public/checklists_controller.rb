@@ -27,7 +27,11 @@ class Public::ChecklistsController < ApplicationController
   private
 
   def checklist_params
-    params.require(:checklist).permit(:checklist_name, :comment, :category_id)
+    params.require(:checklist).permit(:checklist_name, :comment, :category_id,)
+  end
+
+  def checklist_manage_params
+    params.require(:checklist_manage).permit(:is_active)
   end
 
 end

@@ -1,5 +1,6 @@
 <div class="container">
   <div class="row">
+    <%= form_with model: @checklist, url: camp_checklists_path(@camp.id), local: true, method: :POST do |f| %>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
         <button
@@ -71,6 +72,7 @@
          その他
        </button>
      </li>
+     <%= f.submit '作成' %>
     </ul>
 
     <%#= form_with model: @checklist_manage, url: checklist_manage_path(@checklist_manage.id), local: true, method: :PATCH do |f| %>
@@ -87,8 +89,9 @@
             <tbody>
               <tr>
                 <th><%#= checklist.check_box (@checklist_manage.is_active, {:checked => false}, checked_value = "true", unchecked_value = "false") %></th>
-                <th><%= check_box "creates[#{checklist.id}]", checklist.id %></th>
-                <th><%= check_box :@checklist.checklist_manage.is_active %></th>
+                <th><%#= check_box "creates[#{checklist.id}]", checklist.id %></th>
+                <th><%#= check_box :@checklist.checklist_manage.is_active %></th>
+                <th><%= check_box "checklist_manages.is_active" , checklist.id %></th>
                 <td><%= checklist.checklist_name %></td>
                 <td><%= checklist.comment %></td>
               </tr>
@@ -109,15 +112,13 @@
       <tbody>
         <tr>
           <th><%#= checklist.check_box (@checklist_manage.is_active, {:checked => false}, checked_value = "true", unchecked_value = "false") %></th>
-          <th><%= check_box "creates[#{checklist.checklist_name + "is_active"}]", checklist.id %></th>
-          <th><%= check_box "checklist.checklist_name + 'checklist_manage.is_active'", checklist.id %></th>
+          <th><%#= check_box "creates[#{checklist.checklist_name + "is_active"}]", checklist.id %></th>
+          <th><%= check_box "checklist_name", checklist.id %></th>
           <th><%#= check_box :@checklist.checklist_manage.is_active %></th>
           <td><%= checklist.checklist_name %></td>
           <td><%= checklist.comment %></td>
         </tr>
       </tbody>
-        <%= checklist.checklist_name %>
-        <%= checklist.comment %>
       <% end %>
       </div>
       <div
@@ -129,6 +130,6 @@
       ...
       </div>
     </div>
-    <%# end %>
+    <% end %>
   </div>
 </div>
