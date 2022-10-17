@@ -88,6 +88,7 @@
               <tr>
                 <th><%#= checklist.check_box (@checklist_manage.is_active, {:checked => false}, checked_value = "true", unchecked_value = "false") %></th>
                 <th><%= check_box "creates[#{checklist.id}]", checklist.id %></th>
+                <th><%= check_box :@checklist.checklist_manage.is_active %></th>
                 <td><%= checklist.checklist_name %></td>
                 <td><%= checklist.comment %></td>
               </tr>
@@ -105,6 +106,16 @@
         aria-labelledby="profile-tab"
       >
       <% @camp.checklists.cook_category.each do |checklist| %>
+      <tbody>
+        <tr>
+          <th><%#= checklist.check_box (@checklist_manage.is_active, {:checked => false}, checked_value = "true", unchecked_value = "false") %></th>
+          <th><%= check_box "creates[#{checklist.checklist_name + "is_active"}]", checklist.id %></th>
+          <th><%= check_box "checklist.checklist_name + 'checklist_manage.is_active'", checklist.id %></th>
+          <th><%#= check_box :@checklist.checklist_manage.is_active %></th>
+          <td><%= checklist.checklist_name %></td>
+          <td><%= checklist.comment %></td>
+        </tr>
+      </tbody>
         <%= checklist.checklist_name %>
         <%= checklist.comment %>
       <% end %>

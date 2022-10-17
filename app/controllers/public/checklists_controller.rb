@@ -11,9 +11,16 @@ class Public::ChecklistsController < ApplicationController
   end
 
   def create
-    Checklist.all.each do |checklist|
-      ChecklistManage.create(camp_id: camp.id, user_id: current_user.id, checklist_id: checklist.id,)
-    end
+    checklist = Checklist.new(checklist_params)
+    checklist.save
+    redirect_to camp_checklists_path(camp.id)
+
+    checklist_manage = ChecklistManage.new(checklist_manage_params)
+    checklist_manage.save
+    redirect_to camp_checklists_path(camp.id)
+    #Checklist.all.each do |checklist|
+      #ChecklistManage.create(camp_id: camp.id, user_id: current_user.id, checklist_id: checklist.id,)
+    #end
   end
 
 
