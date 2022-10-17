@@ -25,7 +25,7 @@ class Admin::ChecklistsController < ApplicationController
   def destroy_all
     checked_date = params[:deletes].keys
     if Checklist.destroy_by(checked_date)
-      redirect_to admin_category_checklists_path(@category)
+      redirect_to admin_category_checklists_path(@category_id)
     else
       render :index
     end

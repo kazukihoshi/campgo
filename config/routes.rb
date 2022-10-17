@@ -15,7 +15,7 @@ Rails.application.routes.draw do
        resources :checklists, only: [:edit, :index, :show, :create]
     end
 
-    resources :checklist_manages, only: [:update]
+    resources :checklist_manages, only: [:update, :create]
   end
 
   namespace :admin do
