@@ -19,7 +19,7 @@ class Public::ChecklistsController < ApplicationController
     end
 
     #checklist = Checklist.new(checklist_params)
-    #byebug
+    byebug
     #checklist.save
     redirect_to root_path
 
