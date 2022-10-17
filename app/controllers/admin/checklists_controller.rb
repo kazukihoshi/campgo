@@ -13,7 +13,7 @@ class Admin::ChecklistsController < ApplicationController
     #byebug
     checklist.save
     #byebug
-    redirect_to admin_category_checklists_path(@category)
+    redirect_to admin_category_checklists_path(category)
   end
 
   def show
