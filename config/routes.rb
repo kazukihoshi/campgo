@@ -12,10 +12,13 @@ Rails.application.routes.draw do
     resources :tags, only: [:create, :destroy]
     resources :favorites, only: [:index, :create, :destroy]
     resources :camps, only: [:new, :index, :create, :show, :edit, :update, :destroy] do
-       resources :checklists, only: [:edit, :index, :show, :create]
+      member do
+        patch :update_checklist_manage
+      end
+       resources :checklists, only: [:edit, :index, :show, :create] 
     end
 
-    resources :checklist_manages, only: [:update, :create]
+  
   end
 
   namespace :admin do

@@ -19,7 +19,7 @@ class Public::ChecklistsController < ApplicationController
     end
 
     #checklist = Checklist.new(checklist_params)
-    byebug
+    #Sbyebug
     #checklist.save
     redirect_to root_path
 
@@ -30,6 +30,10 @@ class Public::ChecklistsController < ApplicationController
       #ChecklistManage.create(camp_id: camp.id, user_id: current_user.id, checklist_id: checklist.id,)
     #end
   end
+  
+  
+  
+
 
 
   private
