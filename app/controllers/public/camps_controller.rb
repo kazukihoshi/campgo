@@ -65,6 +65,7 @@ class Public::CampsController < ApplicationController
        end
      end
 
+     redirect_to root_path
 
 
   end

@@ -13,11 +13,12 @@ class Public::ChecklistsController < ApplicationController
   def create
     checklist = Checklist.new(checklist_params)
     camp = Camp.find(params[:camp_id])
-    checklist.camp = camp
+    checklists = camp.checklists
     #byebug
     checklist.save
     #byebug
-    redirect_to update_checklist_manage_camp_path(camp)
+    #redirect_to update_checklist_manage_camp_path(camp)
+    redirect_to camp_checklists_path(camp)
     #creates_hash = params[:creates].to_unsafe_hash
     #creates_hash.select {|_, v| v == "1" }.each do |k, _|
       #checklist = Checklist.find(k)
@@ -37,7 +38,9 @@ class Public::ChecklistsController < ApplicationController
     #end
   end
 
-
+  def new
+    @checklist = Checklist.new
+  end
 
 
 

@@ -1,0 +1,31 @@
+<%= form_with model: @checklist, url: camp_checklists_path(@camp), local: true, method: :POST do |f| %>
+<!--@checklist ⇨ checklistに変更-->
+      <div class="row">
+        <div class="col-4">
+          <div class="form-group mr-5 mt-5">
+            <%= f.text_field :checklist_name,placeholder: "アイテム名", class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="col-4">
+          <div class="form-group mr-5 mt-5">
+            <%= f.text_field :comment, placeholder: "コメント", class: "form-control" %>
+          </div>
+        </div>
+
+        <%= f.collection_check_boxes(:category_id, Category.all, :id, :category_name) do |category| %>
+            <div class='form-group'>
+                <%= category.label class: 'form-check-label' do %>
+                    <%= category.check_box class: 'form-check-input' %>
+                    <%= category.text %>
+                <% end %>
+            </div>
+        <% end %>
+
+        <div class="col-4">
+          <div class="form-group mr-5 mt-5">
+          　　<%= f.submit '追加' %>
+          </div>
+        </div>
+      </div>
+    <% end %>

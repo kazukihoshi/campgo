@@ -15,10 +15,10 @@ Rails.application.routes.draw do
       member do
         patch :update_checklist_manage
       end
-       resources :checklists, only: [:edit, :index, :show, :create] 
+       resources :checklists, only: [:edit, :index, :show, :create, :new]
     end
 
-  
+
   end
 
   namespace :admin do
