@@ -86,18 +86,26 @@
       >
         <table class="table">
           <%# check_boxから変更 %>
-          <%= f.collection_check_boxes :site_categories ,@checklists.site_category , :id, :checklist_name %>
-          <%#= checklist.comment %>
-          <% @checklists.site_category.each do |checklist| %>
+          <%= f.collection_check_boxes :site_categories ,@checklists.site_category , :id, :checklist_name do |checklist| %>
             <tbody>
               <tr>
-                <th><%#= checklist.check_box (@checklist_manage.is_active, {:checked => false}, checked_value = "true", unchecked_value = "false") %></th>
-                <%# <th><%= check_box "creates" , checklist.id %></th>
-                <td><%= checklist.checklist_name %></td>
-                <td><%= checklist.comment %></td>
+                <td><%= checklist.check_box %></td>
+                <td><%= checklist.object.checklist_name %></td>
+                <td><%= checklist.object.comment %></td>
               </tr>
             </tbody>
           <% end %>
+          <%#= checklist.comment %>
+          <%# @checklists.site_category.each do |checklist| %>
+            <!--<tbody>
+              <tr>
+                <th><%#= checklist.check_box (@checklist_manage.is_active, {:checked => false}, checked_value = "true", unchecked_value = "false") %></th>
+                <%# <th><%= check_box "creates" , checklist.id %></th>
+                <td><%#= checklist.checklist_name %></td>
+                <td><%#= checklist.comment %></td>
+              </tr>
+            </tbody>
+          <%# end %>-->
         </table>
 
 
@@ -110,13 +118,13 @@
         aria-labelledby="profile-tab"
       >
         <table class="table">
-           <%= f.collection_check_boxes :cook_categories ,@checklists.cook_category , :id, :checklist_name %>
-
-           <% @camp.checklists.cook_category.each do |checklist| %>
+          <%= f.collection_check_boxes :cook_categories ,@checklists.cook_category , :id, :checklist_name do |checklist| %>
+           <%# @camp.checklists.cook_category.each do |checklist| %>
             <tbody>
               <tr>
-                <td><%= checklist.checklist_name %></td>
-                <td><%= checklist.comment %></td>
+                <td><%= checklist.check_box %></td>
+                <td><%= checklist.object.checklist_name %></td>
+                <td><%= checklist.object.comment %></td>
               </tr>
             </tbody>
           <% end %>
@@ -130,21 +138,30 @@
         role="tabpanel"
         aria-labelledby="contact-tab"
       >
-      <table class="table">
-        <%= f.collection_check_boxes :tent_categories ,@checklists.tent_category , :id, :checklist_name %>
-          <% @checklists.tent_category.each do |checklist| %>
+        <table class="table">
+          <%= f.collection_check_boxes :tent_categories ,@checklists.tent_category , :id, :checklist_name do |checklist| %>
             <tbody>
               <tr>
-                <td><%= checklist.checklist_name %></td>
-                <td><%= checklist.comment %></td>
+                <td><%= checklist.check_box %></td>
+                <td><%= checklist.object.checklist_name %></td>
+                <td><%= checklist.object.comment %></td>
               </tr>
             </tbody>
+            <%# @checklists.tent_category.each do |checklist| %>
+              <!--<tbody>
+                <tr>
+                  <td><%#= checklist.checklist_name %></td>
+                  <td><%#= checklist.comment %></td>
+                </tr>
+              </tbody>
+            <%# end %>-->
           <% end %>
         </table>
       </div>
     </div>
     <% end %>
 
+    <%= render 'list', checklist: @checklist %>
 
   </div>
 </div>
