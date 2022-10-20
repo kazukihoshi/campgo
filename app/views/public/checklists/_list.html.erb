@@ -13,14 +13,20 @@
           </div>
         </div>
 
-        <%= f.collection_check_boxes(:category_id, Category.all, :id, :category_name) do |category| %>
-            <div class='form-group'>
-                <%= category.label class: 'form-check-label' do %>
-                    <%= category.check_box class: 'form-check-input' %>
-                    <%= category.text %>
-                <% end %>
-            </div>
+        <%= f.fields_for :checklist_manages do |cm| %>
+          <%= cm.hidden_field :camp_id, value: @camp.id %>
+          <%= cm.hidden_field :user_id, value: current_user.id %>
         <% end %>
+
+        <%#= f.collection_check_boxes(:category_id, Category.all, :id, :category_name, include_hidden: false) do |category| %>
+        <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :category_name) %>
+            <!--<div class='form-group'>
+                <%#= category.label class: 'form-check-label' do %>
+                    <%#= category.check_box class: 'form-check-input' %>
+                    <%#= category.text %>
+                <%# end %>
+            </div>-->
+        <%# end %>
 
         <div class="col-4">
           <div class="form-group mr-5 mt-5">

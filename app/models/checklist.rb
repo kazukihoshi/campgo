@@ -11,4 +11,6 @@ class Checklist < ApplicationRecord
     scope :cook_category, -> { joins(:category).where(categories: { category_name: "料理" }) }
     scope :tent_category, -> { joins(:category).where(categories: { category_name: "テント泊" }) }
 
+    accepts_nested_attributes_for :checklist_manages, allow_destroy: true
+
 end
