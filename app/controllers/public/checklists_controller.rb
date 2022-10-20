@@ -8,14 +8,28 @@ class Public::ChecklistsController < ApplicationController
     @camp = Camp.find(params[:camp_id])
     @checklists = @camp.checklists
     @checklist = Checklist.new
+    @checklist.checklist_manages.build
   end
 
   def create
     checklist = Checklist.new(checklist_params)
     camp = Camp.find(params[:camp_id])
     checklists = camp.checklists
+    #puts current_user
+    #category = Category.find(params[:category_id])
+    #byebug
+    #unless category == [""]
+    checklist.user_id = current_user.id
+
     #byebug
     checklist.save
+
+    # ChecklistManage.create(
+    #     user_id: current_user.id,
+    #     camp_id: camp.id,
+    #     checklist_id: checklist.id
+    #   )
+    #end
     #byebug
     #redirect_to update_checklist_manage_camp_path(camp)
     redirect_to camp_checklists_path(camp)
@@ -48,7 +62,7 @@ class Public::ChecklistsController < ApplicationController
   private
 
   def checklist_params
-    params.require(:checklist).permit(:checklist_name, :comment, :category_id,)
+    params.require(:checklist).permit(:checklist_name, :comment, :category_id, checklist_manages_attributes: [:user_id, :camp_id])
   end
 
   def checklist_manage_params
