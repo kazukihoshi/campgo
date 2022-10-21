@@ -30,7 +30,7 @@ class Public::ChecklistsController < ApplicationController
     #     checklist_id: checklist.id
     #   )
     #end
-    #byebug
+    byebug
     #redirect_to update_checklist_manage_camp_path(camp)
     redirect_to camp_checklists_path(camp)
     #creates_hash = params[:creates].to_unsafe_hash
@@ -56,6 +56,11 @@ class Public::ChecklistsController < ApplicationController
     @checklist = Checklist.new
   end
 
+
+  def show
+    @camp = Camp.find(params[:camp_id])
+    @checklists = @camp.checklists
+  end
 
 
 

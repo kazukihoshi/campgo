@@ -1,0 +1,126 @@
+<div class="container">
+  <div class="row">
+    <%#= form_with url: update_checklist_manage_camp_path(@camp), local: true, method: :patch do |f| %>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link active"
+          id="home-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#home"
+          type="button"
+          role="tab"
+          aria-controls="home"
+          aria-selected="true"
+        >
+          サイト
+        </button>
+      </li>
+     <li class="nav-item" role="presentation">
+       <button
+         class="nav-link"
+         id="profile-tab"
+         data-bs-toggle="tab"
+         data-bs-target="#profile"
+         type="button"
+         role="tab"
+         aria-controls="profile"
+         aria-selected="false"
+       >
+         料理
+       </button>
+     </li>
+     <li class="nav-item" role="presentation">
+       <button
+         class="nav-link"
+         id="contact-tab"
+         data-bs-toggle="tab"
+         data-bs-target="#contact"
+         type="button"
+         role="tab"
+         aria-controls="contact"
+         aria-selected="false"
+       >
+         テント泊
+       </button>
+     </li>
+     <li class="nav-item" role="presentation">
+       <button
+         class="nav-link"
+         id="contact-tab"
+         data-bs-toggle="tab"
+         data-bs-target="#contact"
+         type="button"
+         role="tab"
+         aria-controls="contact"
+         aria-selected="false"
+       >
+         焚き火
+       </button>
+     </li>
+     <li class="nav-item" role="presentation">
+       <button
+         class="nav-link"
+         id="contact-tab"
+         data-bs-toggle="tab"
+         data-bs-target="#contact"
+         type="button"
+         role="tab"
+         aria-controls="contact"
+         aria-selected="false"
+       >
+         その他
+       </button>
+     </li>
+     <%#= f.submit '作成' %>
+    </ul>
+
+    <%#= form_with model: @checklist_manage, url: checklist_manage_path(@checklist_manage.id), local: true, method: :PATCH do |f| %>
+    <div class="tab-content" id="myTabContent">
+      <%# @camp.checklists.group_by { |c| c.category.category_name }.each do |key, values| %>
+      <div
+        class="tab-pane fade show active"
+        id="home"
+        role="tabpanel"
+        aria-labelledby="home-tab"
+      >
+        <table class="table">
+          <%# check_boxから変更 %>
+          <% @checklists.each do |checklist| %>
+            <tbody>
+              <tr>
+                <td><%= checklist.checklist_name %></td>
+                <td><%= checklist.comment %></td>
+              </tr>
+            </tbody>
+          <% end %>
+
+        </table>
+
+
+      </div>
+      <div
+        class="tab-pane fade"
+        id="contact"
+        role="tabpanel"
+        aria-labelledby="contact-tab"
+      >
+        <table class="table">
+
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+
+        </table>
+      </div>
+    </div>
+    <%# end %>
+
+    <%#= render 'list', checklist: @checklist %>
+
+  </div>
+</div>
