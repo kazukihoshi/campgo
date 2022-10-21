@@ -64,7 +64,7 @@ class Public::CampsController < ApplicationController
          end
        end
      end
-
+     byebug
      redirect_to root_path
 
 
