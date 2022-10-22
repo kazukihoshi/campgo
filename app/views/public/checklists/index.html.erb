@@ -5,12 +5,12 @@
       <li class="nav-item" role="presentation">
         <button
           class="nav-link active"
-          id="home-tab"
+          id="site-tab"
           data-bs-toggle="tab"
-          data-bs-target="#home"
+          data-bs-target="#site"
           type="button"
           role="tab"
-          aria-controls="home"
+          aria-controls="site"
           aria-selected="true"
         >
           サイト
@@ -19,12 +19,12 @@
      <li class="nav-item" role="presentation">
        <button
          class="nav-link"
-         id="profile-tab"
+         id="cook-tab"
          data-bs-toggle="tab"
-         data-bs-target="#profile"
+         data-bs-target="#cook"
          type="button"
          role="tab"
-         aria-controls="profile"
+         aria-controls="cook"
          aria-selected="false"
        >
          料理
@@ -33,12 +33,12 @@
      <li class="nav-item" role="presentation">
        <button
          class="nav-link"
-         id="contact-tab"
+         id="tent-tab"
          data-bs-toggle="tab"
-         data-bs-target="#contact"
+         data-bs-target="#tent"
          type="button"
          role="tab"
-         aria-controls="contact"
+         aria-controls="tent"
          aria-selected="false"
        >
          テント泊
@@ -47,12 +47,12 @@
      <li class="nav-item" role="presentation">
        <button
          class="nav-link"
-         id="contact-tab"
+         id="bonfire-tab"
          data-bs-toggle="tab"
-         data-bs-target="#contact"
+         data-bs-target="#bonfire"
          type="button"
          role="tab"
-         aria-controls="contact"
+         aria-controls="bonfire"
          aria-selected="false"
        >
          焚き火
@@ -61,12 +61,12 @@
      <li class="nav-item" role="presentation">
        <button
          class="nav-link"
-         id="contact-tab"
+         id="others-tab"
          data-bs-toggle="tab"
-         data-bs-target="#contact"
+         data-bs-target="#others"
          type="button"
          role="tab"
-         aria-controls="contact"
+         aria-controls="others"
          aria-selected="false"
        >
          その他
@@ -80,9 +80,9 @@
       <%# @camp.checklists.group_by { |c| c.category.category_name }.each do |key, values| %>
       <div
         class="tab-pane fade show active"
-        id="home"
+        id="site"
         role="tabpanel"
-        aria-labelledby="home-tab"
+        aria-labelledby="site-tab"
       >
         <table class="table">
           <%# check_boxから変更 %>
@@ -113,9 +113,9 @@
       <%# end %>
       <div
         class="tab-pane fade"
-        id="profile"
+        id="cook"
         role="tabpanel"
-        aria-labelledby="profile-tab"
+        aria-labelledby="cook-tab"
       >
         <table class="table">
           <%= f.collection_check_boxes :cook_categories ,@checklists.cook_category , :id, :checklist_name do |checklist| %>
@@ -134,9 +134,9 @@
       </div>
       <div
         class="tab-pane fade"
-        id="contact"
+        id="tent"
         role="tabpanel"
-        aria-labelledby="contact-tab"
+        aria-labelledby="tent-tab"
       >
         <table class="table">
           <%= f.collection_check_boxes :tent_categories ,@checklists.tent_category , :id, :checklist_name do |checklist| %>
@@ -158,6 +158,47 @@
           <% end %>
         </table>
       </div>
+
+      <div
+        class="tab-pane fade"
+        id="bonfire"
+        role="tabpanel"
+        aria-labelledby="bonfire-tab"
+      >
+        <table class="table">
+          <%= f.collection_check_boxes :bonfire_categories ,@checklists.bonfire_category , :id, :checklist_name do |checklist| %>
+           <%# @camp.checklists.cook_category.each do |checklist| %>
+            <tbody>
+              <tr>
+                <td><%= checklist.check_box %></td>
+                <td><%= checklist.object.checklist_name %></td>
+                <td><%= checklist.object.comment %></td>
+              </tr>
+            </tbody>
+          <% end %>
+        </table>
+      </div>
+
+      <div
+        class="tab-pane fade"
+        id="others"
+        role="tabpanel"
+        aria-labelledby="others-tab"
+      >
+        <table class="table">
+          <%= f.collection_check_boxes :others_categories ,@checklists.others_category , :id, :checklist_name do |checklist| %>
+           <%# @camp.checklists.cook_category.each do |checklist| %>
+            <tbody>
+              <tr>
+                <td><%= checklist.check_box %></td>
+                <td><%= checklist.object.checklist_name %></td>
+                <td><%= checklist.object.comment %></td>
+              </tr>
+            </tbody>
+          <% end %>
+        </table>
+      </div>
+
     </div>
     <% end %>
 

@@ -70,6 +70,8 @@ class Public::CampsController < ApplicationController
 
   end
 
+  def edit_checklist_manage
+  end
 
   private
 

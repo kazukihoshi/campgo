@@ -60,6 +60,10 @@ class Public::ChecklistsController < ApplicationController
   def show
     @camp = Camp.find(params[:camp_id])
     @checklists = @camp.checklists
+    @checklist_manage = ChecklistManage.find_by(is_active: true)
+  end
+
+  def update_checklist_manage
   end
 
 

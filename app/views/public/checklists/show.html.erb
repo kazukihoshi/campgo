@@ -1,6 +1,5 @@
 <div class="container">
   <div class="row">
-    <%#= form_with url: update_checklist_manage_camp_path(@camp), local: true, method: :patch do |f| %>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
         <button
@@ -72,7 +71,7 @@
          その他
        </button>
      </li>
-     <%#= f.submit '作成' %>
+     <%#= link_to '編集', edit_checklist_manage_camp_path(@camp) %>
     </ul>
 
     <%#= form_with model: @checklist_manage, url: checklist_manage_path(@checklist_manage.id), local: true, method: :PATCH do |f| %>
@@ -86,7 +85,25 @@
       >
         <table class="table">
           <%# check_boxから変更 %>
-          <% @checklists.each do |checklist| %>
+          <% @checklists.site_category.each do |checklist| %>
+            <tbody>
+              <tr>
+                <td><%= checklist.checklist_name %></td>
+                <td><%= checklist.comment %></td>
+              </tr>
+            </tbody>
+          <% end %>
+        </table>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="profile"
+        role="tabpanel"
+        aria-labelledby="profile-tab"
+      >
+        <table class="table">
+          <%# check_boxから変更 %>
+          <% @checklists.cook_category.each do |checklist| %>
             <tbody>
               <tr>
                 <td><%= checklist.checklist_name %></td>
@@ -96,7 +113,26 @@
           <% end %>
 
         </table>
+      </div>
 
+      <div
+        class="tab-pane fade"
+        id="contact"
+        role="tabpanel"
+        aria-labelledby="contact-tab"
+      >
+        <table class="table">
+          <%# check_boxから変更 %>
+          <% @checklists.tent_category.each do |checklist| %>
+            <tbody>
+              <tr>
+                <td><%= checklist.checklist_name %></td>
+                <td><%= checklist.comment %></td>
+              </tr>
+            </tbody>
+          <% end %>
+        </table>
+      </div>
 
       </div>
       <div
@@ -118,9 +154,6 @@
         </table>
       </div>
     </div>
-    <%# end %>
-
-    <%#= render 'list', checklist: @checklist %>
 
   </div>
 </div>

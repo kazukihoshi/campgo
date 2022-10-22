@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :camps, only: [:new, :index, :create, :show, :edit, :update, :destroy] do
       member do
         patch :update_checklist_manage
+        resources :checklist_manage, only: [:edit]
       end
        resources :checklists, only: [:edit, :index, :show, :create, :new]
     end
