@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>マイページ</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <!--背景画像-->
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <!--プロフィール画像-->
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <%= @user.name %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <%= link_to "記事投稿", new_post_path %>
+    </div>
+    <div class="col">
+      <%= link_to "いいね一覧", favorites_path %>
+    </div>
+    <div class="col">
+      <%#= link_to "マイページ編集", edit_user_path(@user.id) %>
+    </div>
+    <div class="col">
+      <%= link_to "キャンプ", camps_path %>
+    </div>
+  </div>
+</div>
