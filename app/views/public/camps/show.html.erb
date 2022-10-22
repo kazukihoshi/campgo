@@ -32,6 +32,7 @@
 
   <div class="row">
     <div class="col">
+      <%= link_to "編集する", edit_camp_path(@camp.id) %>
       <%= link_to "チェックリストへ", camp_checklist_path(@camp, @checklist) %>
     </div>
   </div>

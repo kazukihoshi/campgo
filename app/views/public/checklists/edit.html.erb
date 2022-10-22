@@ -75,7 +75,6 @@
      <%= f.submit '更新' %>
     </ul>
 
-    <%#= form_with model: @checklist_manage, url: checklist_manage_path(@checklist_manage.id), local: true, method: :PATCH do |f| %>
     <div class="tab-content" id="myTabContent">
       <div
         class="tab-pane fade show active"
@@ -94,17 +93,6 @@
               </tr>
             </tbody>
           <% end %>
-          <%#= checklist.comment %>
-          <%# @checklists.site_category.each do |checklist| %>
-            <!--<tbody>
-              <tr>
-                <th><%#= checklist.check_box (@checklist_manage.is_active, {:checked => false}, checked_value = "true", unchecked_value = "false") %></th>
-                <%# <th><%= check_box "creates" , checklist.id %></th>
-                <td><%#= checklist.checklist_name %></td>
-                <td><%#= checklist.comment %></td>
-              </tr>
-            </tbody>
-          <%# end %>-->
         </table>
 
 
@@ -118,7 +106,6 @@
       >
         <table class="table">
           <%= f.collection_check_boxes :cook_categories ,@checklists.cook_category , :id, :checklist_name do |checklist| %>
-           <%# @camp.checklists.cook_category.each do |checklist| %>
             <tbody>
               <tr>
                 <td><%= checklist.check_box %></td>
@@ -146,14 +133,6 @@
                 <td><%= checklist.object.comment %></td>
               </tr>
             </tbody>
-            <%# @checklists.tent_category.each do |checklist| %>
-              <!--<tbody>
-                <tr>
-                  <td><%#= checklist.checklist_name %></td>
-                  <td><%#= checklist.comment %></td>
-                </tr>
-              </tbody>
-            <%# end %>-->
           <% end %>
         </table>
       </div>
@@ -166,7 +145,6 @@
       >
         <table class="table">
           <%= f.collection_check_boxes :bonfire_categories ,@checklists.bonfire_category , :id, :checklist_name do |checklist| %>
-           <%# @camp.checklists.cook_category.each do |checklist| %>
             <tbody>
               <tr>
                 <td><%= checklist.check_box %></td>
@@ -186,7 +164,6 @@
       >
         <table class="table">
           <%= f.collection_check_boxes :others_categories ,@checklists.others_category , :id, :checklist_name do |checklist| %>
-           <%# @camp.checklists.cook_category.each do |checklist| %>
             <tbody>
               <tr>
                 <td><%= checklist.check_box %></td>
@@ -201,7 +178,7 @@
     </div>
     <% end %>
 
-    <%#= render 'list', checklist: @checklist %>
+    <%= render 'list', checklist: @checklist %>
 
   </div>
 </div>

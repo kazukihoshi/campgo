@@ -70,7 +70,14 @@ class Public::CampsController < ApplicationController
 
   end
 
-  def edit_checklist_manage
+  def edit
+    @camp = Camp.find(params[:id])
+  end
+
+  def update
+    camp =Camp.find(params[:id])
+    camp.update(camp_params)
+    redirect_to camp_path(camp.id)
   end
 
   private
