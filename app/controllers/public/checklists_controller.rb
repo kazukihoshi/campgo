@@ -1,5 +1,11 @@
 class Public::ChecklistsController < ApplicationController
   def edit
+    @camp = Camp.find(params[:camp_id])
+    @checklists = @camp.checklists
+  end
+  
+  def update 
+    
   end
 
   def index
@@ -59,7 +65,7 @@ class Public::ChecklistsController < ApplicationController
 
   def show
     @camp = Camp.find(params[:camp_id])
-    #campに紐づいたchecklist_manages(is_active: true)を取得,checklist_id
+    #campに紐づいたchecklist_manages(is_active: true)を取得,checklist_idのみ
     active_checklist_ids = @camp.checklist_manages.where(is_active: true).pluck('checklist_id').uniq #[2,3,6,9]
     @checklists = Checklist.where(id: active_checklist_ids)
   end
