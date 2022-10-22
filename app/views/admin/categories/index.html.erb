@@ -36,8 +36,8 @@
           <td><%#= check_box :category_id, {multiple: true} %></td>
           <td><%= check_box "deletes", category.id %></td>
           <td><%= category.category_name %></td>
-          <td><%= link_to "編集", edit_admin_category_path(category.id), class: "btn btn-sussce" %></td>
-          <td><%= link_to "チェックリスト", admin_category_checklists_path(category.id), class: "btn btn-sussce" %></td>
+          <td><%= link_to "編集", edit_admin_category_path(category.id), class: "btn btn-success" %></td>
+          <td><%= link_to "チェックリスト", admin_category_checklists_path(category.id), class: "btn btn-success" %></td>
         </tr>
       <% end %>
     </tbody>
