@@ -1,5 +1,4 @@
-<div class="container">
-  <div class="row">
+<div class="row">
     <%= form_with url: checklist_manage_path(@camp), local: true, method: :PATCH do |f| %>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
@@ -87,8 +86,6 @@
           <%= f.collection_check_boxes :site_categories ,@checklists.site_category, :id, :checklist_name  do |checklist| %>
             <tbody>
               <tr>
-                <!--checkedでtrueを判断-->
-                <!--checklist_managesのis_active: trueを探しchecklist.idを取得-->
                 <td><%= checklist.check_box(checked: checklist.value.in?(@active_checklist_ids)) %></td>
                 <td><%= checklist.object.checklist_name %></td>
                 <td><%= checklist.object.comment %></td>
@@ -180,7 +177,6 @@
     </div>
     <% end %>
 
-    <%= render 'list', checklist: @checklist %>
+    
 
   </div>
-</div>
