@@ -1,5 +1,6 @@
 <div class="row">
-    <%= form_with url: checklist_manage_path(@camp), local: true, method: :PATCH do |f| %>
+    <%= form_with url: checklist_manage_path(camp), local: true, method: :PATCH do |f| %>
+    <!--@camp⇨camp-->
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
         <button
@@ -83,6 +84,7 @@
       >
         <table class="table">
           <%# check_boxから変更 %>
+          <!--@checklists⇨checklist-->
           <%= f.collection_check_boxes :site_categories ,@checklists.site_category, :id, :checklist_name  do |checklist| %>
             <tbody>
               <tr>
@@ -146,7 +148,7 @@
           <%= f.collection_check_boxes :bonfire_categories ,@checklists.bonfire_category , :id, :checklist_name do |checklist| %>
             <tbody>
               <tr>
-                <td><%= checklist.check_box(checked: checklist.value.in?(@active_checklist_ids)) %></td>
+                <td><%= checklist.check_box(checked: checklist.value.in?(@active_checklist_ids)) %></td>  <!--@active_checklist_ids⇨active_checklist_ids-->
                 <td><%= checklist.object.checklist_name %></td>
                 <td><%= checklist.object.comment %></td>
               </tr>

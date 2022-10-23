@@ -10,9 +10,6 @@ class Public::CampsController < ApplicationController
     #@checklist_manages = @checklist.checklist_manages
   end
 
-  def edit
-  end
-
   def create
     camp = current_user.camps.new(camp_params)
     camp.save!
@@ -70,8 +67,10 @@ class Public::CampsController < ApplicationController
 
   end
 
+  # camp/editの_list.html.erbでも使用
   def edit
     @camp = Camp.find(params[:id])
+    @checklist = @camp.checklists.new
     @checklists= @camp.checklists
     @active_checklist_ids = @camp.checklist_manages.where(is_active: true).pluck('checklist_id').uniq #[2,3,6,9]
   end

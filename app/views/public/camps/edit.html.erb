@@ -41,8 +41,8 @@
 
   <% end %>
 
-  <%= render 'checklist', checklist: @checklist %>
-
-  <%= render 'public/checklists/list', checklist: @checklist %>
+  <%= render 'checklist', checklists: @checklists, camp: @camp, active_checklist_ids: @active_checklist_ids %>
+  <!--camp: @campを追加-->
+  <%= render 'public/checklists/list', checklist: @checklist, camp: @camp %>
 
 </div>
