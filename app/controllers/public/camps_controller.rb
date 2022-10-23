@@ -72,6 +72,8 @@ class Public::CampsController < ApplicationController
 
   def edit
     @camp = Camp.find(params[:id])
+    @checklists= @camp.checklists
+    @active_checklist_ids = @camp.checklist_manages.where(is_active: true).pluck('checklist_id').uniq #[2,3,6,9]
   end
 
   def update
