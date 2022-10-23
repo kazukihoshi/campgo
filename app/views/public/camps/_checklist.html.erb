@@ -107,7 +107,7 @@
           <%= f.collection_check_boxes :cook_categories ,@checklists.cook_category , :id, :checklist_name do |checklist| %>
             <tbody>
               <tr>
-                <td><%= checklist.check_box %></td>
+                <td><%= checklist.check_box(checked: checklist.value.in?(@active_checklist_ids)) %></td>
                 <td><%= checklist.object.checklist_name %></td>
                 <td><%= checklist.object.comment %></td>
               </tr>
@@ -127,7 +127,7 @@
           <%= f.collection_check_boxes :tent_categories ,@checklists.tent_category , :id, :checklist_name do |checklist| %>
             <tbody>
               <tr>
-                <td><%= checklist.check_box %></td>
+                <td><%= checklist.check_box(checked: checklist.value.in?(@active_checklist_ids)) %></td>
                 <td><%= checklist.object.checklist_name %></td>
                 <td><%= checklist.object.comment %></td>
               </tr>
@@ -146,7 +146,7 @@
           <%= f.collection_check_boxes :bonfire_categories ,@checklists.bonfire_category , :id, :checklist_name do |checklist| %>
             <tbody>
               <tr>
-                <td><%= checklist.check_box %></td>
+                <td><%= checklist.check_box(checked: checklist.value.in?(@active_checklist_ids)) %></td>
                 <td><%= checklist.object.checklist_name %></td>
                 <td><%= checklist.object.comment %></td>
               </tr>
@@ -165,7 +165,7 @@
           <%= f.collection_check_boxes :others_categories ,@checklists.others_category , :id, :checklist_name do |checklist| %>
             <tbody>
               <tr>
-                <td><%= checklist.check_box %></td>
+                <td><%= checklist.check_box(checked: checklist.value.in?(@active_checklist_ids)) %></td>
                 <td><%= checklist.object.checklist_name %></td>
                 <td><%= checklist.object.comment %></td>
               </tr>
@@ -177,6 +177,6 @@
     </div>
     <% end %>
 
-    
+
 
   </div>
