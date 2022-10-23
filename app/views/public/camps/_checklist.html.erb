@@ -85,10 +85,10 @@
         <table class="table">
           <%# check_boxから変更 %>
           <!--@checklists⇨checklist-->
-          <%= f.collection_check_boxes :site_categories ,@checklists.site_category, :id, :checklist_name  do |checklist| %>
+          <%= f.collection_check_boxes :site_categories ,checklists.site_category, :id, :checklist_name  do |checklist| %>
             <tbody>
               <tr>
-                <td><%= checklist.check_box(checked: checklist.value.in?(@active_checklist_ids)) %></td>
+                <td><%= checklist.check_box(checked: checklist.value.in?(active_checklist_ids)) %></td>
                 <td><%= checklist.object.checklist_name %></td>
                 <td><%= checklist.object.comment %></td>
               </tr>
@@ -106,10 +106,10 @@
         aria-labelledby="cook-tab"
       >
         <table class="table">
-          <%= f.collection_check_boxes :cook_categories ,@checklists.cook_category , :id, :checklist_name do |checklist| %>
+          <%= f.collection_check_boxes :cook_categories ,checklists.cook_category , :id, :checklist_name do |checklist| %>
             <tbody>
               <tr>
-                <td><%= checklist.check_box(checked: checklist.value.in?(@active_checklist_ids)) %></td>
+                <td><%= checklist.check_box(checked: checklist.value.in?(active_checklist_ids)) %></td>
                 <td><%= checklist.object.checklist_name %></td>
                 <td><%= checklist.object.comment %></td>
               </tr>
@@ -126,10 +126,10 @@
         aria-labelledby="tent-tab"
       >
         <table class="table">
-          <%= f.collection_check_boxes :tent_categories ,@checklists.tent_category , :id, :checklist_name do |checklist| %>
+          <%= f.collection_check_boxes :tent_categories ,checklists.tent_category , :id, :checklist_name do |checklist| %>
             <tbody>
               <tr>
-                <td><%= checklist.check_box(checked: checklist.value.in?(@active_checklist_ids)) %></td>
+                <td><%= checklist.check_box(checked: checklist.value.in?(active_checklist_ids)) %></td>
                 <td><%= checklist.object.checklist_name %></td>
                 <td><%= checklist.object.comment %></td>
               </tr>
@@ -145,10 +145,10 @@
         aria-labelledby="bonfire-tab"
       >
         <table class="table">
-          <%= f.collection_check_boxes :bonfire_categories ,@checklists.bonfire_category , :id, :checklist_name do |checklist| %>
+          <%= f.collection_check_boxes :bonfire_categories ,checklists.bonfire_category , :id, :checklist_name do |checklist| %>
             <tbody>
               <tr>
-                <td><%= checklist.check_box(checked: checklist.value.in?(@active_checklist_ids)) %></td>  <!--@active_checklist_ids⇨active_checklist_ids-->
+                <td><%= checklist.check_box(checked: checklist.value.in?(active_checklist_ids)) %></td>  <!--@active_checklist_ids⇨active_checklist_ids-->
                 <td><%= checklist.object.checklist_name %></td>
                 <td><%= checklist.object.comment %></td>
               </tr>
@@ -164,10 +164,10 @@
         aria-labelledby="others-tab"
       >
         <table class="table">
-          <%= f.collection_check_boxes :others_categories ,@checklists.others_category , :id, :checklist_name do |checklist| %>
+          <%= f.collection_check_boxes :others_categories ,checklists.others_category , :id, :checklist_name do |checklist| %>
             <tbody>
               <tr>
-                <td><%= checklist.check_box(checked: checklist.value.in?(@active_checklist_ids)) %></td>
+                <td><%= checklist.check_box(checked: checklist.value.in?(active_checklist_ids)) %></td>
                 <td><%= checklist.object.checklist_name %></td>
                 <td><%= checklist.object.comment %></td>
               </tr>
