@@ -1,14 +1,5 @@
 class Public::ChecklistsController < ApplicationController
-  def edit
-    @camp = Camp.find(params[:camp_id])
-    @checklists = @camp.checklists
-  end
-  
-  def update 
-    
-  end
-
-  def index
+    def index
     #@category = Category.find(params[:category_id])
     #@checklists = @category.checklists
     @camp = Camp.find(params[:camp_id])
@@ -16,6 +7,14 @@ class Public::ChecklistsController < ApplicationController
     @checklist = Checklist.new
     @checklist.checklist_manages.build
   end
+
+  def index_for_camp
+    @camp = Camp.find(params[:camp_id])
+    #campに紐づいたchecklist_manages(is_active: true)を取得,checklist_idのみ
+    active_checklist_ids = @camp.checklist_manages.where(is_active: true).pluck('checklist_id').uniq #[2,3,6,9]
+    @checklists = Checklist.where(id: active_checklist_ids)
+  end
+
 
   def create
     checklist = Checklist.new(checklist_params)
@@ -62,12 +61,33 @@ class Public::ChecklistsController < ApplicationController
     @checklist = Checklist.new
   end
 
+  def edit
+    @camp = Camp.find(params[:camp_id])
+    @checklists = @camp.checklists
+    @active_checklist_ids = @camp.checklist_manages.where(is_active: true).pluck('checklist_id').uniq #[2,3,6,9]
+
+
+    #checklist_ids = @camp.checklist_manages.where(is_active: true).pluck('checklist_id').uniq #[2,3,6,9]
+    #@checklists = Checklist.where(id: checklist_ids)
+  end
+
+  def update
+
+  end
+
+
+
 
   def show
     @camp = Camp.find(params[:camp_id])
     #campに紐づいたchecklist_manages(is_active: true)を取得,checklist_idのみ
     active_checklist_ids = @camp.checklist_manages.where(is_active: true).pluck('checklist_id').uniq #[2,3,6,9]
     @checklists = Checklist.where(id: active_checklist_ids)
+    
+    
+    
+    #byebug
+    
   end
 
   def update_checklist_manage
