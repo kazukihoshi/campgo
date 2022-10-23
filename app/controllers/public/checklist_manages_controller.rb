@@ -1,7 +1,10 @@
 class Public::ChecklistManagesController < ApplicationController
 
 
-def edit_checklist_manage
-end
+  def update_camp_checklist_manage
+    
+    old_checklist_manages = 
+  
+  end
 
 end

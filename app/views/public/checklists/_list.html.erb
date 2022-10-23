@@ -1,5 +1,5 @@
-<%= form_with model: @checklist, url: camp_checklists_path(@camp), local: true, method: :POST do |f| %>
-<!--@checklist ⇨ checklistに変更-->
+<%= form_with model: checklist, url: camp_checklists_path(camp), local: true, method: :POST do |f| %>
+<!--@checklist ⇨ checklistに変更、@camp⇨camp-->
       <div class="row">
         <div class="col-4">
           <div class="form-group mr-5 mt-5">
@@ -14,7 +14,7 @@
         </div>
 
         <%= f.fields_for :checklist_manages do |cm| %>
-          <%= cm.hidden_field :camp_id, value: @camp.id %>
+          <%= cm.hidden_field :camp_id, value: camp.id %>
           <%= cm.hidden_field :user_id, value: current_user.id %>
         <% end %>
 
@@ -34,4 +34,4 @@
           </div>
         </div>
       </div>
-    <% end %>
+<% end %>

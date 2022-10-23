@@ -1,5 +1,9 @@
 class Public::ChecklistsController < ApplicationController
-    def index
+  def new
+    @checklist = Checklist.new
+  end
+
+  def index
     #@category = Category.find(params[:category_id])
     #@checklists = @category.checklists
     @camp = Camp.find(params[:camp_id])
@@ -37,7 +41,9 @@ class Public::ChecklistsController < ApplicationController
     #end
     #byebug
     #redirect_to update_checklist_manage_camp_path(camp)
-    redirect_to camp_checklists_path(camp)
+    #redirect_to camp_checklists_path(camp)
+    # redirect_toからredirect_backに変更
+    redirect_back(fallback_location: root_path)
     #creates_hash = params[:creates].to_unsafe_hash
     #creates_hash.select {|_, v| v == "1" }.each do |k, _|
       #checklist = Checklist.find(k)
@@ -57,12 +63,11 @@ class Public::ChecklistsController < ApplicationController
     #end
   end
 
-  def new
-    @checklist = Checklist.new
-  end
+
 
   def edit
     @camp = Camp.find(params[:camp_id])
+    @checklist = @camp.checklists.new
     @checklists = @camp.checklists
     @active_checklist_ids = @camp.checklist_manages.where(is_active: true).pluck('checklist_id').uniq #[2,3,6,9]
 
@@ -83,11 +88,11 @@ class Public::ChecklistsController < ApplicationController
     #campに紐づいたchecklist_manages(is_active: true)を取得,checklist_idのみ
     active_checklist_ids = @camp.checklist_manages.where(is_active: true).pluck('checklist_id').uniq #[2,3,6,9]
     @checklists = Checklist.where(id: active_checklist_ids)
-    
-    
-    
+
+
+
     #byebug
-    
+
   end
 
   def update_checklist_manage
