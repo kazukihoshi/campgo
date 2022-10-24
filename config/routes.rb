@@ -2,10 +2,10 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root to: 'homes#top'
-    resources :users, only: [:index, :edit, :update]
+    resources :users, only: [:index, :edit, :update, :show]
     get 'users/unsubscribe'
     patch 'users/withdraw'
-    get 'users/my_page' => 'users#show'
+    #get 'users/my_page' => 'users#show'
     resources :posts, only: [:new, :index, :show, :edit, :create, :update, :destroy]
     get 'posts/search'
     resources :comments, only: [:create, :edit, :update, :destroy]

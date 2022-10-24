@@ -32,6 +32,9 @@ class Public::ChecklistsController < ApplicationController
 
     #byebug
     checklist.save
+    Checklist.all.each do |checklist|
+      ChecklistManage.create(camp_id: camp.id, user_id: current_user.id, checklist_id: checklist.id,)
+    end
 
     # ChecklistManage.create(
     #     user_id: current_user.id,

@@ -33,7 +33,7 @@
   <div class="row">
     <div class="col">
       <%= link_to "編集する", edit_camp_path(@camp.id) %>
-      <%= link_to "チェックリストへ", camp_checklist_path(@camp, @checklists) %>
+      <%= link_to "チェックリストへ", camp_index_for_camp_path(@camp.id) %>
     </div>
   </div>
 </div>
