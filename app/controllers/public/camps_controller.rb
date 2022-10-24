@@ -33,7 +33,6 @@ class Public::CampsController < ApplicationController
      cook_categories = params[:cook_categories]
      tent_categories = params[:tent_categories]
 
-
      unless site_categories == [""]
 
        site_categories.each do |checklist|
@@ -62,6 +61,14 @@ class Public::CampsController < ApplicationController
        end
      end
      #byebug
+
+     if ChecklistManage.update(checklist_manage_params)
+        checklist_manage.save_checklists(params[:camp][:checklist])
+        redirect_to camp_path(camp.id)
+     else
+        render :edit
+     end
+
      redirect_to root_path
 
 
