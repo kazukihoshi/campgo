@@ -94,4 +94,8 @@ class Public::CampsController < ApplicationController
     params.require(:camp).permit(:schedule, :camp_site, :number_of_people)
   end
 
+  def checklist_manage_params
+    params.require(:checklist_manage).permit(:camp_id, :checklist_id, :is_active)
+  end
+
 end
