@@ -19,7 +19,7 @@ Rails.application.routes.draw do
        resources :checklists, only: [:edit, :index, :show, :create, :new]
        get 'index_for_camp' => 'checklists#index_for_camp'
     end
-
+   get 'my_checklist_index' => 'checklists#my_checklist_index'
 
   end
 

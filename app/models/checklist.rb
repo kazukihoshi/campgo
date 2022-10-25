@@ -7,11 +7,11 @@ class Checklist < ApplicationRecord
     belongs_to :user, optional: true
     belongs_to :category
 
-    scope :site_category, -> { joins(:category).where(categories: { category_name: "サイト" }) }
-    scope :cook_category, -> { joins(:category).where(categories: { category_name: "料理" }) }
-    scope :tent_category, -> { joins(:category).where(categories: { category_name: "テント泊" }) }
-    scope :bonfire_category, -> { joins(:category).where(categories: { category_name: "焚き火" }) }
-    scope :others_category, -> { joins(:category).where(categories: { category_name: "その他" }) }
+    scope :site_category, -> { joins(:category).where(categories: { category_name: "サイト" }).distinct }
+    scope :cook_category, -> { joins(:category).where(categories: { category_name: "料理" }).distinct }
+    scope :tent_category, -> { joins(:category).where(categories: { category_name: "テント泊" }).distinct }
+    scope :bonfire_category, -> { joins(:category).where(categories: { category_name: "焚き火" }).distinct }
+    scope :others_category, -> { joins(:category).where(categories: { category_name: "その他" }).distinct }
 
     accepts_nested_attributes_for :checklist_manages, allow_destroy: true
 

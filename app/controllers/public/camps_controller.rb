@@ -5,9 +5,12 @@ class Public::CampsController < ApplicationController
 
   def show
     @camp = Camp.find(params[:id])
-    @checklists = @camp.checklists.all
+    #@checklists = @camp.checklists.all
     #@checklist = Checklist.find(params[:id])
     #@checklist_manages = @checklist.checklist_manages
+    #campに紐づいたchecklist_manages(is_active: true)を取得,checklist_idのみ
+    active_checklist_ids = @camp.checklist_manages.where(is_active: true).pluck('checklist_id').uniq #[2,3,6,9]
+    @checklists = Checklist.where(id: active_checklist_ids)
   end
 
   def create
@@ -33,6 +36,9 @@ class Public::CampsController < ApplicationController
      cook_categories = params[:cook_categories]
      tent_categories = params[:tent_categories]
 
+     camp.checklist_manages.update_all(is_active: false)
+
+     #byebug
      unless site_categories == [""]
 
        site_categories.each do |checklist|
@@ -62,12 +68,12 @@ class Public::CampsController < ApplicationController
      end
      #byebug
 
-     if ChecklistManage.update(checklist_manage_params)
-        checklist_manage.save_checklists(params[:camp][:checklist])
-        redirect_to camp_path(camp.id)
-     else
-        render :edit
-     end
+    # if ChecklistManage.update(checklist_manage_params)
+    #     checklist_manage.save_checklists(params[:camp][:checklist])
+    #     redirect_to camp_path(camp.id)
+    # else
+    #     render :edit
+    # end
 
      redirect_to root_path
 
@@ -84,6 +90,7 @@ class Public::CampsController < ApplicationController
 
   def update
     camp =Camp.find(params[:id])
+    #byebug
     camp.update(camp_params)
     redirect_to camp_path(camp.id)
   end
@@ -95,7 +102,7 @@ class Public::CampsController < ApplicationController
   end
 
   def checklist_manage_params
-    params.require(:checklist_manage).permit(:camp_id, :checklist_id, :is_active)
+    params.require(:checklist_manage).permit(:camp_id, :checklist_id, :is_active,)
   end
 
 end
