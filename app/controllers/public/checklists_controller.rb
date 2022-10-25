@@ -20,7 +20,11 @@ class Public::ChecklistsController < ApplicationController
   end
 
   def my_checklist_index
-    @checklists = Checklist.where(id: current_user.id)
+    if user_signed_in?
+      @checklists = Checklist.where(id: current_user.id)
+    end
+
+    #@checklists = Checklist.all
   end
 
 
