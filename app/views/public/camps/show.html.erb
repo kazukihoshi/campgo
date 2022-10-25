@@ -24,16 +24,12 @@
     </tbody>
   </table>
 
-  <div class="row">
-    <div class="col">
-      <h2>あと</h2>
-    </div>
-  </div>
+  <%= render 'public/checklists/camp_for_index', checklists: @checklists %>
 
   <div class="row">
     <div class="col">
       <%= link_to "編集する", edit_camp_path(@camp.id) %>
-      <%= link_to "チェックリストへ", camp_index_for_camp_path(@camp.id) %>
+      <%= link_to "チェックリストへ", my_checklist_index_path %>
     </div>
   </div>
 </div>

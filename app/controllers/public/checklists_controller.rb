@@ -19,6 +19,10 @@ class Public::ChecklistsController < ApplicationController
     @checklists = Checklist.where(id: active_checklist_ids)
   end
 
+  def my_checklist_index
+    @checklists = Checklist.where(id: current_user.id)
+  end
+
 
   def create
     checklist = Checklist.new(checklist_params)
