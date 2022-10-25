@@ -3,6 +3,7 @@ class Public::UsersController < ApplicationController
   end
 
   def edit
+    @user = current_user
   end
 
   def show
@@ -12,6 +13,6 @@ class Public::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:profile_image)
+    params.require(:user).permit(:profile_image, :background_image)
   end
 end
