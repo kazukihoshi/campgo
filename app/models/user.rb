@@ -22,4 +22,12 @@ class User < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
+  # def get_background_image(width, height)
+  #   unless background_image.attached?
+  #     file_path = Rails.root.join('app/assets/images/default-background-image.jpg')
+  #     profile_image.attach(io: File.open(file_path), filename: 'default-background-image.jpg', content_type: 'image/jpeg')
+  #   end
+  #   profile_image.variant(resize_to_limit: [width, height]).processed
+  # end
+
 end
