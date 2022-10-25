@@ -5,6 +5,7 @@ class Public::CampsController < ApplicationController
 
   def show
     @camp = Camp.find(params[:id])
+    @user = current_user
     #@checklists = @camp.checklists.all
     #@checklist = Checklist.find(params[:id])
     #@checklist_manages = @checklist.checklist_manages
