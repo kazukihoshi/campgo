@@ -36,6 +36,8 @@ class Public::CampsController < ApplicationController
      site_categories = params[:site_categories]
      cook_categories = params[:cook_categories]
      tent_categories = params[:tent_categories]
+     bonfire_categories = params[:bonfire_categories]
+     others_categories = params[:others_categories]
 
      camp.checklist_manages.update_all(is_active: false)
 
@@ -62,6 +64,24 @@ class Public::CampsController < ApplicationController
      unless tent_categories == [""]
 
        tent_categories.each do |checklist|
+         unless checklist == ""
+           ChecklistManage.find_by(checklist_id: checklist, camp_id: camp.id, user_id: current_user.id).update(is_active: true)
+         end
+       end
+     end
+
+     unless bonfire_categories == [""]
+
+       bonfire_categories.each do |checklist|
+         unless checklist == ""
+           ChecklistManage.find_by(checklist_id: checklist, camp_id: camp.id, user_id: current_user.id).update(is_active: true)
+         end
+       end
+     end
+
+     unless others_categories == [""]
+
+       others_categories.each do |checklist|
          unless checklist == ""
            ChecklistManage.find_by(checklist_id: checklist, camp_id: camp.id, user_id: current_user.id).update(is_active: true)
          end

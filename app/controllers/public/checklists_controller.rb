@@ -115,6 +115,13 @@ class Public::ChecklistsController < ApplicationController
   def update_checklist_manage
   end
 
+  def destroy
+    user = current_user
+    checklist = Checklist.find(params[:id])
+    checklist.destroy
+    redirect_to user_my_checklist_index_path(user.id)
+  end
+
 
 
   private
