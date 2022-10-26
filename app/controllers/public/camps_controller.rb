@@ -38,7 +38,8 @@ class Public::CampsController < ApplicationController
      tent_categories = params[:tent_categories]
      bonfire_categories = params[:bonfire_categories]
      others_categories = params[:others_categories]
-
+　　
+　　# update前に全てをfalseに変更、その後チェックしtrueに変更していく
      camp.checklist_manages.update_all(is_active: false)
 
      #byebug

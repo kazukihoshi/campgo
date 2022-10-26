@@ -7,7 +7,7 @@ class Public::UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+     @user = current_user
   end
 
   private
