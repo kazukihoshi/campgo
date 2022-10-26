@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <%= form_with url: checklist_manage_path(@camp), local: true, method: :PATCH do |f| %>
+    <%= form_with model: @checklist, url: user_checklist_path(@user, @checklist), local: true, method: :PATCH do |f| %>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
         <button
@@ -72,10 +72,12 @@
          その他
        </button>
      </li>
-     <%= f.submit '更新' %>
+     <%#= link_to '編集', edit_camp_checklist_path(@camp) %>
     </ul>
 
+    <%#= form_with model: @checklist_manage, url: checklist_manage_path(@checklist_manage.id), local: true, method: :PATCH do |f| %>
     <div class="tab-content" id="myTabContent">
+      <%# @camp.checklists.group_by { |c| c.category.category_name }.each do |key, values| %>
       <div
         class="tab-pane fade show active"
         id="site"
@@ -84,22 +86,16 @@
       >
         <table class="table">
           <%# check_boxから変更 %>
-          <%= f.collection_check_boxes :site_categories ,@checklists.site_category, :id, :checklist_name  do |checklist| %>
+          <% @checklists.site_category.each do |checklist| %>
             <tbody>
               <tr>
-                <!--checkedでtrueを判断-->
-                <!--checklist_managesのis_active: trueを探しchecklist.idを取得-->
-                <td><%= checklist.check_box(checked: checklist.value.in?(@active_checklist_ids)) %></td>
-                <td><%= checklist.object.checklist_name %></td>
-                <td><%= checklist.object.comment %></td>
+                <td><%= checklist.checklist_name %></td>
+                <td><%= checklist.comment %></td>
               </tr>
             </tbody>
           <% end %>
         </table>
-
-
       </div>
-      <%# end %>
       <div
         class="tab-pane fade"
         id="cook"
@@ -107,19 +103,19 @@
         aria-labelledby="cook-tab"
       >
         <table class="table">
-          <%= f.collection_check_boxes :cook_categories ,@checklists.cook_category , :id, :checklist_name do |checklist| %>
+          <%# check_boxから変更 %>
+          <% @checklists.cook_category.each do |checklist| %>
             <tbody>
               <tr>
-                <td><%= checklist.check_box %></td>
-                <td><%= checklist.object.checklist_name %></td>
-                <td><%= checklist.object.comment %></td>
+                <td><%= checklist.checklist_name %></td>
+                <td><%= checklist.comment %></td>
               </tr>
             </tbody>
           <% end %>
+
         </table>
-
-
       </div>
+
       <div
         class="tab-pane fade"
         id="tent"
@@ -127,18 +123,19 @@
         aria-labelledby="tent-tab"
       >
         <table class="table">
-          <%= f.collection_check_boxes :tent_categories ,@checklists.tent_category , :id, :checklist_name do |checklist| %>
+          <%# check_boxから変更 %>
+          <% @checklists.tent_category.each do |checklist| %>
             <tbody>
               <tr>
-                <td><%= checklist.check_box %></td>
-                <td><%= checklist.object.checklist_name %></td>
-                <td><%= checklist.object.comment %></td>
+                <td><%= checklist.checklist_name %></td>
+                <td><%= checklist.comment %></td>
               </tr>
             </tbody>
           <% end %>
         </table>
       </div>
 
+      </div>
       <div
         class="tab-pane fade"
         id="bonfire"
@@ -146,18 +143,16 @@
         aria-labelledby="bonfire-tab"
       >
         <table class="table">
-          <%= f.collection_check_boxes :bonfire_categories ,@checklists.bonfire_category , :id, :checklist_name do |checklist| %>
+          <% @checklists.bonfire_category.each do |checklist| %>
             <tbody>
               <tr>
-                <td><%= checklist.check_box %></td>
-                <td><%= checklist.object.checklist_name %></td>
-                <td><%= checklist.object.comment %></td>
+                <td><%= checklist.checklist_name %></td>
+                <td><%= checklist.comment %></td>
               </tr>
             </tbody>
           <% end %>
         </table>
       </div>
-
       <div
         class="tab-pane fade"
         id="others"
@@ -165,22 +160,18 @@
         aria-labelledby="others-tab"
       >
         <table class="table">
-          <%= f.collection_check_boxes :others_categories ,@checklists.others_category , :id, :checklist_name do |checklist| %>
+          <% @checklists.others_category.each do |checklist| %>
             <tbody>
               <tr>
-                <td><%= checklist.check_box %></td>
-                <td><%= checklist.object.checklist_name %></td>
-                <td><%= checklist.object.comment %></td>
+                <td><%= checklist.checklist_name %></td>
+                <td><%= checklist.comment %></td>
               </tr>
             </tbody>
           <% end %>
         </table>
       </div>
-
     </div>
     <% end %>
-
-    <%= render 'list', checklist: @checklist %>
 
   </div>
 </div>

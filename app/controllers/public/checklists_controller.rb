@@ -19,14 +19,16 @@ class Public::ChecklistsController < ApplicationController
     @checklists = Checklist.where(id: active_checklist_ids)
   end
 
+  # ログインユーザーが作成したチェックリストの一覧
   def my_checklist_index
+    @user = current_user
+    @checklist = Checklist.new
+    # userがログインしているかどうかの確認
     if user_signed_in?
-      @checklists = Checklist.where(id: current_user.id)
+      # user_idがcurrent_userのものを検索
+      @checklists = Checklist.where(user_id: current_user.id)
     end
-
-    #@checklists = Checklist.all
   end
-
 
   def create
     checklist = Checklist.new(checklist_params)
@@ -77,15 +79,19 @@ class Public::ChecklistsController < ApplicationController
 
 
   def edit
-    @camp = Camp.find(params[:camp_id])
-    @checklist = @camp.checklists.new
-    @checklists = @camp.checklists
-    @active_checklist_ids = @camp.checklist_manages.where(is_active: true).pluck('checklist_id').uniq #[2,3,6,9]
+    # @camp = Camp.find(params[:camp_id])
+    # @checklist = @camp.checklists.new
+    # @checklists = @camp.checklists
+    # @active_checklist_ids = @camp.checklist_manages.where(is_active: true).pluck('checklist_id').uniq #[2,3,6,9]
+　　@user = current_user
+　　@checklists = Checklist.all
+　　@checklist = @user.checklists
+
+  end
 
 
     #checklist_ids = @camp.checklist_manages.where(is_active: true).pluck('checklist_id').uniq #[2,3,6,9]
     #@checklists = Checklist.where(id: checklist_ids)
-  end
 
   def update
 

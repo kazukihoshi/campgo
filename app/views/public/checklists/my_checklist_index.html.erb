@@ -90,6 +90,8 @@
               <tr>
                 <td><%= checklist.checklist_name %></td>
                 <td><%= checklist.comment %></td>
+                <td><%= link_to '編集', edit_user_checklist_path(@user.id, checklist) %></td>
+                <td><%= link_to '削除', user_checklist_path(@user.id, checklist), data: { confirm: "本当に削除してもよろしいですか?"} %></td>
               </tr>
             </tbody>
           <% end %>
