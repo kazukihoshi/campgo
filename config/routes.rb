@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     resources :users, only: [:index, :edit, :update, :show] do
       get 'my_checklist_index' => 'checklists#my_checklist_index'
+      get 'edit_for_user' => 'checklists#edit_for_user'
+      resources :checklists, only: [:edit, :update, :destroy]
     end
     get 'users/unsubscribe'
     patch 'users/withdraw'
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
         patch :update_checklist_manage
         patch :update_all_checklist_manage
       end
-       resources :checklists, only: [:edit, :index, :show, :create, :new]
+       resources :checklists, only: [:index, :show, :create, :new]
        get 'index_for_camp' => 'checklists#index_for_camp'
     end
    #get 'my_checklist_index' => 'checklists#my_checklist_index'
