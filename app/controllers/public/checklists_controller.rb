@@ -5,8 +5,8 @@ class Public::ChecklistsController < ApplicationController
 
   def index
     @camp = Camp.find(params[:camp_id])
-    @checklists = @camp.checklists
     @checklist = Checklist.new
+    @checklists = @camp.checklists.where(user_id: nil).or(Checklist.where(user_id: current_user.id))#user.idがnilとcurrent_userのものを抽出
     @checklist.checklist_manages.build
   end
 
@@ -20,7 +20,7 @@ class Public::ChecklistsController < ApplicationController
   # ログインユーザーが作成したチェックリストの一覧
   def my_checklist_index
     @user = current_user
-    @checklist = Checklist.new
+    @checklists = @user.checklists
     # userがログインしているかどうかの確認
     if user_signed_in?
       # user_idがcurrent_userのものを検索
