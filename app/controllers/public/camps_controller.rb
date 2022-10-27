@@ -32,15 +32,16 @@ class Public::CampsController < ApplicationController
 
   def update_checklist_manage
      camp = Camp.find(params[:id])
+     user = current_user
 
      site_categories = params[:site_categories]
      cook_categories = params[:cook_categories]
      tent_categories = params[:tent_categories]
      bonfire_categories = params[:bonfire_categories]
      others_categories = params[:others_categories]
-　　
-　　# update前に全てをfalseに変更、その後チェックしtrueに変更していく
-     camp.checklist_manages.update_all(is_active: false)
+
+
+     camp.checklist_manages.update_all(is_active: false)#update前に全てをfalseに変更、その後チェックしtrueに変更していく
 
      #byebug
      unless site_categories == [""]
@@ -97,7 +98,7 @@ class Public::CampsController < ApplicationController
     #     render :edit
     # end
 
-     redirect_to root_path
+     redirect_to user_my_checklist_index_path(user_id)
 
 
   end
@@ -115,6 +116,12 @@ class Public::CampsController < ApplicationController
     #byebug
     camp.update(camp_params)
     redirect_to camp_path(camp.id)
+  end
+
+  def destroy
+    camp = Camp.find(params[:id])
+    camp.destroy
+    redirect_to camps_path
   end
 
   private

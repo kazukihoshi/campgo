@@ -27,6 +27,9 @@
         <td>
           <%= l camp.created_at %>
         </td>
+        <td>
+          <%= link_to '削除', camp_path(camp), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"} %>
+        </td>
       </tr>
       <% end %>
     </tbody>
