@@ -97,13 +97,7 @@ class Public::CampsController < ApplicationController
     # else
     #     render :edit
     # end
-
-<<<<<<< HEAD
      redirect_to user_my_checklist_index_path(user)
-=======
-     redirect_to user_my_checklist_index_path(user_id)
->>>>>>> origin/main
-
 
   end
 
@@ -111,11 +105,7 @@ class Public::CampsController < ApplicationController
   def edit
     @camp = Camp.find(params[:id])
     @checklist = @camp.checklists.new
-<<<<<<< HEAD
     @checklists = @camp.checklists.where(user_id: nil).or(Checklist.where(user_id: current_user.id))
-=======
-    @checklists= @camp.checklists
->>>>>>> origin/main
     @active_checklist_ids = @camp.checklist_manages.where(is_active: true).pluck('checklist_id').uniq #[2,3,6,9]
   end
 
