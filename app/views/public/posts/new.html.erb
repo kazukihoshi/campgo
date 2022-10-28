@@ -33,9 +33,18 @@
 　  </div>
 　</div>
 
+　<div class="row">
+    <div class="col-3">
+      <%= f.label :tag_name, "タグ" %>
+    </div>
+    <div class="col-3">
+      <%= f.text_field :tag_name %>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-3">
-      <%= f.submit "チェックリスト作成" %>
+      <%= f.submit "投稿" %>
     </div>
   </div>
 
