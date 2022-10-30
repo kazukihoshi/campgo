@@ -30,7 +30,7 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:post, :camp_site, :name)
+    params.require(:post).permit(:post, :camp_site, :tag.name)
   end
 
 end
