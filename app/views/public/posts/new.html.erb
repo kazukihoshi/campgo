@@ -35,10 +35,10 @@
 
 　<div class="row">
 　  <div class="col-3">
-　    <%= f.label :post_image, "画像" %>
+　    <%= f.label :post_images, "画像" %>
 　  </div>
 　  <div class="col-3">
-　    <%= f.file_field :post_image, accept: "image/*",class: "form-control-file image" %>
+　    <%= f.file_field :post_images, accept: "image/*", multiple: true, class: "form-control-file image" %>
 　  </div>
 　</div>
 

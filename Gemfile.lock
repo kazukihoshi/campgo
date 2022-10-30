@@ -248,7 +248,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   google_places
-  image_processing
+  image_processing (~> 1.2)
   jbuilder (~> 2.7)
   listen (~> 3.3)
   mini_magick
