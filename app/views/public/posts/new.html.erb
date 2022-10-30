@@ -47,7 +47,8 @@
       <%= f.label :tag, "タグ" %>
     </div>
     <div class="col-3">
-      <%= f.text_field :tag, value: @post.tags.pluck(:name) %>
+      <!--postのカラムではないためf.を外す-->
+      <%= text_field_tag :tag, @post.tags.pluck(:name) %>
     </div>
   </div>
 

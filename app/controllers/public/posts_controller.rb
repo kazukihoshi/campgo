@@ -6,7 +6,8 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    tag_list = params[:post][:tag]
+    #tag_list = params[:post][:tag]から下記へ変更
+    tag_list = params[:tag]
     if @post.save
       @post.save_tags(tag_list)
       redirect_to posts_path
@@ -30,7 +31,7 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:post, :title, :camp_site, :tag.name)
+    params.require(:post).permit(:post, :title, :camp_site)
   end
 
 end
