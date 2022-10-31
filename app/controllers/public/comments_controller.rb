@@ -7,7 +7,7 @@ class Public::CommentsController < ApplicationController
     comment = current_user.comments.new(comment_params)
     comment.post_id = post.id
     if comment.save
-      redirect_to post_path
+      redirect_to post_path(post.id)
       #request.referer, notice: "投稿しました" #遷移前のURLの取得
     #else
       #flash[:danger] = "投稿に失敗しました"

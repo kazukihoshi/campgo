@@ -21,9 +21,9 @@
   </div>
 
   <div class="row">
-    <%= @comments.each do |comment| %>
-      <%= comment.user.name %>
-      <%= @post.comment.comment %>
+    <% @comments.each do |comment| %>
+      <%= comment.user.name %><br>
+      <%= comment.comment %><br>
     <% end %>
   </div>
 
