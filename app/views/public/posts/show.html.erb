@@ -28,6 +28,11 @@
     <% @comments.each do |comment| %>
       <%= comment.user.name %><br>
       <%= comment.comment %><br>
+        <% if comment.user == current_user %>
+          <div class="comment-delete">
+            <%= link_to "削除", post_comment_path(@post.id, comment.id), method: :delete, class: "btn-sm btn-danger" %>
+          </div>
+        <% end %>
     <% end %>
   </div>
 
