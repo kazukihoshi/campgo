@@ -3,7 +3,7 @@
   <div class="card w-50 mx-auto mt-4 shadow-lg">
     <%= link_to post_path(post.id) do %>
       <% if post.post_images.attached? %>
-        <%= image_tag post.image, size: "180x130" %>
+        <%= image_tag post.post_images, size: "180x130" %>
       <% else %>
         <%= image_tag 'no_image_yoko.jpeg', size: "180x130" %>
       <% end %>
