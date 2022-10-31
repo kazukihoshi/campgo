@@ -18,7 +18,7 @@ class Public::PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    @tag_list = Tag.all
+    @tag_list = params[:tag]
   end
 
   def show
