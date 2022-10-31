@@ -20,9 +20,11 @@ Rails.application.routes.draw do
     get 'users/unsubscribe'
     patch 'users/withdraw'
     #get 'users/my_page' => 'users#show'
-    resources :posts, only: [:new, :index, :show, :edit, :create, :update, :destroy]
+    resources :posts, only: [:new, :index, :show, :edit, :create, :update, :destroy] do
+      resources :comments, only: [:create, :edit, :update, :destroy] #ネストさせる
+    end
     get 'posts/search'
-    resources :comments, only: [:create, :edit, :update, :destroy]
+
     resources :tags, only: [:create, :destroy]
     resources :favorites, only: [:index, :create, :destroy]
     resources :camps, only: [:new, :index, :create, :show, :edit, :update, :destroy] do
