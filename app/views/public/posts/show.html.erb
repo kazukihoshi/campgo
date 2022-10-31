@@ -1,2 +1,22 @@
-<h1>Public::Posts#show</h1>
-<p>Find me in app/views/public/posts/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <%= @post.title %>
+  </div>
+  <div class="row">
+
+    <% if @post.post_images.attached? %>
+      <%= image_tag @post.image, size: "180x130" %>
+    <% else %>
+      <%= image_tag 'no_image_yoko.jpeg', size: "180x130" %>
+    <% end %>
+
+  </div>
+
+  <div class="row">
+    <%= @post.post %>
+  </div>
+
+  <div class="row">
+    <%= @post.tags.pluck(:name) %>
+  </div>
+</div>

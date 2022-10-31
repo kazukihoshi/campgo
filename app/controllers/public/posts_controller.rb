@@ -22,6 +22,8 @@ class Public::PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
+    @tag_list = params[:tag]
   end
 
   def edit
