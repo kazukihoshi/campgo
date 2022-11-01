@@ -1,2 +1,64 @@
-<h1>Public::Posts#edit</h1>
-<p>Find me in app/views/public/posts/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>編集</h2>
+    </div>
+  </div>
+
+  <%= form_with model: @post, url: post_path(@post), local: true, method: :PATCH do |f| %>
+  <div class="row">
+    <div class="col-3">
+      <%= f.label :camp_site, "キャンプ場" %>
+    </div>
+    <div class="col-3">
+      <%= f.text_field :camp_site %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <%= f.label :title, "タイトル" %>
+    </div>
+    <div class="col-3">
+      <%= f.text_field :title %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <%= f.label :post, "投稿" %>
+    </div>
+    <div class="col-3">
+      <%= f.text_field :post %>
+    </div>
+  </div>
+
+　<div class="row">
+　  <div class="col-3">
+　    <%= f.label :post_images, "画像" %>
+　  </div>
+　  <div class="col-3">
+　    <%= f.file_field :post_images, accept: "image/*", multiple: true, class: "form-control-file image" %>
+　  </div>
+　</div>
+
+　<div class="row">
+    <div class="col-3">
+      <%= f.label :tag, "タグ" %>
+    </div>
+    <div class="col-3">
+      <!--postのカラムではないためf.を外す-->
+      <%= text_field_tag :tag, @post.tags.pluck(:name) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <%= f.submit "投稿" %>
+    </div>
+  </div>
+
+  <% end %>
+</div>
+
+

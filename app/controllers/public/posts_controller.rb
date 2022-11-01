@@ -30,19 +30,33 @@ class Public::PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    post = Post.find(params[:id])
+    post.update(post_params)
+    redirect_to post_path(post.id)
   end
 
   def destroy
     post = Post.find(params[:id])
     post.destroy
-    redirect_to posts_path
+
+    tag_list = params[:tag]
+    if post.save
+      post.save_tags(tag_list)
+      redirect_to posts_path
+    else
+      render :edit
+    end
   end
 
 
   private
 
   def post_params
-    params.require(:post).permit(:post, :title, :camp_site, post_images: [])
+    params.require(:post).permit(:post, :title, :camp_site, post_images: [])  #post_imagesで複数の写真の許可
   end
 
 end

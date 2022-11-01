@@ -21,13 +21,15 @@
   </div>
 
   <div class="row">
+    <!--each文で複数のものの中から1つずつ取得する-->
     <% @post.tags.pluck(:name).each do |tag_name|%>
       <%= tag_name %>
     <% end %>
   </div>
-
-  <%= link_to '編集', edit_post_path(@post.id), class: "btn btn-info" %>
-  <%= link_to '削除', post_path(@post.id), method: :delete, "data-confirm"=>"本当に消しますか？", class: "btn btn-danger" %>
+　<% if user_signed_in? && current_user.id == @post.user_id %>
+    <%= link_to '編集', edit_post_path(@post.id), class: "btn btn-info" %>
+    <%= link_to '削除', post_path(@post.id), method: :delete, "data-confirm"=>"本当に消しますか？", class: "btn btn-danger" %>
+  <% end %>
   <%= link_to '一覧へ', posts_path, class: "btn btn-dark" %>
 
   <div class="row">
