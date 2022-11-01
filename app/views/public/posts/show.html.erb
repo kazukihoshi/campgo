@@ -5,7 +5,11 @@
   <div class="row">
 
     <% if @post.post_images.attached? %>
-      <%= image_tag @post.image, size: "180x130" %>
+      <% @post.post_images.each do |post_image| %>
+         <div style="height:180, width:130">
+        <%= image_tag post_image.variant(resize: "100x130^") %>
+        </div>
+      <% end %>
     <% else %>
       <%= image_tag 'no_image_yoko.jpeg', size: "180x130" %>
     <% end %>
@@ -17,7 +21,9 @@
   </div>
 
   <div class="row">
-    <%= @post.tags.pluck(:name) %>
+    <% @post.tags.pluck(:name).each do |tag_name|%>
+      <%= tag_name %>
+    <% end %>
   </div>
 
   <%= link_to '編集', edit_post_path(@post.id), class: "btn btn-info" %>

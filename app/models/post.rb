@@ -17,9 +17,11 @@ class Post < ApplicationRecord
         old_tags = current_tags - tag_list
         new_tags = tag_list - current_tags
 
-        old_tags.each do |old|
-          self.tags.delete Tag.find_by(name: old)
-        end
+        self.tags.where(name: old_tags).delete_all
+
+        # old_tags.each do |old|
+        #   self.tags.delete Tag.find_by(name: old)
+        # end
 
         new_tags.each do |new|
             new_post_tag = Tag.find_or_create_by(name: new)
