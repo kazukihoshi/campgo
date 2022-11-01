@@ -47,14 +47,7 @@ class Public::PostsController < ApplicationController
   def destroy
     post = Post.find(params[:id])
     post.destroy
-
-    tag_list = params[:tag]
-    if post.save
-      post.save_tags(tag_list)
-      redirect_to posts_path
-    else
-      render :edit
-    end
+    redirect_to posts_path
   end
 
 
