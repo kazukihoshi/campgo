@@ -10,6 +10,7 @@ class Public::PostsController < ApplicationController
     tag_list = params[:tag]
     if @post.save
       @post.save_tags(tag_list)
+      flash[:notice] = "successfully"
       redirect_to posts_path
     else
       render :new
