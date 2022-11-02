@@ -16,14 +16,15 @@ class Public::CampsController < ApplicationController
 
   def create
     camp = current_user.camps.new(camp_params)
-    camp.save!
-    #byebug
-    #camp.checklists
-    Checklist.all.each do |checklist|
-      ChecklistManage.create(camp_id: camp.id, user_id: current_user.id, checklist_id: checklist.id,)
-    end
-    redirect_to camp_checklists_path(camp.id)
-    #camp_path(camp.id)
+    # begin
+      camp.save!
+      Checklist.all.each do |checklist|
+        ChecklistManage.create(camp_id: camp.id, user_id: current_user.id, checklist_id: checklist.id,)
+      # flash[:notice] = "作成しました。"
+      end
+      redirect_to camp_checklists_path(camp.id)
+    # rescue ActiveRecord::RecordInvalid => e
+    # end
   end
 
   def index

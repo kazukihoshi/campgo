@@ -4,7 +4,7 @@
       <h4>会員一覧</h4>
     </div>
   </div>
-  
+
   <table class="table">
     <thead>
       <tr>
@@ -18,7 +18,9 @@
       <% @users.each do |user| %>
       <tr>
         <td>
-          <%= user.id %>
+          <%= link_to admin_user_path(user) do %>
+            <%= user.id %>
+          <% end %>
         </td>
         <td>
           <%= user.name %>

@@ -1,2 +1,43 @@
-<h1>Admin::Users#edit</h1>
-<p>Find me in app/views/admin/users/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <h4>会員詳細</h4>
+    </div>
+  </div>
+
+  <table class="table">
+    <tbody>
+      <tr>
+        <th>会員ID</th>
+        <td><%= @user.id %></td>
+      </tr>
+      <tr>
+        <th>ユーザーネーム</th>
+        <td><%= @user.name %></td>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <th>パスワード</th>
+        <td><%= @user.password %></td>
+      </tr>
+      <tr>
+        <th>ステータス</th>
+        <td>
+          <% if @user.is_delete == false %>
+            有効
+          <% else %>
+            退会
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <%= link_to "更新", edit_admin_user_path(@user.id) %>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -3,14 +3,15 @@
     <div class="col-6">
       <h4>キャンプに行く</h4>
     </div>
-    <% if @camp.errors.any? %>
-      <%= @camp.errors.count %>件のエラーが発生しました
-      <ul>
-        <% @camp.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    <% end %>
+    <!--エラーメッセージのエラー-->
+    <!--<%# if @camp.errors.any? %>-->
+    <!--  <%#= @camp.errors.count %>件のエラーが発生しました-->
+    <!--  <ul>-->
+    <!--    <%# @camp.errors.full_messages.each do |message| %>-->
+    <!--      <li><%#= message %></li>-->
+    <!--    <%# end %>-->
+    <!--  </ul>-->
+    <!--<%# end %>-->
   </div>
 
   <%= form_with model: @camp, url: camps_path, local: true, method: :POST do |f| %>

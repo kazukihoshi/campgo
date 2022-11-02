@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <h4>投稿一覧</h4>
+    </div>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>投稿ID</th>
+        <th>名前</th>
+        <th>タイトル</th>
+        <th>投稿日</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+      <tr>
+        <td>
+          <%= link_to admin_post_path(post) do %>
+            <%= post.id %>
+          <% end %>
+        </td>
+        <td>
+          <%= post.user.name %>
+        </td>
+        <td>
+          <%= post.title %>
+        </td>
+        <td>
+          <%= l post.created_at %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
