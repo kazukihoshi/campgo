@@ -9,6 +9,11 @@ class Post < ApplicationRecord
 
     has_many_attached :post_images
 
+    validates :post, presence: true
+    validates :camp_site, presence: true
+    validates :post_images, presence: true
+    validates :title, presence: true
+    #validates :tag, presence: true
 
     def save_tags(tags)
 
