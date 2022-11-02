@@ -1,4 +1,12 @@
 <div class="container">
+  <% if flash[:notice] %>
+     <p id="notice">
+       <%= flash[:notice] %>
+     </p>
+  <% end %>
+
+
+
   <div class="row">
     <%= form_with url: update_checklist_manage_camp_path(@camp), local: true, method: :patch do |f| %>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
