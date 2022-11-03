@@ -15,16 +15,20 @@ class Public::CampsController < ApplicationController
   end
 
   def create
-    camp = current_user.camps.new(camp_params)
-    # begin
-      camp.save!
+    # @camp.errors.any?を使用するためインスタンス変数を使用
+    @camp = current_user.camps.new(camp_params)
+    #byebug
+    if @camp.save
+      #byebug
       Checklist.all.each do |checklist|
-        ChecklistManage.create(camp_id: camp.id, user_id: current_user.id, checklist_id: checklist.id,)
-      # flash[:notice] = "作成しました。"
+        ChecklistManage.create(camp_id: @camp.id, user_id: current_user.id, checklist_id: checklist.id,)
+       #flash[:notice] = "作成しました。"
       end
-      redirect_to camp_checklists_path(camp.id)
-    # rescue ActiveRecord::RecordInvalid => e
-    # end
+      redirect_to camp_checklists_path(@camp.id)
+    else
+      #byebug
+      render :new
+    end
   end
 
   def index
