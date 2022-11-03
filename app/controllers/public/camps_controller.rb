@@ -22,7 +22,7 @@ class Public::CampsController < ApplicationController
       #byebug
       Checklist.all.each do |checklist|
         ChecklistManage.create(camp_id: @camp.id, user_id: current_user.id, checklist_id: checklist.id,)
-       #flash[:notice] = "作成しました。"
+       flash[:notice] = "作成しました。"
       end
       redirect_to camp_checklists_path(@camp.id)
     else
