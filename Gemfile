@@ -66,3 +66,5 @@ gem 'google_places'
 gem 'mini_magick'
 
 #gem 'image_processing'
+
+gem 'kaminari','~> 1.2.1'
