@@ -43,7 +43,10 @@ Rails.application.routes.draw do
 
 
     resources :users, only: [:index, :show, :edit, :update]
-    resources :posts, only: [:index, :show, :edti, :update, :destroy]
+    resources :posts, only: [:index, :show, :edti, :update, :destroy] do
+      resources :comments, only: [:destroy]
+    end
+
     resources :categories, only: [:index, :create, :edit, :update] do
       resources :checklists, only: [:index, :create, :show, :edit, :update]
       delete 'checklists/destroy_all' => 'checklists#destroy_all'
