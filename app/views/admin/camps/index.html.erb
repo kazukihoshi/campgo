@@ -8,8 +8,8 @@
   <table class="table">
     <thead>
       <tr>
-        <th>会員ID</th>
         <th>名前</th>
+        <th>キャンプID</th>
         <th>作成日</th>
       </tr>
     </thead>
@@ -17,7 +17,9 @@
       <% @camps.each do |camp| %>
       <tr>
         <td>
-          <%= camp.user_id %>
+          <%= link_to admin_camp_path(camp) do %>
+            <%= camp.user.name %>
+          <% end %>
         </td>
         <td>
           <%= camp.id %>

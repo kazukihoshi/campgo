@@ -4,8 +4,8 @@
   		<h4>キャンプ詳細</h4>
   	</div>
   </div>
-  
-  
+
+
   <table class="table">
   	<tbody>
   		<tr>
@@ -22,8 +22,10 @@
   		</tr>
   		<tr>
   			<th>チェックリスト</th>
-  			<td><%= link_to "表示", admin_camps_search_path %></td>
+  			<td><%= link_to "表示", admin_camps_path %></td>
   		</tr>
   	</tbody>
   </table>
+
+  <%#= render 'public/checklists/camp_for_index', checklists: @checklists %>
 </div>
