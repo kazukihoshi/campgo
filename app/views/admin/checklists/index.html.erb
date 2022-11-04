@@ -37,7 +37,7 @@
     <% @checklists.each do |checklist| %>
     <tbody>
       <tr>
-        <th><%= check_box "deletes[#{checklist.id}]", checklist.id %></th>
+        <th><%= check_box "deletes", checklist.id %></th>
         <th><%= checklist.checklist_name %></th>
         <td><%= checklist.comment %></td>
         <td><%= link_to "編集", edit_admin_category_checklist_path(@category,checklist.id), class: "btn btn-sussce" %></td>

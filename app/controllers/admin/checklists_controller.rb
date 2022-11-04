@@ -23,12 +23,20 @@ class Admin::ChecklistsController < ApplicationController
   end
 
   def destroy_all
-    checked_date = params[:deletes].keys
-    if Checklist.destroy_by(checked_date)
-      redirect_to admin_category_checklists_path(@category_id)
-    else
-      render :index
+
+
+    deletes_hash = params[:deletes].to_unsafe_hash
+    deletes_hash.select {|_, v| v == "1" }.each do |k, _|
+      checklist = Checklist.find(k)
+      checklist.destroy
     end
+    category = Category.find(params[:category_id])
+    # checked_date = params[:deletes].keys
+    # if Checklist.destroy_by(checked_date)
+      redirect_to admin_category_checklists_path(category)
+    # else
+    #   render :index
+    # end
   end
 
   private

@@ -6,7 +6,7 @@ class Admin::CategoriesController < ApplicationController
 
   def destroy_all
     # 1を探して(チェックされているもの),1のkeyを取得する(17が取得できる)
-  #  きkeyのかてごりを削除する
+  # keyのかてごりを削除する
     #byebug
     deletes_hash = params[:deletes].to_unsafe_hash
     deletes_hash.select {|_, v| v == "1" }.each do |k, _|
