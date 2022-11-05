@@ -34,4 +34,8 @@ class Post < ApplicationRecord
         end
 
     end
+
+    def self.posts_serach(search)
+      Post.where(['title LIKE ? OR content LIKE ?', "%#{search}%", "%#{search}%"])
+    end
 end
