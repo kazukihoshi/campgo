@@ -102,7 +102,7 @@ class Public::CampsController < ApplicationController
     # else
     #     render :edit
     # end
-     redirect_to user_my_checklist_index_path(user)
+     redirect_to camp_path(camp)
 
   end
 
