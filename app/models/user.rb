@@ -14,11 +14,18 @@ class User < ApplicationRecord
   has_one_attached :profile_image
   has_one_attached :background_image
 
+validates :name, presence: true
+　　#validates :email, presence: true
+  # validates :number_of_people, presence: true
+
+  validates :profile_image, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'] }
+
   def get_profile_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/default-image.jpg')
       profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
+    pp ActiveStorage::Attachment.find(profile_image.id)
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
 

@@ -3,6 +3,14 @@
     <div class="col my-4">
       <h4>会員情報編集</h4>
     </div>
+    <% if @user.errors.any? %>
+      <%= @user.errors.count %>件のエラーが発生しました
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
   </div>
 
   <%= form_with model: @user, url: user_path(@user), local: true, method: :PATCH do |f| %>

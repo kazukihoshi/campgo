@@ -12,13 +12,14 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root to: 'homes#top'
+    get 'users/unsubscribe'
+    patch 'users/withdraw'
     resources :users, only: [:index, :edit, :update, :show] do
       get 'my_checklist_index' => 'checklists#my_checklist_index'
       get 'edit_for_user' => 'checklists#edit_for_user'
       resources :checklists, only: [:edit, :update, :destroy]
     end
-    get 'users/unsubscribe'
-    patch 'users/withdraw'
+
     #get 'users/my_page' => 'users#show'
     resources :posts, only: [:new, :index, :show, :edit, :create, :update, :destroy] do
       resources :comments, only: [:create, :edit, :update, :destroy] #ネストさせる

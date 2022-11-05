@@ -3,6 +3,15 @@ ja:
     formats:
       default: "%Y/%m/%d"
 
+
+  errors:
+    messages:
+      invalid_file_type: "は不正なファイル形式です"
+
+
+
+
+
   # activerecord:
   #     attributes:
   #       user:
