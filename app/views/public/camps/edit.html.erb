@@ -1,14 +1,14 @@
 <div class="container">
   <div class="row">
 
-    <!--<%# if camp.errors.any? %>-->
-    <!--  <%#= camp.errors.count %>件のエラーが発生しました-->
-    <!--  <ul>-->
-    <!--    <%# camp.errors.full_messages.each do |message| %>-->
-    <!--      <li><%#= message %></li>-->
-    <!--    <%# end %>-->
-    <!--  </ul>-->
-    <!--<%# end %>-->
+    <% if @camp.errors.any? %>
+      <%= @camp.errors.count %>件のエラーが発生しました
+      <ul>
+        <% @camp.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <%end %>
     <div class="col-6">
       <h4>キャンプに行く</h4>
     </div>
@@ -50,7 +50,7 @@
 
   <% end %>
 
-  <%= render 'checklist', checklists: @checklists, camp: @camp, active_checklist_ids: @active_checklist_ids %>
+  <%= render 'public/camps/checklist', checklists: @checklists, camp: @camp, active_checklist_ids: @active_checklist_ids %>
   <!--camp: @campを追加-->
   <%= render 'public/checklists/list', checklist: @checklist, camp: @camp %>
 

@@ -1,0 +1,185 @@
+<div class="row">
+    <%= form_with url: update_checklist_manage_camp_path(camp), local: true, method: :PATCH do |f| %>
+    <!--@camp⇨camp-->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link active"
+          id="site-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#site"
+          type="button"
+          role="tab"
+          aria-controls="site"
+          aria-selected="true"
+        >
+          サイト
+        </button>
+      </li>
+     <li class="nav-item" role="presentation">
+       <button
+         class="nav-link"
+         id="cook-tab"
+         data-bs-toggle="tab"
+         data-bs-target="#cook"
+         type="button"
+         role="tab"
+         aria-controls="cook"
+         aria-selected="false"
+       >
+         料理
+       </button>
+     </li>
+     <li class="nav-item" role="presentation">
+       <button
+         class="nav-link"
+         id="tent-tab"
+         data-bs-toggle="tab"
+         data-bs-target="#tent"
+         type="button"
+         role="tab"
+         aria-controls="tent"
+         aria-selected="false"
+       >
+         テント泊
+       </button>
+     </li>
+     <li class="nav-item" role="presentation">
+       <button
+         class="nav-link"
+         id="bonfire-tab"
+         data-bs-toggle="tab"
+         data-bs-target="#bonfire"
+         type="button"
+         role="tab"
+         aria-controls="bonfire"
+         aria-selected="false"
+       >
+         焚き火
+       </button>
+     </li>
+     <li class="nav-item" role="presentation">
+       <button
+         class="nav-link"
+         id="others-tab"
+         data-bs-toggle="tab"
+         data-bs-target="#others"
+         type="button"
+         role="tab"
+         aria-controls="others"
+         aria-selected="false"
+       >
+         その他
+       </button>
+     </li>
+     <%= f.submit '更新' %>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+      <div
+        class="tab-pane fade show active"
+        id="site"
+        role="tabpanel"
+        aria-labelledby="site-tab"
+      >
+        <!--<p><%#= checklists.site_category.count %></p>-->
+        <table class="table">
+          <%# check_boxから変更 %>
+          <!--@checklists⇨checklist-->
+          <%= f.collection_check_boxes :site_categories ,checklists.site_category , :id, :checklist_name  do |checklist| %>
+            <tbody>
+              <tr>
+                <td><%= checklist.check_box(checked: checklist.value.in?(active_checklist_ids)) %></td>
+                <td><%= checklist.object.checklist_name %></td>
+                <td><%= checklist.object.comment %></td>
+              </tr>
+            </tbody>
+          <% end %>
+        </table>
+
+
+      </div>
+      <%# end %>
+      <div
+        class="tab-pane fade"
+        id="cook"
+        role="tabpanel"
+        aria-labelledby="cook-tab"
+      >
+        <table class="table">
+          <%= f.collection_check_boxes :cook_categories ,checklists.cook_category , :id, :checklist_name do |checklist| %>
+            <tbody>
+              <tr>
+                <td><%= checklist.check_box(checked: checklist.value.in?(active_checklist_ids)) %></td>
+                <td><%= checklist.object.checklist_name %></td>
+                <td><%= checklist.object.comment %></td>
+              </tr>
+            </tbody>
+          <% end %>
+        </table>
+
+
+      </div>
+      <div
+        class="tab-pane fade"
+        id="tent"
+        role="tabpanel"
+        aria-labelledby="tent-tab"
+      >
+        <table class="table">
+          <%= f.collection_check_boxes :tent_categories ,checklists.tent_category , :id, :checklist_name do |checklist| %>
+            <tbody>
+              <tr>
+                <td><%= checklist.check_box(checked: checklist.value.in?(active_checklist_ids)) %></td>
+                <td><%= checklist.object.checklist_name %></td>
+                <td><%= checklist.object.comment %></td>
+              </tr>
+            </tbody>
+          <% end %>
+        </table>
+      </div>
+
+      <div
+        class="tab-pane fade"
+        id="bonfire"
+        role="tabpanel"
+        aria-labelledby="bonfire-tab"
+      >
+        <table class="table">
+          <%= f.collection_check_boxes :bonfire_categories ,checklists.bonfire_category , :id, :checklist_name do |checklist| %>
+            <tbody>
+              <tr>
+                <td><%= checklist.check_box(checked: checklist.value.in?(active_checklist_ids)) %></td>  <!--@active_checklist_ids⇨active_checklist_ids-->
+                <td><%= checklist.object.checklist_name %></td>
+                <td><%= checklist.object.comment %></td>
+              </tr>
+            </tbody>
+          <% end %>
+        </table>
+      </div>
+
+      <div
+        class="tab-pane fade"
+        id="others"
+        role="tabpanel"
+        aria-labelledby="others-tab"
+      >
+        <table class="table">
+          <%= f.collection_check_boxes :others_categories ,checklists.others_category , :id, :checklist_name do |checklist| %>
+            <tbody>
+              <tr>
+                <td><%= checklist.check_box(checked: checklist.value.in?(active_checklist_ids)) %></td>
+                <td><%= checklist.object.checklist_name %></td>
+                <td><%= checklist.object.comment %></td>
+              </tr>
+            </tbody>
+          <% end %>
+        </table>
+      </div>
+
+    </div>
+    <% end %>
+
+
+
+  </div>

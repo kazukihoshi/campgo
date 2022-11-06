@@ -104,7 +104,6 @@ class Public::CampsController < ApplicationController
     # end
      flash[:notice] = "作成しました"
      redirect_to camp_path(camp)
-
   end
 
   # camp/editの_list.html.erbでも使用
@@ -116,15 +115,17 @@ class Public::CampsController < ApplicationController
   end
 
   def update
-    camp =Camp.find(params[:id])
+    @camp =Camp.find(params[:id])
     #byebug
-    #if
-      camp.update(camp_params)
-      # flash[:notice] = "作成しました。"
-      redirect_to camp_path(camp.id)
-    # else
-    #   render :edit
-    #end
+    if @camp.update(camp_params)
+      flash[:notice] = "更新しました。"
+      redirect_to camp_path(@camp.id)
+    else
+      @checklist = @camp.checklists.new
+      @checklists = @camp.checklists.where(user_id: nil).or(Checklist.where(user_id: current_user.id))
+      @active_checklist_ids = @camp.checklist_manages.where(is_active: true).pluck('checklist_id').uniq #[2,3,6,9]
+      render :edit
+    end
   end
 
   def destroy

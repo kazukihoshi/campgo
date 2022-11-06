@@ -44,9 +44,10 @@ class Public::ChecklistsController < ApplicationController
         ChecklistManage.create(camp_id: @camp.id, user_id: current_user.id, checklist_id: @checklist.id,)
         flash[:notice] = "アイテムを作成しました"
       end
-      redirect_to camp_checklists_path(@camp)
+       redirect_to camp_checklists_path(@camp)
     else
-      render :index
+      @active_checklist_ids = @camp.checklist_manages.where(is_active: true).pluck('checklist_id').uniq #[2,3,6,9]
+      render template: "public/camps/edit"
     end
     # ChecklistManage.create(
     #     user_id: current_user.id,
