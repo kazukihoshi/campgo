@@ -31,7 +31,8 @@ class Public::ChecklistsController < ApplicationController
   def create
     @checklist = Checklist.new(checklist_params)
     @camp = Camp.find(params[:camp_id])
-    @checklists = @camp.checklists
+    @checklists = @camp.checklists.where(user_id: nil).or(Checklist.where(user_id: current_user.id))#user.idがnilとcurrent_userのものを抽出
+    #@checklists = @camp.checklists
     #puts current_user
     #category = Category.find(params[:category_id])
     #byebug
@@ -44,10 +45,17 @@ class Public::ChecklistsController < ApplicationController
         ChecklistManage.create(camp_id: @camp.id, user_id: current_user.id, checklist_id: @checklist.id,)
         flash[:notice] = "アイテムを作成しました"
       end
-       redirect_to camp_checklists_path(@camp)
+       redirect_back(fallback_location: root_path)
     else
-      @active_checklist_ids = @camp.checklist_manages.where(is_active: true).pluck('checklist_id').uniq #[2,3,6,9]
-      render template: "public/camps/edit"
+      referrer = Rails.application.routes.recognize_path(request.referrer)
+      if referrer[:controller] == "public/checklists" && referrer[:action] == "index"
+        render template: "public/checklists/index"
+      elsif referrer[:controller] == "public/camps" && referrer[:action] == "edit"
+        @active_checklist_ids = @camp.checklist_manages.where(is_active: true).pluck('checklist_id').uniq #[2,3,6,9]
+        render template: "public/camps/edit"
+      end
+      # いずれでもない場合はテンプレートエラーになる。
+      # urlはcamp/:id/checklistsとなるが問題なし
     end
     # ChecklistManage.create(
     #     user_id: current_user.id,
