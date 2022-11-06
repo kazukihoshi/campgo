@@ -18,13 +18,29 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-
-
-
-    @posts = Post.page(params[:page])
+    @posts = Post.all.order(created_at: :desc).page(params[:page])
+    # @posts = Post.page(params[:page])
     @tag_list = params[:tag]
     @comments = Comment.all
+#byebug
+    #検索
+    # if params[:key_word].present?
+    #   @posts = Post.posts_serach(params[:key_word])
+    # # elsif params[:tag_id].present?
+    # #   @tag = Tag.find(params[:tag_id])
+    # #   @posts = @tag.posts.order(created_at: :desc)
+    # else
+    #   @posts = Post.all.order(created_at: :desc)
+    # end
+    #@tag_lists = Tag.all
+    # @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(10)
   end
+
+#   def search
+# byebug
+#     @posts = Post.search(params[:keyword])
+#     # redirect_to posts_path
+#   end
 
   def show
     @post = Post.find(params[:id])
@@ -52,6 +68,25 @@ class Public::PostsController < ApplicationController
     post = Post.find(params[:id])
     post.destroy
     redirect_to posts_path
+  end
+
+
+  def search
+    #byebug
+    # @posts = Post.search(params[:key_word])
+    #redirect_to posts_path
+    if params[:key_word].present?
+      @posts = Post.search(params[:key_word])
+      #flash[:notice] = "検索結果を表示します。"
+    # elsif params[:tag_id].present?
+    #   @tag = Tag.find(params[:tag_id])
+    #   @posts = @tag.posts.order(created_at: :desc)
+    else
+      @posts = Post.all.order(created_at: :desc)
+      #flash[:notice] = "検索結果がありません"
+    end
+    @tag_lists = Tag.all
+    @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(10)
   end
 
 

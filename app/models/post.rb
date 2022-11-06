@@ -35,7 +35,20 @@ class Post < ApplicationRecord
 
     end
 
-    def self.posts_serach(search)
-      Post.where(['title LIKE ? OR content LIKE ?', "%#{search}%", "%#{search}%"])
+    # def self.posts_serach(search)
+    #   Post.where(['title LIKE ? OR content LIKE ?', "%#{search}%", "%#{search}%"])
+    # end
+
+
+    def self.search(keyword)
+      #byebug
+      if keyword != ""
+        Post.where('title LIKE(?)', "%#{keyword}%")
+        Post.where('post LIKE(?)', "%#{keyword}%")
+      else
+        Post.all
+      end
     end
+
+
 end
