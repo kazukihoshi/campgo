@@ -102,7 +102,7 @@ class Public::CampsController < ApplicationController
     # else
     #     render :edit
     # end
-     flash[:notice] = "キャンプを作成しました"
+     flash[:notice] = "作成しました"
      redirect_to camp_path(camp)
 
   end
@@ -118,8 +118,13 @@ class Public::CampsController < ApplicationController
   def update
     camp =Camp.find(params[:id])
     #byebug
-    camp.update(camp_params)
-    redirect_to camp_path(camp.id)
+    #if
+      camp.update(camp_params)
+      # flash[:notice] = "作成しました。"
+      redirect_to camp_path(camp.id)
+    # else
+    #   render :edit
+    #end
   end
 
   def destroy
