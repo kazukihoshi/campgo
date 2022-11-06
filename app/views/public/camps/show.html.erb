@@ -1,5 +1,12 @@
 <div class="container">
   <div class="row">
+    <div class="text-success">
+      <% if flash[:notice] %>
+         <p id="notice text-success">
+           <%= flash[:notice] %>
+         </p>
+      <% end %>
+    </div>
     <div class="col-3">
       <h4>キャンプの予定</h4>
     </div>

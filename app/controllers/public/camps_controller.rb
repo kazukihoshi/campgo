@@ -102,6 +102,7 @@ class Public::CampsController < ApplicationController
     # else
     #     render :edit
     # end
+     flash[:notice] = "キャンプを作成しました"
      redirect_to camp_path(camp)
 
   end
