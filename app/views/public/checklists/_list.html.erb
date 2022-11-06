@@ -1,4 +1,13 @@
 <%= form_with model: checklist, url: camp_checklists_path(camp), local: true, method: :POST do |f| %>
+
+  <% if checklist.errors.any? %>
+    <%= checklist.errors.count %>件のエラーが発生しました
+    <ul>
+      <% checklist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
 <!--@checklist ⇨ checklistに変更、@camp⇨camp-->
       <div class="row">
         <div class="col-4">

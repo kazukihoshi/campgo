@@ -10,7 +10,7 @@ class Public::UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       #byebug
-      redirect_to user_path(user.id)
+      redirect_to user_path(@user.id)
     else
       render :edit
     end

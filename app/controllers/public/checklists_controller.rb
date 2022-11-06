@@ -29,21 +29,25 @@ class Public::ChecklistsController < ApplicationController
   end
 
   def create
-    checklist = Checklist.new(checklist_params)
-    camp = Camp.find(params[:camp_id])
-    checklists = camp.checklists
+    @checklist = Checklist.new(checklist_params)
+    @camp = Camp.find(params[:camp_id])
+    @checklists = @camp.checklists
     #puts current_user
     #category = Category.find(params[:category_id])
     #byebug
     #unless category == [""]
-    checklist.user_id = current_user.id
+    @checklist.user_id = current_user.id
 
     #byebug
-    checklist.save
-    Checklist.all.each do |checklist|
-      ChecklistManage.create(camp_id: camp.id, user_id: current_user.id, checklist_id: checklist.id,)
+    if @checklist.save
+      Checklist.all.each do |checklist|
+        ChecklistManage.create(camp_id: @camp.id, user_id: current_user.id, checklist_id: @checklist.id,)
+        flash[:notice] = "アイテムを作成しました"
+      end
+      redirect_to camp_checklists_path(@camp)
+    else
+      render :index
     end
-
     # ChecklistManage.create(
     #     user_id: current_user.id,
     #     camp_id: camp.id,
@@ -54,7 +58,7 @@ class Public::ChecklistsController < ApplicationController
     #redirect_to update_checklist_manage_camp_path(camp)
     #redirect_to camp_checklists_path(camp)
     # redirect_toからredirect_backに変更
-    redirect_back(fallback_location: root_path)
+    #redirect_back(fallback_location: root_path)
     #creates_hash = params[:creates].to_unsafe_hash
     #creates_hash.select {|_, v| v == "1" }.each do |k, _|
       #checklist = Checklist.find(k)
