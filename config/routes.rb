@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     end
     #get 'posts/search'
 
-    resources :tags, only: [:create, :destroy]
+    resources :tags, only: [:index, :create, :destroy]
     resources :favorites, only: [:index, :create, :destroy]
     resources :camps, only: [:new, :index, :create, :show, :edit, :update, :destroy] do
       member do

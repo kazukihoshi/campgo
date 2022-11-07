@@ -1,19 +1,8 @@
-<div class="card-list-container py-5">
+<h2>
+  投稿一覧
+</h2>
 
-  <% if flash[:notice] %>
-     <p id="notice">
-       <%= flash[:notice] %>
-     </p>
-  <% end %>
-
-  <div class="search_form">
-    <%= form_with url: posts_search_path, local: true, method: :GET do |f| %>
-      <%= f.text_field :key_word, placeholder: "投稿タイトル、投稿で検索" %>
-      <%= f.submit "検索", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-
-  <h3>タグリスト</h3>
+<h3>タグリスト</h3>
     <% @tag_list.each do |list| %>
       <span>
         <%= link_to tags_path do %>
@@ -23,7 +12,13 @@
       </span>
     <% end %>
 
-  <% @posts.each do |post| %>
+<!--br-->
+<!--#タグによって絞り込んだ投稿一覧-->
+<!-- "タグが ─ "-->
+<!--<strong><%#= "#{@tag.name}" %></strong>-->
+<!--= " ─ の投稿一覧"-->
+<!--br-->
+<% @posts.each do |post| %>
   <div class="card w-50 mx-auto mt-4 shadow-lg">
     <%= link_to post_path(post.id) do %>
       <% if post.post_images.attached? %>

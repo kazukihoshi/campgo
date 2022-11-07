@@ -16,8 +16,7 @@ class Post < ApplicationRecord
     #validates :tag, presence: true
 
     def save_tags(tags)
-
-        tag_list = tags.split(/[[:blank:]]+/)
+        tag_list = tags.split(/[[:blank:]]+/) #配列を分割する
         current_tags =self.tags.pluck(:name)
         old_tags = current_tags - tag_list
         new_tags = tag_list - current_tags
@@ -35,20 +34,24 @@ class Post < ApplicationRecord
 
     end
 
-    # def self.posts_serach(search)
-    #   Post.where(['title LIKE ? OR content LIKE ?', "%#{search}%", "%#{search}%"])
-    # end
-
-
     def self.search(keyword)
       #byebug
-      if keyword != ""
+      if key_word != ""
         Post.where('title LIKE(?)', "%#{keyword}%")
         Post.where('post LIKE(?)', "%#{keyword}%")
       else
         Post.all
       end
     end
+
+    # def self.search(name)
+    #   if name != ''
+    #     tag = Tag.where(name: search)
+    #     tag[0].posts
+    #   else
+    #     Post.all
+    #   end
+    # end
 
 
 end

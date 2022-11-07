@@ -7,9 +7,13 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     #tag_list = params[:post][:tag]から下記へ変更
-    tag_list = params[:tag]
+    #tag_list = params[:tag]
+    #tag_list = Tag.pluck(:name)
+    #tag_list = params[:tag].split(nil)
+    byebug
     if @post.save
-      @post.save_tags(tag_list)
+      #
+      @post.save_tags(params[:tag])
       flash[:notice] = "投稿に成功しました。"
       redirect_to posts_path
     else
@@ -20,7 +24,8 @@ class Public::PostsController < ApplicationController
   def index
     @posts = Post.all.order(created_at: :desc).page(params[:page])
     # @posts = Post.page(params[:page])
-    @tag_list = params[:tag]
+    @tag_list = Tag.all
+
     @comments = Comment.all
 #byebug
     #検索
@@ -46,7 +51,7 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comments = @post.comments.includes(:user) #投稿に関連するコメントを取得
     @comment = current_user.comments.new  #投稿詳細画面でコメントの投稿を行うので、formのパラメータ用にCommentオブジェクトを取得
-
+    @post_tags = @post.tags
   end
 
   def edit

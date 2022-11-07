@@ -58,6 +58,7 @@
     <div class="col-3">
       <!--postのカラムではないためf.を外す-->
       <%= text_field_tag :tag, @post.tags.pluck(:name) %>
+      <%= hidden_field_tag :tag_id, params[:tag] %>
     </div>
   </div>
 
