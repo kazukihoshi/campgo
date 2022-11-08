@@ -7,11 +7,13 @@ class Public::UsersController < ApplicationController
   end
 
   def update
+    #パスワード変更後はログアウトされる
     @user = User.find(params[:id])
+    #byebug
     if @user.update(user_params)
       #byebug
       flash[:notice] = "更新しました。"
-      redirect_to user_path(@user.id)
+      redirect_to root_path
     else
       render :edit
     end
@@ -28,7 +30,7 @@ class Public::UsersController < ApplicationController
 
   def withdraw
     user = current_user
-    user.update(is_delete: false)
+    user.update(is_delete: true)
     reset_session
     flash[:notice] = "退会処理を実行いたしました"
     redirect_to root_path

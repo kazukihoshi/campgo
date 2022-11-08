@@ -26,13 +26,13 @@ Rails.application.routes.draw do
 
     #get 'users/my_page' => 'users#show'
     get 'posts/search'
+    get 'posts/search_tag'
     resources :posts, only: [:new, :index, :show, :edit, :create, :update, :destroy] do
       resources :comments, only: [:create, :edit, :update, :destroy] #ネストさせる
       resources :favorites, only: [:create, :destroy]
 
     end
     #get 'posts/search'
-
     resources :tags, only: [:index, :show, :create, :destroy]
     resources :favorites, only: [:index, :create, :destroy]
     resources :camps, only: [:new, :index, :create, :show, :edit, :update, :destroy] do

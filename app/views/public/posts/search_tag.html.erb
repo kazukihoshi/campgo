@@ -7,21 +7,14 @@
   <% end %>
 
   <div class="search_form">
-    <%= form_with url: posts_search_path, local: true, method: :GET do |f| %>
-      <%= f.text_field :key_word, placeholder: "投稿タイトル、投稿で検索" %>
+    <%= form_with model: @post, url: posts_search_path, local: true, method: :GET do |f| %>
+      <%= f.text_field :key_word, placeholder: "投稿を検索する" %>
       <%= f.submit "検索", class: "btn btn-primary" %>
     <% end %>
   </div>
 
-  <h3>タグリスト</h3>
-    <% @tag_list.each do |list| %>
-      <span>
-        <%= link_to tags_path do %>
-          <%= list.name %>
-          <%= "(#{list.posts.count})"%>
-        <% end %>
-      </span>
-    <% end %>
+
+
 
   <% @posts.each do |post| %>
   <div class="card w-50 mx-auto mt-4 shadow-lg">
@@ -49,9 +42,7 @@
           <p class="card-tag">
             タグ：
             <% post.tags.pluck(:name).each do |tag_name| %>
-              <%= link_to posts_search_tag_path do %>
-                <%= tag_name %>
-              <% end %>
+              <%= tag_name %>
             <% end %>
           </p>
           <span><i class="fas fa-user"></i> By <%= post.user.name %> ｜ </span>
@@ -63,5 +54,9 @@
     </div>
   </div>
   <% end %>
-  <%= paginate @posts %>
+
+  <% if @posts.count == 0 %>
+    <p>検索結果がありませんでした</p>
+  <% end %>
+  <%#= paginate @posts %>
 </div>

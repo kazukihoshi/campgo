@@ -44,14 +44,15 @@ class Post < ApplicationRecord
       end
     end
 
-    # def self.search(name)
-    #   if name != ''
-    #     tag = Tag.where(name: search)
-    #     tag[0].posts
-    #   else
-    #     Post.all
-    #   end
-    # end
+    def self.search_tag(name)
+      byebug
+      if name != ""
+        Tag.where(name: search)
+        tag[0].posts
+      else
+        Post.all
+      end
+    end
 
     def favorited?(user)
       favorites.where(user_id: user.id).exists?

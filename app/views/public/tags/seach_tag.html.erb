@@ -1,53 +1,4 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <h2>マイページ</h2>
-    </div>
-  </div>
-
-  <div class="text-success">
-    <% if flash[:notice] %>
-       <p id="notice text-success">
-         <%= flash[:notice] %>
-       </p>
-    <% end %>
-  </div>
-
-
-  <div class="row">
-    <div class="col">
-      <%#= image_tag @user.get_background_image(100,100) %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col">
-      <%= image_tag @user.get_profile_image(100,100) %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col">
-      <%= @user.name %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col">
-      <%= link_to "記事投稿", new_post_path %>
-    </div>
-    <div class="col">
-      <%= link_to "いいね一覧", favorites_path %>
-    </div>
-    <div class="col">
-      <%= link_to "マイページ編集", edit_user_path(@user.id) %>
-    </div>
-    <div class="col">
-      <%= link_to "キャンプ", camps_path %>
-    </div>
-  </div>
-
-  <div class="card-list-container py-5">
+<div class="card-list-container py-5">
 
       <% @posts.each do |post| %>
       <div class="card w-50 mx-auto mt-4 shadow-lg">
@@ -88,4 +39,3 @@
     </div>
 
 </div>
-
