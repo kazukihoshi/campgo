@@ -16,6 +16,7 @@ class Public::PostsController < ApplicationController
       @post.save_tags(params[:tag])
       flash[:notice] = "投稿に成功しました。"
       redirect_to posts_path
+      #byebug
     else
       render :new
     end
@@ -103,13 +104,15 @@ class Public::PostsController < ApplicationController
     # @tag=Tag.search(params[:tag_name])
     #検索されたタグに紐づく投稿を表示
     # @posts=@tag.posts.page(params[:page]).per(10)
-    if params[:tag_id].present?
-      @tag = Tag.search_tag(params[:tag_id])
-      @posts = @tag.posts.order(created_at: :desc)
-    else
-      @posts = Post.all.order(create_at: :desc)
-    end
+    # if params[:tag_id].present?
+    #   @tag = Tag.search_tag(params[:tag_id])
+    #   @posts = @tag.posts.order(created_at: :desc)
+    # else
+    #   @posts = Post.all.order(create_at: :desc)
+    # end
 
+    @tag = Tag.find(params[:tag])
+    @posts=@tag.posts.page(params[:page]).per(10)
   end
 
 
