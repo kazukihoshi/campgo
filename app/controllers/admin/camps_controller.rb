@@ -5,6 +5,7 @@ class Admin::CampsController < ApplicationController
 
   def show
     @camp = Camp.find(params[:id])
+
   end
 
   def search

@@ -1,2 +1,22 @@
-<h1>Admin::Checklists#edit</h1>
-<p>Find me in app/views/admin/checklists/edit.html.erb</p>
+<div class="container">
+   <%= form_with model: @checklist, url: admin_category_checklist_path(@category.id, @checklist), local: true, method: :PATCH do |f| %>
+    <div class="row">
+      <div class="col-4">
+        <div class="form-group mr-5 mt-5">
+          <%= f.text_field :checklist_name,placeholder: "アイテム名", class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="form-group mr-5 mt-5">
+          <%= f.text_field :comment, placeholder: "コメント", class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-group mr-5 mt-5">
+        　　<%= f.submit '更新' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

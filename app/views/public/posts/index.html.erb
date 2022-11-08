@@ -13,15 +13,15 @@
     <% end %>
   </div>
 
-  <h3>タグリスト</h3>
-    <% @tag_list.each do |list| %>
-      <span>
-        <%= link_to tags_path do %>
-          <%= list.name %>
-          <%= "(#{list.posts.count})"%>
-        <% end %>
-      </span>
-    <% end %>
+  <!--<h3>タグリスト</h3>-->
+  <!--  <%# @tag_list.each do |list| %>-->
+  <!--    <span>-->
+  <!--      <%#= link_to tags_path do %>-->
+  <!--        <%#= list.name %>-->
+  <!--        <%#= "(#{list.posts.count})"%>-->
+  <!--      <%# end %>-->
+  <!--    </span>-->
+  <!--  <%# end %>-->
 
   <% @posts.each do |post| %>
   <div class="card w-50 mx-auto mt-4 shadow-lg">

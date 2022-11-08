@@ -17,9 +17,20 @@ class Admin::ChecklistsController < ApplicationController
   end
 
   def show
+    @camp = Camp.find(params[:id])
+    @checklists = Checklist.where(id: active_checklist_ids)
   end
 
   def edit
+    @checklist = Checklist.find(params[:id])
+    @category = Category.find(params[:category_id])
+  end
+
+  def update
+    checklist = Checklist.find(params[:id])
+    category = Category.find(params[:category_id])
+    checklist.update(checklist_params)
+    redirect_to admin_category_checklists_path(category)
   end
 
   def destroy_all
