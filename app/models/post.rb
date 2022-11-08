@@ -36,7 +36,7 @@ class Post < ApplicationRecord
 
     def self.search(keyword)
       #byebug
-      if key_word != ""
+      if keyword != ""
         Post.where('title LIKE(?)', "%#{keyword}%")
         Post.where('post LIKE(?)', "%#{keyword}%")
       else
@@ -52,6 +52,10 @@ class Post < ApplicationRecord
     #     Post.all
     #   end
     # end
+
+    def favorited?(user)
+      favorites.where(user_id: user.id).exists?
+    end
 
 
 end

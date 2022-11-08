@@ -10,6 +10,7 @@ class Public::UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       #byebug
+      flash[:notice] = "更新しました。"
       redirect_to user_path(@user.id)
     else
       render :edit
@@ -27,7 +28,7 @@ class Public::UsersController < ApplicationController
 
   def withdraw
     user = current_user
-    user.update(is_active: false)
+    user.update(is_delete: false)
     reset_session
     flash[:notice] = "退会処理を実行いたしました"
     redirect_to root_path
@@ -36,6 +37,6 @@ class Public::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:profile_image, :name, :email)
+    params.require(:user).permit(:profile_image, :name, :email, :password, :password_confirmation)
   end
 end

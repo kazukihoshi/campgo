@@ -10,7 +10,7 @@ class Public::PostsController < ApplicationController
     #tag_list = params[:tag]
     #tag_list = Tag.pluck(:name)
     #tag_list = params[:tag].split(nil)
-    byebug
+    #byebug
     if @post.save
       #
       @post.save_tags(params[:tag])
@@ -22,12 +22,13 @@ class Public::PostsController < ApplicationController
   end
 
   def index
+    #byebug
     @posts = Post.all.order(created_at: :desc).page(params[:page])
     # @posts = Post.page(params[:page])
     @tag_list = Tag.all
-
+    #@tag_list = Tag.find(PostTag.group(:tag_id).order('count(post_id) desc').limit(7).pluck(:tag_id))
+    #@tag_list = Post.tag_counts_on(:tags).most_used(20)
     @comments = Comment.all
-#byebug
     #検索
     # if params[:key_word].present?
     #   @posts = Post.posts_serach(params[:key_word])

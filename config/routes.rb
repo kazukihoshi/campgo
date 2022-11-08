@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
 
+  devise_scope :users do
+    post 'users/guest_sign_in', to: 'public/sessions#new_guest'
+  end
+
 
   scope module: :public do
     root to: 'homes#top'
@@ -24,10 +28,12 @@ Rails.application.routes.draw do
     get 'posts/search'
     resources :posts, only: [:new, :index, :show, :edit, :create, :update, :destroy] do
       resources :comments, only: [:create, :edit, :update, :destroy] #ネストさせる
+      resources :favorites, only: [:create, :destroy]
+
     end
     #get 'posts/search'
 
-    resources :tags, only: [:index, :create, :destroy]
+    resources :tags, only: [:index, :show, :create, :destroy]
     resources :favorites, only: [:index, :create, :destroy]
     resources :camps, only: [:new, :index, :create, :show, :edit, :update, :destroy] do
       member do
@@ -47,6 +53,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update]
     resources :posts, only: [:index, :show, :edti, :update, :destroy] do
       resources :comments, only: [:destroy]
+      resources :tags, only: [:index,:create, :destroy]
     end
 
     resources :categories, only: [:index, :create, :edit, :update] do

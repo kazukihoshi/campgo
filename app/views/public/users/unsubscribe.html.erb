@@ -20,7 +20,7 @@
       <%= link_to "退会しない", user_path(@user), class: "btn btn-primary" %>
     </div>
     <div class="col">
-      <%= link_to "退会する", users_withdraw_path, "data-confirm" => "本当に退会しますか?", class: "btn btn-danger" %>
+      <%= link_to "退会する", users_withdraw_path, method: :PATCH, "data-confirm" => "本当に退会しますか?", class: "btn btn-danger" %>
     </div>
   </div>
 
