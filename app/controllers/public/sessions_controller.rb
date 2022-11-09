@@ -18,6 +18,19 @@ class Public::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
+  def after_sign_in_path_for(resource)
+    user_path(current_user.id)
+  end
+
+  def after_sign_out_path_for(resource)
+    root_path
+  end
+
+
+
+
+
+
   def user_state　#退会処理の論理削除
     ## 【処理内容1】 入力されたemailからアカウントを1件取得
       @user = User.find_by(email: params[:user][:email])
