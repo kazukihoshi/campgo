@@ -48,9 +48,10 @@
           </p>
           <p class="card-tag">
             タグ：
-            <% post.tags.pluck(:name).each do |tag_name| %>
-              <%= link_to posts_search_tag_path do %>
-                <%= tag_name %>
+            <!--post.tags.pluck(:name)から変更,postの中のnameをeachで回していた-->
+            <% post.tags.each do |tag| %>
+              <%= link_to posts_search_tag_path(tag_id: tag.id) do %>
+                <%= tag.name %>
               <% end %>
             <% end %>
           </p>

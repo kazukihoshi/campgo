@@ -2,7 +2,7 @@
 
 class Public::SessionsController < Devise::SessionsController
   #before_action :configure_sign_in_params, only: [:create]
-  #before_action :user_state, only: [:create] #退会の論理削除
+  before_action :user_state, only: [:create] #退会の論理削除
 
   # GET /resource/sign_in
   # def new
@@ -31,7 +31,7 @@ class Public::SessionsController < Devise::SessionsController
 
 
 
-  def user_state　#退会処理の論理削除
+  def user_state #退会処理の論理削除
     ## 【処理内容1】 入力されたemailからアカウントを1件取得
       @user = User.find_by(email: params[:user][:email])
       ## アカウントを取得できなかった場合、このメソッドを終了する
