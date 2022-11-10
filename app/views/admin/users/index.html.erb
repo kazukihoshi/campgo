@@ -11,6 +11,7 @@
         <th>会員ID</th>
         <th>会員氏名</th>
         <th>メールアドレス</th>
+        <th></th>
         <th>ステータス</th>
       </tr>
     </thead>
@@ -27,6 +28,11 @@
         </td>
         <td>
           <%= user.email %>
+        </td>
+        <td>
+          <%= link_to admin_user_index_for_user_path(user) do %>
+            チェックリスト
+          <% end %>
         </td>
         <td>
           <% if user.is_delete == false %>

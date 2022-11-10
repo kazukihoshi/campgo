@@ -1,8 +1,13 @@
 class Admin::ChecklistsController < ApplicationController
   def index
     @category = Category.find(params[:category_id])
-    @checklists = @category.checklists
+    @checklists = @category.checklists.where(user_id: nil)
     @checklist = Checklist.new
+
+    # if user.id == nil
+    #   # user_idがcurrent_userのものを検索
+    #   @checklist = Checklist.new
+    # end
 
   end
 
@@ -49,6 +54,29 @@ class Admin::ChecklistsController < ApplicationController
     #   render :index
     # end
   end
+
+
+  def index_for_user
+    @user = User.find(params[:user_id])
+    @checklists = @user.checklists.where(user_id: @user.id)
+    @checklist = Checklist.new
+    # userがログインしているかどうかの確認
+    # if user_signed_in?
+    #   # user_idがcurrent_userのものを検索
+    #   @checklists = Checklist.where(user_id: current_user.id)
+    # end
+  end
+
+  def destroy
+    #byebug
+    user = User.find(params[:user_id])
+    checklist = Checklist.find(params[:id])
+    checklist.destroy
+    redirect_back(fallback_location: root_path)
+  end
+
+
+
 
   private
 

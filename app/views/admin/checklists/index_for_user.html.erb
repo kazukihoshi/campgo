@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>アイテム名</th>
+          <th>コメント</th>
+        </tr>
+      </thead>
+      <% @checklists.each do |checklist| %>
+        <tbody>
+          <tr>
+            <td><%= checklist.checklist_name %></td>
+            <td><%= checklist.comment %></td>
+            <td><%= link_to '削除', admin_user_checklists_destroy_path(@user.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"} %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>
+

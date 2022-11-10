@@ -109,8 +109,8 @@ class Public::CampsController < ApplicationController
   # camp/editの_list.html.erbでも使用
   def edit
     @camp = Camp.find(params[:id])
-    @checklist = @camp.checklists.new
     @checklists = @camp.checklists.where(user_id: nil).or(Checklist.where(user_id: current_user.id))
+    @checklist = @camp.checklists.new
     @active_checklist_ids = @camp.checklist_manages.where(is_active: true).pluck('checklist_id').uniq #[2,3,6,9]
   end
 

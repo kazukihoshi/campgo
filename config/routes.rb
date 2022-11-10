@@ -50,7 +50,10 @@ Rails.application.routes.draw do
   namespace :admin do
 
 
-    resources :users, only: [:index, :show, :edit, :update]
+    resources :users, only: [:index, :show, :edit, :update] do
+      get 'index_for_user'=> 'checklists#index_for_user'
+      delete 'checklists/destroy' => 'checklists#destroy'
+    end
     resources :posts, only: [:index, :show, :edti, :update, :destroy] do
       resources :comments, only: [:destroy]
       resources :tags, only: [:index,:create, :destroy]
