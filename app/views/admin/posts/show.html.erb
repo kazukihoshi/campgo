@@ -22,9 +22,9 @@
 
   <div class="row">
     <!--each文で複数のものの中から1つずつ取得する-->
-    <% @post.tags.pluck(:name).each do |tag_name|%>
+    <% @post.tags.each do |tag|%>
       <div class="col">
-        <%= tag_name %>
+        <%= tag.name %>
       </div>
       <div class="tag-delete col">
         <%= link_to "削除", admin_post_tag_path(@post.id, tag.id), method: :delete,"data-confirm"=>"本当に消しますか？", class: "btn-sm btn-danger" %>

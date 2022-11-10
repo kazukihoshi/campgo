@@ -17,6 +17,7 @@ class Admin::PostsController < ApplicationController
   end
 
   def destroy
+    #byebug
     post = Post.find(params[:id])
     post.destroy
     redirect_to admin_posts_path
