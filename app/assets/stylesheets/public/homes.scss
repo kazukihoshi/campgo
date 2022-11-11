@@ -1,3 +1,8 @@
 // Place all the styles related to the public/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.main-container {
+  background-image: url("<%= asset_path('scott-goodwill-y8Ngwq34_Ak-unsplash.jpg') %>" );
+  height: 800px;
+  background-size:cover;

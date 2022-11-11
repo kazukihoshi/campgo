@@ -1,29 +1,5 @@
 <div class="container">
-	<div class="login-container">
-            <div id="output"></div>
-            <div class="avatar"></div>
-            <div class="form-box">
-                <form action="" method="">
-                    <input name="user" type="text" placeholder="username">
-                    <input type="password" placeholder="password">
-                    <button class="btn btn-info btn-block login" type="submit">Login</button>
-                </form>
-            </div>
-        </div>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-<div class="container">
-  <div class="row">
+  <div class="row text-center signin-link">
 
     <%= form_with model: @user, url: new_user_session_path do |f| %>
       <div class="field">
@@ -44,12 +20,13 @@
       <% end %>
 
       <div class="actions">
-        <%= f.submit "Log in" %>
+        <%= f.submit "Log in" ,class: "btn btn-info btn-block"%>
       </div>
     <% end %>
 
+    <%= render "public/shared/links" %>
 
   </div>
 </div>
 
-<%= render "public/shared/links" %>
+
