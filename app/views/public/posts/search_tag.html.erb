@@ -1,59 +1,6 @@
-<div class="card-list-container py-5">
+<div class="container">
 
-  <% if flash[:notice] %>
-     <p id="notice">
-       <%= flash[:notice] %>
-     </p>
-  <% end %>
-
-  <div class="search_form">
-    <%= form_with model: @post, url: posts_search_path, local: true, method: :GET do |f| %>
-      <%= f.text_field :key_word, placeholder: "投稿を検索する" %>
-      <%= f.submit "検索", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-
-
-
-
-  <% @posts.each do |post| %>
-  <div class="card w-50 mx-auto mt-4 shadow-lg">
-    <%= link_to post_path(post.id) do %>
-      <% if post.post_images.attached? %>
-        <!--<div style="height:180, width:130">-->
-        <!--  複数の写真の一枚目の取得-->
-          <%= image_tag post.post_images.first.variant(resize: "180x130") %>
-        <!--</div>-->
-      <% else %>
-        <%= image_tag 'no_image_yoko.jpeg', size: "180×130" %>
-      <% end %>
-    <% end %>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-2">
-          <%= image_tag post.user.get_profile_image(100,100), class:"mt-3 rounded-circle"; %>
-        </div>
-        <div class="col-10">
-          <p class="card-title">
-            <%= link_to(post_path(post.id), class:"text-dark") do %>
-              <strong><i class="far fa-flag"></i><span> <%= post.title %></span></strong>
-            <% end %>
-          </p>
-          <p class="card-tag">
-            タグ：
-            <% post.tags.pluck(:name).each do |tag_name| %>
-              <%= tag_name %>
-            <% end %>
-          </p>
-          <span><i class="fas fa-user"></i> By <%= post.user.name %> ｜ </span>
-          <span><%#= link_to "#{post.comments.comment.count} コメント", post_path(post.id), class:"text-dark" %></span>
-          コメント数の表示
-          <p class="caption"><%= "#{post.comments.count} コメント" %></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <% end %>
+  <%= render 'public/posts/post_index', posts: @posts %>
 
   <% if @posts.count == 0 %>
     <p>検索結果がありませんでした</p>
