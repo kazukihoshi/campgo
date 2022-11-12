@@ -45,56 +45,43 @@
   </div>
 </div>
 
+<div class="container">
 <div class="card-list-container py-5">
-  <div class="row justify-content-center">
-    <div class="card-deck">
-      <% @posts.each do |post| %>
-
-      　 <!--<div class="col-4">-->
-        <div class="card  d-inline-block w-25 h-50 mt-4 shadow-lg">
-
-        <!--<div class="card-image-top">-->
+  <div class="row">
+    <% @posts.each do |post| %>
+      <div class="col-4">
+        <div class="card d-inline-block mt-4 shadow-lg" style="width:100%;">
           <%= link_to post_path(post.id) do %>
             <% if post.post_images.attached? %>
-              <!--<div style="height:180, width:130">-->
-                <!--複数の写真の一枚目の取得-->
-              <%= image_tag post.post_images.first, class:"card-img-top img-fluid" %>
-              <!--</div>-->
+              <%= image_tag post.post_images.first, class:"card-img-top img-fluid card-item-image" %>
             <% else %>
-              <%= image_tag 'no_image_yoko.jpeg', class:"card-img-top, img-fluid" %>
+              <%= image_tag 'no_image_yoko.jpeg', class:"card-img-top img-fluid card-item-image" %>
             <% end %>
           <% end %>
-        <!--</div>-->
           <div class="card-body">
-            <div class="col-10">
-              <div class="card-title">
-                <%= link_to(post_path(post.id), class:"text-dark") do %>
-                  <strong><i class="far fa-flag"></i><span> <%= post.title %></span></strong>
-                <% end %>
-                </div>
-                <div class="card-tag">
-                  タグ：
-                  <% post.tags.pluck(:name).each do |tag_name| %>
-                    <%= tag_name %>
-                  <% end %>
-                </div>
-                <div class="card-text">
-                  <span><i class="fas fa-user"></i> By <%= post.user.name %> ｜ </span>
-                  <!--コメント数の表示-->
-                  <p class="caption"><%= "#{post.comments.count} コメント" %></p>
-                </div>
-              </div>
+            <div class="card-title">
+              <%= link_to(post_path(post.id), class:"text-dark") do %>
+                <strong><i class="far fa-flag"></i><span> <%= post.title %></span></strong>
+              <% end %>
+            </div>
+            <div class="card-tag">
+              タグ：
+              <% post.tags.pluck(:name).each do |tag_name| %>
+                <%= tag_name %>
+              <% end %>
+            </div>
+            <div class="card-text">
+              <span><i class="fas fa-user"></i> By <%= post.user.name %> ｜ </span>
+              <!--コメント数の表示-->
+              <p class="caption"><%= "#{post.comments.count} コメント" %></p>
             </div>
           </div>
         </div>
-      <!--</div>-->
-      <% end %>
-    <!--</div>-->
-
+      </div>
+    <% end %>
       <%#= paginate @posts %>
-    </div>
   </div>
 </div>
-
+</div>
 
 
