@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col">
-      <h2>新規投稿</h2>
+    <div class="col-4 offset-2">
+      <h2 class="title">新規投稿</h2>
 
         <% if @post.errors.any? %>
           <%= @post.errors.count %>件のエラーが発生しました
@@ -15,56 +15,46 @@
   </div>
 
   <%= form_with model: @post, url: posts_path, local: true, method: :POST do |f| %>
-  <div class="row">
-    <div class="col-3">
+  <div class="row field">
+    <div class="col-8 offset-2">
       <%= f.label :camp_site, "キャンプ場" %>
-    </div>
-    <div class="col-3">
       <%= f.text_field :camp_site %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-3">
+  <div class="row field">
+    <div class="col-8 offset-2">
       <%= f.label :title, "タイトル" %>
-    </div>
-    <div class="col-3">
       <%= f.text_field :title %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-3">
+  <div class="row field">
+    <div class="col-8 offset-2">
       <%= f.label :post, "投稿" %>
-    </div>
-    <div class="col-3">
       <%= f.text_field :post %>
     </div>
   </div>
 
-　<div class="row">
-　  <div class="col-3">
+　<div class="row field">
+　  <div class="col-8 offset-2">
 　    <%= f.label :post_images, "画像" %>
-　  </div>
-　  <div class="col-3">
 　    <%= f.file_field :post_images, accept: "image/*", multiple: true, class: "form-control-file image" %>
 　  </div>
 　</div>
 
-　<div class="row">
-    <div class="col-3">
+　<div class="row field">
+    <div class="col-8 offset-2">
       <%= f.label :tag, "タグ" %>
-    </div>
-    <div class="col-3">
       <!--postのカラムではないためf.を外す-->
       <%= text_field_tag :tag, @post.tags.pluck(:name) %>
       <%#= hidden_field_tag :tag, @post.tags  %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-3">
-      <%= f.submit "投稿" %>
+  <div class="row button">
+    <div class="col-8 offset-2 mx-auto">
+      <%= f.submit "投稿", class: "btn btn-secondary" %>
     </div>
   </div>
 
