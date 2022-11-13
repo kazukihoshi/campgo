@@ -20,13 +20,13 @@ class User < ApplicationRecord
 
   validates :profile_image, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'] }
 
-  def get_profile_image(width, height)
+  def get_profile_image
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/default-image.jpg')
       profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
     pp ActiveStorage::Attachment.find(profile_image.id)
-    profile_image.variant(resize_to_limit: [width, height]).processed
+    #profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
   # def get_background_image(width, height)

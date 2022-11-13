@@ -24,7 +24,7 @@ class Public::PostsController < ApplicationController
 
   def index
     #byebug
-    @posts = Post.all.order(created_at: :desc).page(params[:page])
+    @posts = Post.all.order(created_at: :desc).page(params[:page]).per(9)
     # @posts = Post.page(params[:page])
     @tag_list = Tag.all
     #@tag_list = Tag.find(PostTag.group(:tag_id).order('count(post_id) desc').limit(7).pluck(:tag_id))
@@ -93,7 +93,7 @@ class Public::PostsController < ApplicationController
       #flash[:notice] = "検索結果がありません"
     end
     @tag_lists = Tag.all
-    @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(10)
+    @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(9)
   end
 
   def search_tag
@@ -112,7 +112,7 @@ class Public::PostsController < ApplicationController
     # end
     @tags = Tag.all
     #@tag = Tag.find(params[:tag_id])
-    @posts=@tag.posts.page(params[:page]).per(10)
+    @posts=@tag.posts.page(params[:page]).per(9)
   end
 
 
