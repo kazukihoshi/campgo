@@ -35,7 +35,7 @@
 }
 
 .background-image {
-  background_size: auto;
+  background-size: auto;
 }
 
 .field {
@@ -55,4 +55,11 @@ input[type="text"] {
 
 .field {
   margin-bottom: 1rem;
+}
+
+.top_image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  margin: 5rem auto;
 }
