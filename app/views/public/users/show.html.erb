@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-12 text-center">
+    <div class="col-12 text-center", style="margin-top:2rem;">
       <h2>マイページ</h2>
     </div>
   </div>
@@ -27,13 +27,13 @@
   </div>
 
   <div class="row">
-    <div class="col-12 text-center">
+    <div class="col-12 text-center" style="font-size:20px;">
       <%= @user.name %>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-12 d-flex justify-content-around">
+    <div class="col-12 d-flex justify-content-around", style="margin-top:2rem;">
       <%= link_to "記事投稿", new_post_path %>
 
       <%= link_to "いいね一覧", favorites_path %>

@@ -72,9 +72,9 @@ class Admin::ChecklistsController < ApplicationController
   def destroy
     #byebug
     user = User.find(params[:user_id])
-    #checklist = Checklist.find(params[:id])
+    #checklist = Checklist.new
     #byebug
-    checklist.find_by(user_id: user).destroy
+    Checklist.find_by(user_id: user).destroy
     redirect_back(fallback_location: root_path)
   end
 

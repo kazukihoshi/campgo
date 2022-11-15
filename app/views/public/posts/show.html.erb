@@ -4,7 +4,7 @@
       <h2><%= @post.title %></h2>
     </div>
   </div>
-  <div class="row">
+  <div class="row col-8 offset-2 post_content">
     <% if @post.post_images.attached? %>
       <% @post.post_images.each do |post_image| %>
         <!--<div style="height:180, width:130">-->
@@ -18,34 +18,26 @@
     <% end %>
   </div>
 
-  <div class="row">
+  <div class="row col-8 offset-2 post_content">
     <%= @post.post %>
   </div>
-  <div class="row">
+  <div class="row col-8 offset-2 post_content">
+    タグ:
     <!--each文で複数のものの中から1つずつ取得する-->
     <% @post.tags.pluck(:name).each do |tag_name|%>
       <%= tag_name %>
     <% end %>
   </div>
-　<% if user_signed_in? && current_user.id == @post.user_id %>
-    <%= link_to '編集', edit_post_path(@post.id), class: "btn btn-info" %>
-    <%= link_to '削除', post_path(@post.id), method: :delete, "data-confirm"=>"本当に消しますか？", class: "btn btn-danger" %>
-  <% end %>
-  <%= link_to '一覧へ', posts_path, class: "btn btn-dark" %>
-
-  <div class="row">
-    <% @comments.each do |comment| %>
-      <%= comment.user.name %><br>
-      <%= comment.comment %><br>
-        <% if comment.user == current_user %>
-          <div class="comment-delete">
-            <%= link_to "削除", post_comment_path(@post.id, comment.id), method: :delete, class: "btn-sm btn-danger" %>
-          </div>
-        <% end %>
+  <div class="button col-8 offset-2 post_content">
+    <% if user_signed_in? && current_user.id == @post.user_id %>
+      <%= link_to '編集', edit_post_path(@post.id), class: "btn btn-info" %>
+      <%= link_to '削除', post_path(@post.id), method: :delete, "data-confirm"=>"本当に消しますか？", class: "btn btn-danger" %>
     <% end %>
+    <%= link_to '一覧へ', posts_path, class: "btn btn-dark" %>
   </div>
 
-  <div class="row">
+
+  <div class="row col-8 offset-2 post_content">
     <% if user_signed_in? %>
       <%= form_with model: [@post, @comment], url: post_comments_path(@post), local: true, method: :POST do |f| %>
         <%= f.text_area :comment, placeholder: "コメントする" %>
@@ -54,17 +46,29 @@
     <% end %>
   </div>
 
-  <% if @post.favorited?(current_user) %>
+  <div class="row col-8 offset-2 post_content">
+    <% @comments.each do |comment| %>
+      <%= comment.user.name %>
+      <%= comment.comment %>
+        <% if comment.user == current_user %>
+          <div class="comment-delete　inline-block">
+            <%= link_to "削除", post_comment_path(@post.id, comment.id), method: :delete,"data-confirm"=>"本当に消しますか？", class: "btn-sm btn-danger" %>
+          </div>
+        <% end %>
+    <% end %>
+  </div>
+
+  <%# if @post.favorited?(current_user) %>
     <!--一致するレコードが存在する＝すでにいいね済みの場合はdestroyアクションへ-->
-    <%= link_to post_favorites_path(@post.id), method: :delete do %>
-        <span style="color:red;">❤︎</span>
-    <% end %>
-  <% else %>
+    <%#= link_to post_favorites_path(@post.id), method: :delete do %>
+  <!--      <span style="color:red;">❤︎</span>-->
+    <%# end %>
+  <%# else %>
     <!--一致するレコードが存在しない＝まだいいねしていない場合はcreateアクションへ-->
-    <%= link_to post_favorites_path(@post.id), method: :post do %>
-        <span>❤︎</span>
-    <% end %>
-  <% end %>
+    <%#= link_to post_favorites_path(@post.id), method: :post do %>
+  <!--      <span>❤︎</span>-->
+    <%# end %>
+  <%# end %>
 
 </div>
 
