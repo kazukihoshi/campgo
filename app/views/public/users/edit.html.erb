@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col my-4">
-      <h4>会員情報編集</h4>
+    <div class="col-4 offset-2">
+      <h2 class="title">会員情報編集</h2>
     </div>
     <% if @user.errors.any? %>
       <%= @user.errors.count %>件のエラーが発生しました
@@ -48,7 +48,7 @@
 
 
   <div class="form-group row my-3">
-　  <%= f.label :profile_image, "プロフィール画像" %>
+　  <%= f.label :profile_image, "プロフィール画像", class: "col-sm-2" %>
 　  <div class="col">
 　    <%= f.file_field :profile_image, accept: "image/*",class: "form-control-file image" %>
 　  </div>

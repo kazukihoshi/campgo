@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-4 text-center">
-      <h1>Log in</h1>
+    <div class="col-4 offset-2">
+      <h2 class="title">Log in</h1>
     </div>
   </div>
   <div class="row text-center signin-link login-form">
@@ -26,9 +26,14 @@
       <div class="actions">
         <%= f.submit "Log in" ,class: "btn btn-info btn-block"%>
       </div>
+
+
+
     <% end %>
 
-    <%= render "public/shared/links" %>
+    <div class="actions" style="margin-top: 1rem;">
+      <%= render "public/shared/links" %>
+    </div>
 
   </div>
 </div>

@@ -23,7 +23,7 @@ class Admin::ChecklistsController < ApplicationController
 
   def show
     @camp = Camp.find(params[:id])
-    @checklists = Checklist.where(id: active_checklist_ids)
+    @checklists = Checklist.find(params[:id])
   end
 
   def edit
@@ -57,9 +57,11 @@ class Admin::ChecklistsController < ApplicationController
 
 
   def index_for_user
+    #byebug
     @user = User.find(params[:user_id])
+    #@checklist = Checklist.find(params[:id])
+    #@checklist = Checklist.new
     @checklists = @user.checklists.where(user_id: @user.id)
-    @checklist = Checklist.new
     # userがログインしているかどうかの確認
     # if user_signed_in?
     #   # user_idがcurrent_userのものを検索
@@ -70,13 +72,11 @@ class Admin::ChecklistsController < ApplicationController
   def destroy
     #byebug
     user = User.find(params[:user_id])
-    checklist = Checklist.find(params[:id])
-    checklist.destroy
+    #checklist = Checklist.find(params[:id])
+    #byebug
+    checklist.find_by(user_id: user).destroy
     redirect_back(fallback_location: root_path)
   end
-
-
-
 
   private
 

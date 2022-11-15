@@ -30,8 +30,11 @@
           <%= cm.hidden_field :user_id, value: current_user.id %>
         <% end %>
 
+　      <div class="form-group">
+　        <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :category_name) %>
+　      </div>
         <%#= f.collection_check_boxes(:category_id, Category.all, :id, :category_name, include_hidden: false) do |category| %>
-        <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :category_name) %>
+
             <!--<div class='form-group'>
                 <%#= category.label class: 'form-check-label' do %>
                     <%#= category.check_box class: 'form-check-input' %>

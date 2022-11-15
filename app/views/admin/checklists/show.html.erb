@@ -1,1 +1,182 @@
+<div class="container">
+  <div class="row">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link active"
+          id="site-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#site"
+          type="button"
+          role="tab"
+          aria-controls="site"
+          aria-selected="true"
+        >
+          サイト
+        </button>
+      </li>
+     <li class="nav-item" role="presentation">
+       <button
+         class="nav-link"
+         id="cook-tab"
+         data-bs-toggle="tab"
+         data-bs-target="#cook"
+         type="button"
+         role="tab"
+         aria-controls="cook"
+         aria-selected="false"
+       >
+         料理
+       </button>
+     </li>
+     <li class="nav-item" role="presentation">
+       <button
+         class="nav-link"
+         id="tent-tab"
+         data-bs-toggle="tab"
+         data-bs-target="#tent"
+         type="button"
+         role="tab"
+         aria-controls="tent"
+         aria-selected="false"
+       >
+         テント泊
+       </button>
+     </li>
+     <li class="nav-item" role="presentation">
+       <button
+         class="nav-link"
+         id="bonfire-tab"
+         data-bs-toggle="tab"
+         data-bs-target="#bonfire"
+         type="button"
+         role="tab"
+         aria-controls="bonfire"
+         aria-selected="false"
+       >
+         焚き火
+       </button>
+     </li>
+     <li class="nav-item" role="presentation">
+       <button
+         class="nav-link"
+         id="others-tab"
+         data-bs-toggle="tab"
+         data-bs-target="#others"
+         type="button"
+         role="tab"
+         aria-controls="others"
+         aria-selected="false"
+       >
+         その他
+       </button>
+     </li>
+     <%#= link_to '編集', edit_camp_checklist_path(@camp) %>
+    </ul>
+
+    <%#= form_with model: @checklist_manage, url: checklist_manage_path(@checklist_manage.id), local: true, method: :PATCH do |f| %>
+    <div class="tab-content" id="myTabContent">
+      <%# @camp.checklists.group_by { |c| c.category.category_name }.each do |key, values| %>
+      <div
+        class="tab-pane fade show active"
+        id="site"
+        role="tabpanel"
+        aria-labelledby="site-tab"
+      >
+        <table class="table">
+          <%# check_boxから変更 %>
+          <% @checklists.site_category.each do |checklist| %>
+            <tbody>
+              <tr>
+                <td><%= checklist.checklist_name %></td>
+                <td><%= checklist.comment %></td>
+                <td><%#= link_to '編集', edit_user_checklist_path(@user.id, checklist) %></td>
+                <td><%= link_to '削除', user_checklist_path(user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"} %></td>
+              </tr>
+            </tbody>
+          <% end %>
+        </table>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="cook"
+        role="tabpanel"
+        aria-labelledby="cook-tab"
+      >
+        <table class="table">
+          <%# check_boxから変更 %>
+          <% @checklists.cook_category.each do |checklist| %>
+            <tbody>
+              <tr>
+                <td><%= checklist.checklist_name %></td>
+                <td><%= checklist.comment %></td>
+                <td><%= link_to '削除', user_checklist_path(user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"} %></td>
+              </tr>
+            </tbody>
+          <% end %>
+
+        </table>
+      </div>
+
+      <div
+        class="tab-pane fade"
+        id="tent"
+        role="tabpanel"
+        aria-labelledby="tent-tab"
+      >
+        <table class="table">
+          <%# check_boxから変更 %>
+          <% @checklists.tent_category.each do |checklist| %>
+            <tbody>
+              <tr>
+                <td><%= checklist.checklist_name %></td>
+                <td><%= checklist.comment %></td>
+                <td><%= link_to '削除', user_checklist_path(user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"} %></td>
+              </tr>
+            </tbody>
+          <% end %>
+        </table>
+      </div>
+
+      </div>
+      <div
+        class="tab-pane fade"
+        id="bonfire"
+        role="tabpanel"
+        aria-labelledby="bonfire-tab"
+      >
+        <table class="table">
+          <% @checklists.bonfire_category.each do |checklist| %>
+            <tbody>
+              <tr>
+                <td><%= checklist.checklist_name %></td>
+                <td><%= checklist.comment %></td>
+                <td><%= link_to '削除', user_checklist_path(user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"} %></td>
+              </tr>
+            </tbody>
+          <% end %>
+        </table>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="others"
+        role="tabpanel"
+        aria-labelledby="others-tab"
+      >
+        <table class="table">
+          <% @checklists.others_category.each do |checklist| %>
+            <tbody>
+              <tr>
+                <td><%= checklist.checklist_name %></td>
+                <td><%= checklist.comment %></td>
+                <td><%= link_to '削除', user_checklist_path(user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"} %></td>
+              </tr>
+            </tbody>
+          <% end %>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
 

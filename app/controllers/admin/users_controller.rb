@@ -12,6 +12,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
+    #byebug
     user = User.find(params[:id])
     user.update(user_params)
     redirect_to admin_user_path(user)
@@ -19,7 +20,7 @@ class Admin::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :password)
+    params.require(:user).permit(:name, :email, :password, :is_delete)
   end
 
 end
