@@ -71,3 +71,18 @@ input[type="text"] {
 .post_content {
   margin-bottom: 2rem;
 }
+
+.item_list {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.item_name {
+  border-bottom: 1px solid #ccc;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.item_comment {
+  margin-bottom: 20px;
+}

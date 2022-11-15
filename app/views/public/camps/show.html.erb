@@ -12,24 +12,21 @@
     </div>
   </div>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>日程</th>
-        <th>場所</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          <%= @camp.schedule %>
-        </td>
-        <td>
-          <%= @camp.camp_site %>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="row">
+    <table class="table" style="width:300px;">
+      <body>
+        <tr>
+          <th>日程</th>
+          <td><%= @camp.schedule %></td>
+        </tr>
+        <tr>
+          <th>場所</th>
+          <td><%= @camp.camp_site %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
 
   <%= render 'public/checklists/camp_for_index', checklists: @checklists %>
 

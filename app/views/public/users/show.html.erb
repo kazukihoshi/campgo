@@ -1,9 +1,9 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12 text-center", style="margin-top:2rem;">
-      <h2>マイページ</h2>
-    </div>
-  </div>
+  <!--<div class="row">-->
+  <!--  <div class="col-12 text-center", style="margin-top:2rem;">-->
+  <!--    <h2>マイページ</h2>-->
+  <!--  </div>-->
+  <!--</div>-->
 
   <div class="text-success">
     <% if flash[:notice] %>
@@ -21,7 +21,7 @@
   <!--</div>-->
 
   <div class="row">
-    <div class="col-12 text-center">
+    <div class="col-12 text-center" style="margin-top:2rem;">
       <%= image_tag @user.get_profile_image, style: "border-radius: 50%; width: 200px; height: 200px; object-fit:cover;" %>
     </div>
   </div>

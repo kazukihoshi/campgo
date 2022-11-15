@@ -8,9 +8,9 @@
   </div>
 
   <div class="row" style="margin-top:2rem">
-    <div class="col-8 offset-2">
+    <!--<div class="col-8 offset-2">-->
       <%= form_with url: update_checklist_manage_camp_path(@camp), local: true, method: :patch do |f| %>
-      <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <ul class="nav nav-tabs" id="myTab" role="tablist" style="margin-bottom:30px;">
         <li class="nav-item" role="presentation">
           <button
             class="nav-link active"
@@ -93,29 +93,18 @@
           role="tabpanel"
           aria-labelledby="site-tab"
         >
-          <table class="table">
+          <ul class="item_list">
             <%# check_boxから変更 %>
             <%= f.collection_check_boxes :site_categories ,@checklists.site_category , :id, :checklist_name do |checklist| %>
-              <tbody>
-                <tr>
-                  <td><%= checklist.check_box %></td>
-                  <td><%= checklist.object.checklist_name %></td>
-                  <td><%= checklist.object.comment %></td>
-                </tr>
-              </tbody>
+              <li class="item_name">
+                <a><%= checklist.check_box %></a>
+                <a><%= checklist.object.checklist_name %></a>
+              </li>
+              <li class="item_comment">
+                <%= checklist.object.comment %>
+              </li>
             <% end %>
-            <%#= checklist.comment %>
-            <%# @checklists.site_category.each do |checklist| %>
-              <!--<tbody>
-                <tr>
-                  <th><%#= checklist.check_box (@checklist_manage.is_active, {:checked => false}, checked_value = "true", unchecked_value = "false") %></th>
-                  <%# <th><%= check_box "creates" , checklist.id %></th>
-                  <td><%#= checklist.checklist_name %></td>
-                  <td><%#= checklist.comment %></td>
-                </tr>
-              </tbody>
-            <%# end %>-->
-          </table>
+          </ul>
 
 
         </div>
@@ -126,18 +115,18 @@
           role="tabpanel"
           aria-labelledby="cook-tab"
         >
-          <table class="table">
+          <ul class="item_list">
             <%= f.collection_check_boxes :cook_categories ,@checklists.cook_category , :id, :checklist_name do |checklist| %>
              <%# @camp.checklists.cook_category.each do |checklist| %>
-              <tbody>
-                <tr>
-                  <td><%= checklist.check_box %></td>
-                  <td><%= checklist.object.checklist_name %></td>
-                  <td><%= checklist.object.comment %></td>
-                </tr>
-              </tbody>
+              <li class="item_name">
+                <a><%= checklist.check_box %></a>
+                <a><%= checklist.object.checklist_name %></a>
+              </li>
+              <li class="item_comment">
+                <%= checklist.object.comment %>
+              </li>
             <% end %>
-          </table>
+          </ul>
 
 
         </div>
@@ -147,25 +136,16 @@
           role="tabpanel"
           aria-labelledby="tent-tab"
         >
-          <table class="table">
+          <ul class="item_list">
             <%= f.collection_check_boxes :tent_categories ,@checklists.tent_category , :id, :checklist_name do |checklist| %>
-              <tbody>
-                <tr>
-                  <td><%= checklist.check_box %></td>
-                  <td><%= checklist.object.checklist_name %></td>
-                  <td><%= checklist.object.comment %></td>
-                </tr>
-              </tbody>
-              <%# @checklists.tent_category.each do |checklist| %>
-                <!--<tbody>
-                  <tr>
-                    <td><%#= checklist.checklist_name %></td>
-                    <td><%#= checklist.comment %></td>
-                  </tr>
-                </tbody>
-              <%# end %>-->
+              <li class="item_name">
+                <a><%= checklist.check_box %></a>
+                <a><%= checklist.object.checklist_name %></a>
+              </li>
+              <li class="item_comment">
+                <%= checklist.object.comment %>
+              </li>
             <% end %>
-          </table>
         </div>
 
         <div
@@ -174,18 +154,18 @@
           role="tabpanel"
           aria-labelledby="bonfire-tab"
         >
-          <table class="table">
+          <ul class="item_list">
             <%= f.collection_check_boxes :bonfire_categories ,@checklists.bonfire_category , :id, :checklist_name do |checklist| %>
              <%# @camp.checklists.cook_category.each do |checklist| %>
-              <tbody>
-                <tr>
-                  <td><%= checklist.check_box %></td>
-                  <td><%= checklist.object.checklist_name %></td>
-                  <td><%= checklist.object.comment %></td>
-                </tr>
-              </tbody>
+              <li class="item_name">
+                <a><%= checklist.check_box %></a>
+                <a><%= checklist.object.checklist_name %></a>
+              </li>
+              <li class="item_comment">
+                <%= checklist.object.comment %>
+              </li>
             <% end %>
-          </table>
+          </ul>
         </div>
 
         <div
@@ -194,22 +174,22 @@
           role="tabpanel"
           aria-labelledby="others-tab"
         >
-          <table class="table">
+          <ul class="item_list">
             <%= f.collection_check_boxes :others_categories ,@checklists.others_category , :id, :checklist_name do |checklist| %>
              <%# @camp.checklists.cook_category.each do |checklist| %>
-              <tbody>
-                <tr>
-                  <td><%= checklist.check_box %></td>
-                  <td><%= checklist.object.checklist_name %></td>
-                  <td><%= checklist.object.comment %></td>
-                </tr>
-              </tbody>
+              <li class="item_name">
+                <a><%= checklist.check_box %></a>
+                <a><%= checklist.object.checklist_name %></a>
+              </li>
+              <li class="item_comment">
+                <%= checklist.object.comment %>
+              </li>
             <% end %>
-          </table>
+          </ul>
         </div>
 
       <% end %>
-    </div>
+    <!--</div>-->
   </div>
 
     <!--camp: @campを追加-->
