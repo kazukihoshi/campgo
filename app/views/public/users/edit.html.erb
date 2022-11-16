@@ -44,15 +44,12 @@
     </div>
   </div>
 
-
-
-
   <div class="form-group row my-3">
-　  <%= f.label :profile_image, "プロフィール画像", class: "col-sm-2" %>
-　  <div class="col">
-　    <%= f.file_field :profile_image, accept: "image/*",class: "form-control-file image" %>
-　  </div>
-　</div>
+    <%= f.label :profile_image, "プロフィール画像", class: "col-sm-2" %>
+  <div class="col">
+        <%= f.file_field :profile_image, accept: "image/*",class: "form-control-file image input-default" %>
+    </div>
+  </div>
 
 
   <div class="form-group row my-3">
