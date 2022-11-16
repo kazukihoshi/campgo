@@ -32,7 +32,7 @@ class Public::CampsController < ApplicationController
   end
 
   def index
-    @camps = current_user.camps.all
+    @camps = current_user.camps.page(params[:page])
   end
 
   def update_checklist_manage
