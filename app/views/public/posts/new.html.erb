@@ -15,36 +15,36 @@
   </div>
 
   <%= form_with model: @post, url: posts_path, local: true, method: :POST do |f| %>
-  <div class="row">
-    <div class="col-8 offset-1">
+  <div class="row" style="margin-bottom:2rem;">
+    <div class="col-10 offset-1">
       <%= f.label :camp_site, "キャンプ場" %>
       <%= f.text_field :camp_site, class: "form_field" %>
     </div>
   </div>
 
-  <div class="row ">
-    <div class="col-8 offset-1">
+  <div class="row" style="margin-bottom:2rem;">
+    <div class="col-10 offset-1">
       <%= f.label :title, "タイトル" %>
       <%= f.text_field :title,class: "form_field" %>
     </div>
   </div>
 
-  <div class="row ">
-    <div class="col-8 offset-1">
+  <div class="row" style="margin-bottom:1rem;">
+    <div class="col-10 offset-1">
       <%= f.label :post, "投稿" %>
       <%= f.text_field :post,class: "post_text" %>
     </div>
   </div>
 
-  <div class="row ">
-    <div class="col-8 offset-1">
+  <div class="row" style="margin-bottom:2rem;">
+    <div class="col-10 offset-1">
       <%= f.label :post_images, "画像" %><br>
       <%= f.file_field :post_images, accept: "image/*", multiple: true, class: "form-control-file image form_field" %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-8 offset-1">
+  <div class="row" style="margin-bottom:2rem;">
+    <div class="col-10 offset-1">
       <%= f.label :tag, "タグ" %>
       <!--postのカラムではないためf.を外す-->
       <%= text_field_tag :tag, @post.tags.pluck(:name),class: "form_field" %>
