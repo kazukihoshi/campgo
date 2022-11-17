@@ -32,7 +32,7 @@ class Public::CampsController < ApplicationController
   end
 
   def index
-    @camps = current_user.camps.page(params[:page])
+    @camps = current_user.camps.all
   end
 
   def update_checklist_manage
@@ -48,7 +48,7 @@ class Public::CampsController < ApplicationController
 
      camp.checklist_manages.update_all(is_active: false)#update前に全てをfalseに変更、その後チェックしtrueに変更していく
 
-     #byebug
+     byebug
      unless site_categories == [""]
 
        site_categories.each do |checklist|
