@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-4 offset-2">
+    <div class="col-4 offset-1">
       <h2 class="title">会員情報編集</h2>
     </div>
     <% if @user.errors.any? %>
@@ -14,55 +14,50 @@
   </div>
 
   <%= form_with model: @user, url: user_path(@user), local: true, method: :PATCH do |f| %>
-  <div class="form-group row my-3">
-    <%= f.label :name, "名前", class: "col-sm-2" %>
-    <div class="col-sm-3">
+  <div class="form-group row my-3" style="margin-bottom:2rem;">
+    <div class="col-10 offset-1">
+      <%= f.label :name, "名前" %>
       <%= f.text_field :name, class: "form-control" %>
     </div>
-
   </div>
 
 
-  <div class="form-group row my-3">
-    <%= f.label :email, "メールアドレス", class: "col-sm-2" %>
-    <div class="col">
+  <div class="form-group row my-3" style="margin-bottom:2rem;">
+    <div class="col-10 offset-1">
+      <%= f.label :email, "メールアドレス"%>
       <%= f.text_field :email, class: "form-control" %>
     </div>
   </div>
 
-  <div class="form-group row my-3">
-    <%= f.label :password, "パスワード", class: "col-sm-2" %>
-    <div class="col">
+  <div class="form-group row my-3" style="margin-bottom:2rem;">
+    <div class="col-10 offset-1">
+      <%= f.label :password, "パスワード" %>
       <%= f.password_field :password, class: "form-control" %>
     </div>
   </div>
 
-  <div class="form-group row my-3">
-    <%= f.label :password_confirmation, "パスワード確認", class: "col-sm-2" %>
-    <div class="col">
-     <%= f.password_field :password_confirmation,class: "form-control" %>
+  <div class="form-group row my-3" style="margin-bottom:2rem;">
+    <div class="col-10 offset-1">
+      <%= f.label :password_confirmation, "パスワード確認", class: "col-sm-2" %>
+      <%= f.password_field :password_confirmation,class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group row my-3" style="margin-bottom:2rem;">
+    <div class="col-10 offset-1">
+      <%= f.label :profile_image, "プロフィール画像", class: "col-sm-2" %>
+      <%= f.file_field :profile_image, accept: "image/*",class: "form-control-file image input-default" %>
     </div>
   </div>
 
   <div class="form-group row my-3">
-    <%= f.label :profile_image, "プロフィール画像", class: "col-sm-2" %>
-  <div class="col">
-        <%= f.file_field :profile_image, accept: "image/*",class: "form-control-file image input-default" %>
+    <div class="col-1 offset-1">
+      <%= f.submit '保存', class: "btn btn-outline-success" %>
+    </div>
+    <div class="col-1">
+      <%= link_to '退会',users_unsubscribe_path, class: "btn btn-outline-danger" %>
     </div>
   </div>
-
-
-  <div class="form-group row my-3">
-    <div class="col-sm-3 offset-2">
-        <%= f.submit '編集内容を保存', class: "btn btn-success" %>
-    </div>
-    <div class="col-sm-3">
-      <%= link_to '退会する',users_unsubscribe_path, class: "btn btn-danger" %>
-    </div>
-  </div>
-
   <% end %>
-
-
 
 </div>
