@@ -8,8 +8,8 @@
 
   <div class="search_form" style= "text-align: right;padding: 2rem;">
     <%= form_with url: posts_search_path, local: true, method: :GET do |f| %>
-      <%= f.text_field :key_word, placeholder: "投稿タイトル、投稿で検索" %>
-      <%= f.submit "検索", class: "btn btn-primary" %>
+      <%= f.text_field :key_word, placeholder: "タイトル,投稿で検索" %>
+      <%= f.submit "検索",  class: "btn btn-outline-primary" %>
     <% end %>
   </div>
 
@@ -50,9 +50,8 @@
                     <% end %>
                   <% end %>
                 </div>
-                <span><i class="fas fa-user"></i> By <%= post.user.name %> ｜ </span>
+                <span><i class="fas fa-user"></i> By <%= post.user.name %>  </span>
                 <!--<span><%#= link_to "#{post.comments.comment.count} コメント", post_path(post.id), class:"text-dark" %></span>-->
-                コメント数の表示
                 <div class="caption"><%= "#{post.comments.count} コメント" %></div>
               </div>
             </div>

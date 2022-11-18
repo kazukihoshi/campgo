@@ -1,14 +1,14 @@
 <div class="container">
   <div class="row">
-    <div class="col-4 offset-2">
-      <h2 class="title">Log in</h1>
+    <div class="col-4 offset-1">
+      <h2 class="title">Log in</h2>
     </div>
   </div>
   <div class="row text-center signin-link login-form">
     <%= form_with model: @user, url: new_user_session_path do |f| %>
       <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "40x20", placeholder: "email" %>
+        <%= f.label :email%><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "40x20"%>
       </div>
 
       <div class="field">
@@ -24,7 +24,7 @@
       <!--<%# end %>-->
 
       <div class="actions">
-        <%= f.submit "Log in" ,class: "btn btn-info btn-block"%>
+        <%= f.submit "Log in" ,class: "btn btn-outline-primary"%>
       </div>
 
 
