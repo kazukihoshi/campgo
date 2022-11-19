@@ -3,14 +3,21 @@
     <div class="col-4 offset-1">
       <h2 class="title">会員情報編集</h2>
     </div>
-    <% if @user.errors.any? %>
-      <%= @user.errors.count %>件のエラーが発生しました
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="col-4 offset-1">
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h3><%= @user.errors.count %>件のエラーが発生しました</h3>
+            <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+        </div>
+      <% end %>
+    </div>
   </div>
 
   <%= form_with model: @user, url: user_path(@user), local: true, method: :PATCH do |f| %>
@@ -38,15 +45,15 @@
 
   <div class="form-group row my-3" style="margin-bottom:2rem;">
     <div class="col-10 offset-1">
-      <%= f.label :password_confirmation, "パスワード確認", class: "col-sm-2" %>
+      <%= f.label :password_confirmation, "パスワード確認" %>
       <%= f.password_field :password_confirmation,class: "form-control" %>
     </div>
   </div>
 
   <div class="form-group row my-3" style="margin-bottom:2rem;">
     <div class="col-10 offset-1">
-      <%= f.label :profile_image, "プロフィール画像", class: "col-sm-2" %>
-      <%= f.file_field :profile_image, accept: "image/*",class: "form-control-file image input-default" %>
+      <%= f.label :profile_image, "プロフィール画像" %>
+      <%= f.file_field :profile_image, accept: "image/*",class: "form-control-file image form_field" %>
     </div>
   </div>
 

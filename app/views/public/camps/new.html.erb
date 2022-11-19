@@ -1,24 +1,31 @@
 <div class="container">
   <div class="row">
     <div class="col-4 offset-1">
-      <h4 class="title">キャンプ作成</h4>
+      <h2 class="title">キャンプ作成</h2>
     </div>
-    <!--エラーメッセージのエラー-->
-    <% if @camp.errors.any? %>
-      <%= @camp.errors.count %>件のエラーが発生しました
-      <ul>
-        <% @camp.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    <% end %>
+  </div>
+
+  <!--エラーメッセージ-->
+  <div class="row">
+    <div class="col-4 offset-1">
+      <% if @camp.errors.any? %>
+        <div id="error_explanation">
+          <h3><%= @camp.errors.count %>件のエラーが発生しました</h3>
+            <ul>
+              <% @camp.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+        </div>
+      <% end %>
+    </div>
   </div>
 
   <%= form_with model: @camp, url: camps_path, local: true, method: :POST do |f| %>
   <div class="row field">
     <div class="col-8 offset-1">
-      <%= f.label :schedule, "日程" %><br>
-      <%= f.date_field :schedule %>
+      <%= f.label :schedule, "日程" %>
+      <%= f.date_field :schedule,class: "form-control-file form_field" %>
     </div>
   </div>
 

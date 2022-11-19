@@ -14,8 +14,7 @@ ja:
       user: ユーザー
     attributes:
         user:
-          first_name: 名
-          last_name: 姓
+          name: 名前
           email: メールアドレス
           password: パスワード
           password_confirmation: パスワード確認
@@ -24,6 +23,9 @@ ja:
           post: 投稿
           title: タイトル
           post_images: 画像
+        checklist:
+          comment: コメント
+          checklist_name: アイテム名
 
 
   # activerecord:

@@ -5,16 +5,17 @@
     </div>
   </div>
 
+  <!--エラーメッセージ-->
   <div class="row">
     <div class="col-4 offset-1">
       <% if @post.errors.any? %>
         <div id="error_explanation">
           <h3><%= @post.errors.count %>件のエラーが発生しました</h3>
-          <ul>
-            <% @post.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
+            <ul>
+              <% @post.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
         </div>
       <% end %>
     </div>
