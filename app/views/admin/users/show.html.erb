@@ -1,46 +1,52 @@
 <div class="container">
   <div class="row">
-    <div class="col-3">
-      <h4>会員詳細</h4>
+    <div class="col-4 offset-1">
+      <h2 class="title">会員詳細</h2>
     </div>
   </div>
 
-  <table class="table">
-    <tbody>
-      <tr>
-        <th>会員ID</th>
-        <td><%= @user.id %></td>
-      </tr>
-      <tr>
-        <th>ユーザーネーム</th>
-        <td><%= @user.name %></td>
-      </tr>
-      <tr>
-        <th>メールアドレス</th>
-        <td><%= @user.email %></td>
-      </tr>
-      <tr>
-        <th>パスワード</th>
-        <td><%= @user.password %></td>
-      </tr>
-      <tr>
-        <th>ステータス</th>
-        <td>
-          <% if @user.is_delete == false %>
-            有効
-          <% else %>
-            退会
-          <% end %>
-        </td>
-      </tr>
-      <tr>
-        <th>
-          <%= link_to "編集", edit_admin_user_path(@user.id) %>
-        </th>
-        <th>
-          <%= link_to "一覧に戻る", admin_users_path %>
-        </th>
-      </tr>
-    </tbody>
-  </table>
+  <div class="row field">
+    <div class="col-10 offset-1">
+      <table class="table">
+        <tbody>
+          <tr>
+            <th>会員ID</th>
+            <td><%= @user.id %></td>
+          </tr>
+          <tr>
+            <th>ユーザーネーム</th>
+            <td><%= @user.name %></td>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <td><%= @user.email %></td>
+          </tr>
+          <tr>
+            <th>パスワード</th>
+            <td><%= @user.password %></td>
+          </tr>
+          <tr>
+            <th>ステータス</th>
+            <td>
+              <% if @user.is_delete == false %>
+                有効
+              <% else %>
+                退会
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <%= link_to "編集", edit_admin_user_path(@user.id) %>
+            </th>
+            <th>
+              <%= link_to "一覧に戻る", admin_users_path %>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
 </div>
