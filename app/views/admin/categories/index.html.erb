@@ -1,48 +1,48 @@
 <div class="container">
-  <%= form_with model: @category, url: admin_categories_path, local: true, method: :POST do |f| %>
   <div class="row">
-    <div class="col-4">
-      <div class="form-group mr-5 mt-5">
-        <%= f.label :category_name, "カテゴリー" %>
-      </div>
-    </div>
-
-    <div class="col-4">
-      <div class="form-group mr-5 mt-5">
-        <%= f.text_field :category_name, placeholder: "カテゴリー名", class: "form-control" %>
-      </div>
-    </div>
-    <div class="col-4">
-      <div class="form-group mr-5 mt-5">
-      　　<%= f.submit '登録' %>
-      </div>
+    <div class="col-4 offset-1">
+      <h2 class="title">カテゴリー一覧</h2>
     </div>
   </div>
-  <% end %>
 
   <%= form_with model: @category, url: admin_categories_destroy_all_path(@category.id), local: true, method: :DELETE do |f| %>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>カテゴリー一覧</th>
-        <th><%#= link_to '削除', admin_categories_destroy_all_path(@category.id), local: true, method: :DELETE, data: {:confilm => "本当に削除してもよろしいですか?"}, class: 'btn btn-sussce' %></th>
-        <th><%= f.submit '削除', data: { confirm: "本当に削除してもよろしいですか?"}, class: 'btn btn-sussce' %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @categories.each do |category| %>
-        <tr>
-          <td><%#= collection_check_boxes(:category_ids, category, :id, :category_name) %></td>
-          <td><%#= check_box :category_id, {multiple: true} %></td>
-          <td><%= check_box "deletes", category.id %></td>
-          <td><%= category.category_name %></td>
-          <td><%= link_to "編集", edit_admin_category_path(category.id), class: "btn btn-success" %></td>
-          <td><%= link_to "チェックリスト", admin_category_checklists_path(category.id), class: "btn btn-success" %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+    <div class="form-group row">
+      <div class="col-10 offset-1">
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>カテゴリー一覧</th>
+              <!--<th colspan="1"></th>-->
+              <th><%= f.submit '削除', data: { confirm: "本当に削除してもよろしいですか?"}, class: "btn btn-outline-danger" %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @categories.each do |category| %>
+              <tr>
+                <td><%= check_box "deletes", category.id %>
+                <%= category.category_name %></td>
+                <td><%= link_to "編集", edit_admin_category_path(category.id), class: "btn btn-outline-primary" %></td>
+                <td><%= link_to "チェックリスト", admin_category_checklists_path(category.id), class: "btn btn-outline-primary"%></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
   <% end %>
+
+  <%= form_with model: @category, url: admin_categories_path, local: true, method: :POST do |f| %>
+    <div class="row">
+      <div class="form-group col-3 offset-1">
+          <%= f.text_field :category_name, placeholder: "カテゴリー名", class: "form-control" %>
+      </div>
+      <div class="col-1" style="margin-left:4rem;">
+        <%= f.submit '登録', class: "btn btn-outline-primary" %>
+      </div>
+    </div>
+  <% end %>
+
 
 
 

@@ -1,9 +1,12 @@
-<div class="row">
+<div class="row post_content">
     <% comments.each do |comment| %>
-      <%= comment.user.name %>
-      <%= comment.comment %>
-        <div class="comment-delete">
-          <%= link_to "削除", admin_post_comment_path(post.id, comment.id), method: :delete, "data-confirm"=>"本当に消しますか？", class: "btn-sm btn-danger" %>
-        </div>
+      <div class="col-8 offset-1 post_comment">
+        <span><i class="fas fa-user"></i> By <%= comment.user.name %> </span>
+        <%= comment.comment %>
+          <span class="text-right">
+            <%= link_to "削除", admin_post_comment_path(post.id, comment.id), method: :delete, "data-confirm"=>"本当に消しますか？", class: "btn-sm btn-danger" %>
+          </span>
+      </div>
     <% end %>
 </div>
+

@@ -1,31 +1,35 @@
 <div class="container">
   <div class="row">
-  	<div class="col-3">
-  		<h4>キャンプ詳細</h4>
+  	<div class="col-4 offset-1">
+  		<h2 class="title">キャンプ詳細</h2>
   	</div>
   </div>
 
+  <div class="row">
+  	<div class="col-4 offset-1">
+  		<table class="table">
+		  	<tbody>
+		  		<tr>
+		  			<th>日程</th>
+		  		  <td><%= @camp.schedule %></td>
+		  		</tr>
+		  		<tr>
+		  			<th>キャンプ場</th>
+		  			<td><%= @camp.camp_site %></td>
+		  		</tr>
+		  		<tr>
+		  			<th>人数</th>
+		  			<td><%= @camp.number_of_people %></td>
+		  		</tr>
+		  		<tr>
+		  			<th>チェックリスト</th>
+		  			<td><%= link_to "表示", admin_camps_path %></td>
+		  		</tr>
+		  	</tbody>
+		  </table>
+  	</div>
+  </div>
 
-  <table class="table">
-  	<tbody>
-  		<tr>
-  			<th>日程</th>
-  		  <td><%= @camp.schedule %></td>
-  		</tr>
-  		<tr>
-  			<th>キャンプ場</th>
-  			<td><%= @camp.camp_site %></td>
-  		</tr>
-  		<tr>
-  			<th>人数</th>
-  			<td><%= @camp.number_of_people %></td>
-  		</tr>
-  		<tr>
-  			<th>チェックリスト</th>
-  			<td><%= link_to "表示", admin_camps_path %></td>
-  		</tr>
-  	</tbody>
-  </table>
 
   <%#= render 'admin/camps/checklist_show', checklists: @checklists, user: @user %>
 

@@ -1,56 +1,57 @@
 <div class="container">
   <div class="row">
-    <%= @post.title %>
+    <div class="col-10 offset-1 post_content">
+      <h2 class="title"><%= @post.title %></div>
+    </div>
   </div>
-  <div class="row">
 
-    <% if @post.post_images.attached? %>
-      <% @post.post_images.each do |post_image| %>
-         <div style="height:180, width:130">
-        <%= image_tag post_image.variant(resize: "100x130^") %>
+  <div class="row">
+    <div class="col-10 offset-1 post_content">
+      <% if @post.post_images.attached? %>
+        <% @post.post_images.each do |post_image| %>
+           <div style="height:180, width:130">
+          <%= image_tag post_image.variant(resize: "100x130^") %>
+          </div>
+        <% end %>
+      <% else %>
+        <%= image_tag 'no_image_yoko.jpeg', size: "180x130" %>
+      <% end %>
+
+    </div>
+
+    <div class="row">
+      <div class="col-10 offset-1 post_content">
+        <%= @post.post %>
+      </div>
+    </div>
+
+    <div class="row">
+      <!--each文で複数のものの中から1つずつ取得する-->
+      <% @post.tags.each do |tag|%>
+        <div class="col-10 offset-1 post_content">
+          <%= tag.name %>
+          <%= link_to "削除", admin_post_tag_path(@post.id, tag.id), method: :delete,"data-confirm"=>"本当に消しますか？", class: "btn-sm btn-danger" %>
         </div>
       <% end %>
-    <% else %>
-      <%= image_tag 'no_image_yoko.jpeg', size: "180x130" %>
-    <% end %>
+    </div>
 
-  </div>
+    <%= render 'admin/comments/comment_show', comments: @comments, post: @post %>
+    <!--<div class="row">-->
+    <!--  <%# @comments.each do |comment| %>-->
+    <!--    <%#= comment.user.name %><br>-->
+    <!--    <%#= comment.comment %><br>-->
+    <!--        <div class="comment-delete">-->
+    <!--          <%#= link_to "削除", admin_post_comment_path(@post.id, comment.id), method: :delete, class: "btn-sm btn-danger" %>-->
+    <!--        </div>-->
+    <!--  <%# end %>-->
+    <!--</div>-->
 
-  <div class="row">
-    <%= @post.post %>
-  </div>
-
-  <div class="row">
-    <!--each文で複数のものの中から1つずつ取得する-->
-    <% @post.tags.each do |tag|%>
-      <div class="col">
-        <%= tag.name %>
+    <div class="row">
+      <div class="col-10 offset-1 post_content">
+        <%= link_to '削除', admin_post_path(@post.id), method: :delete, "data-confirm"=>"本当に消しますか？", class: "btn btn-outline-danger" %>
+        <%= link_to '一覧へ', posts_path, class: "btn btn-outline-secondary"%>
       </div>
-      <div class="tag-delete col">
-        <%= link_to "削除", admin_post_tag_path(@post.id, tag.id), method: :delete,"data-confirm"=>"本当に消しますか？", class: "btn-sm btn-danger" %>
-      </div>
-    <% end %>
-
-
-  </div>
-
-
-  <%= render 'admin/comments/comment_show', comments: @comments, post: @post %>
-  <!--<div class="row">-->
-  <!--  <%# @comments.each do |comment| %>-->
-  <!--    <%#= comment.user.name %><br>-->
-  <!--    <%#= comment.comment %><br>-->
-  <!--        <div class="comment-delete">-->
-  <!--          <%#= link_to "削除", admin_post_comment_path(@post.id, comment.id), method: :delete, class: "btn-sm btn-danger" %>-->
-  <!--        </div>-->
-  <!--  <%# end %>-->
-  <!--</div>-->
-
-
-  <%= link_to '削除', admin_post_path(@post.id), method: :delete, "data-confirm"=>"本当に消しますか？", class: "btn btn-danger" %>
-  <%= link_to '一覧へ', posts_path, class: "btn btn-dark" %>
-
-
+    </div>
 
 </div>
 

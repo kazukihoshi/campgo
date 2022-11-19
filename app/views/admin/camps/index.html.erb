@@ -1,34 +1,39 @@
 <div class="container">
   <div class="row">
-    <div class="col-3">
-      <h4>キャンプ一覧</h4>
+    <div class="col-4 offset-1">
+      <h2 class="title">キャンプ一覧</h2>
     </div>
   </div>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>名前</th>
-        <th>キャンプID</th>
-        <th>作成日</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @camps.each do |camp| %>
-      <tr>
-        <td>
-          <%= link_to admin_camp_path(camp) do %>
-            <%= camp.user.name %>
+  <div class="row">
+    <div class="col-10 offset-1">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>名前</th>
+            <th>キャンプID</th>
+            <th>作成日</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @camps.each do |camp| %>
+          <tr>
+            <td>
+              <%= link_to admin_camp_path(camp) do %>
+                <%= camp.user.name %>
+              <% end %>
+            </td>
+            <td>
+              <%= camp.id %>
+            </td>
+            <td>
+              <%= l camp.created_at %>
+            </td>
+          </tr>
           <% end %>
-        </td>
-        <td>
-          <%= camp.id %>
-        </td>
-        <td>
-          <%= l camp.created_at %>
-        </td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
 </div>
