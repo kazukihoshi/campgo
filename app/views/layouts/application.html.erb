@@ -11,6 +11,9 @@
   </head>
 
   <body>
+    <!--<script src=“https://code.jquery.com/jquery-3.3.1.slim.min.js” integrity=“sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo” crossorigin=“anonymous”></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>-->
+    <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>-->
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
@@ -19,74 +22,52 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <!--justify-content-endでヘッダーの右寄せ-->
-          <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdaown">
+          <div class=" navbar-collapse collapse justify-content-end" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if admin_signed_in? %>
-              <li class="nav-item">
-                <%= link_to admin_users_path, class: 'nav-link' do %>
-                  会員一覧
-                <% end %>
-              </li>
-              <li>
-                <%= link_to admin_posts_path, class: 'nav-link' do %>
-                  投稿一覧
-                <% end %>
-              </li>
-              <li>
-                <%= link_to admin_camps_path, class: 'nav-link' do %>
-                  キャンプ一覧
-                <% end %>
-              </li>
-              <li>
-                <%= link_to admin_categories_path, class: 'nav-link' do %>
-                  チェックリスト編集
-                <% end %>
-              </li>
-              <li>
-                <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link' do %>
-                  ログアウト
-                <% end %>
-              </li>
+                <li class="nav-item">
+                  <%= link_to '会員一覧', admin_users_path, class: 'nav-link' %>
+                </li>
+                <li>
+                  <%= link_to '投稿一覧', admin_posts_path, class: 'nav-link' %>
+                </li>
+                <li>
+                  <%= link_to 'キャンプ一覧', admin_camps_path, class: 'nav-link'%>
+                </li>
+                <li>
+                  <%= link_to 'チェックリスト編集', admin_categories_path, class: 'nav-link' %>
+                </li>
+                <li>
+                  <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link' %>
+                </li>
 
               <% elsif user_signed_in? %>
-              <li>
-                <%= link_to user_path(current_user.id), class: 'nav-link' do %>
-                  マイページ
-                <% end %>
-              </li>
-              <li>
-                <%= link_to new_camp_path, class: 'nav-link' do %>
-                  キャンプ
-                <% end %>
-              </li>
-              <li>
-                <%= link_to posts_path, class: 'nav-link' do %>
-                  投稿一覧
-                <% end %>
-              </li>
-              <li>
-                <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
-                  ログアウト
-                <% end %>
-              </li>
+                <li>
+                  <%= link_to ' マイページ', user_path(current_user.id), class: 'nav-link' %>
+                </li>
+                <li>
+                  <%= link_to 'キャンプ', new_camp_path, class: 'nav-link' %>
+                </li>
+                <li>
+                  <%= link_to '投稿一覧', posts_path, class: 'nav-link' %>
+                </li>
+                <li>
+                  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link'  %>
+                </li>
 
               <% else %>
-              <li>
-                <%= link_to new_user_registration_path, class: 'nav-link' do %>
-                  新規登録
-                <% end %>
-              </li>
-              <li>
-                <%= link_to new_user_session_path, class: 'nav-link' do %>
-                  ログイン
-                <% end %>
-              </li>
-              <!--<li>-->
-              <!--  <%#= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: 'nav-link' do %>-->
-              <!--    ゲストログイン-->
-              <!--  <%# end %>-->
-              <!--</li>-->
-            <% end %>
+                <li>
+                  <%= link_to '新規登録', new_user_registration_path, class: 'nav-link' %>
+                </li>
+                <li>
+                  <%= link_to 'ログイン', new_user_session_path, class: 'nav-link'%>
+                </li>
+                <!--<li>-->
+                <!--  <%#= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: 'nav-link' do %>-->
+                <!--    ゲストログイン-->
+                <!--  <%# end %>-->
+                <!--</li>-->
+              <% end %>
             </ul>
           </div>
         </div>

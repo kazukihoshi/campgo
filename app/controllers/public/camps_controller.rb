@@ -62,7 +62,10 @@ class Public::CampsController < ApplicationController
 
        cook_categories.each do |checklist|
          unless checklist == ""
-           ChecklistManage.find_by(checklist_id: checklist, camp_id: camp.id, user_id: current_user.id).update(is_active: true)
+          # put 'checklist'
+          p camp.id
+          p current_user.id
+           ChecklistManage.find_by!(checklist_id: checklist, camp_id: camp.id, user_id: current_user.id).update(is_active: true)
          end
        end
      end
