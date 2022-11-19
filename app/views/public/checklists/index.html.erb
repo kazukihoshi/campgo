@@ -8,7 +8,7 @@
   </div>
 
   <div class="row" style="margin-top:2rem">
-    <!--<div class="col-8 offset-2">-->
+    <div class="col-10 offset-1">
       <%= form_with url: update_checklist_manage_camp_path(@camp), local: true, method: :patch do |f| %>
       <ul class="nav nav-tabs" id="myTab" role="tablist" style="margin-bottom:30px;">
         <li class="nav-item" role="presentation">
@@ -81,7 +81,7 @@
            その他
          </button>
        </li>
-       <%= f.submit '作成' %>
+       <%= f.submit '作成', class: "btn btn-outline-primary"%>
       </ul>
 
       <%#= form_with model: @checklist_manage, url: checklist_manage_path(@checklist_manage.id), local: true, method: :PATCH do |f| %>
@@ -190,11 +190,11 @@
         </div>
 
       <% end %>
-    <!--</div>-->
-  </div>
+    </div>
 
-    <!--camp: @campを追加-->
-    <%= render 'list', checklist: @checklist, camp: @camp %>
+      <!--camp: @campを追加-->
+      <%= render 'list', checklist: @checklist, camp: @camp %>
+
 
   </div>
 </div>

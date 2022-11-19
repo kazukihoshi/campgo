@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-4 offset-2">
+    <div class="col-4 offset-1">
       <h4 class="title">キャンプ作成</h4>
     </div>
     <!--エラーメッセージのエラー-->
@@ -16,29 +16,29 @@
 
   <%= form_with model: @camp, url: camps_path, local: true, method: :POST do |f| %>
   <div class="row field">
-    <div class="col-8 offset-2">
+    <div class="col-8 offset-1">
       <%= f.label :schedule, "日程" %><br>
       <%= f.date_field :schedule %>
     </div>
   </div>
 
   <div class="row field">
-    <div class="col-8 offset-2">
+    <div class="col-8 offset-1">
       <%= f.label :camp_site, "キャンプ場" %>
       <%= f.text_field :camp_site,class: "form_field" %>
     </div>
   </div>
 
   <div class="row field">
-    <div class="col-8 offset-2">
+    <div class="col-8 offset-1">
       <%= f.label :number_of_people, "人数" %><br>
-      <%= f.select :number_of_people, *[1..5] %>
+      <%= f.select :number_of_people, *[1..10] %>
     </div>
   </div>
 
   <div class="row button" style = "margin-top: 30px">
-    <div class="col-8 offset-2">
-      <%= f.submit "チェックリスト作成" %>
+    <div class="col-8 offset-1">
+      <%= f.submit "チェックリスト作成", class: "btn btn-outline-primary" %>
     </div>
   </div>
 

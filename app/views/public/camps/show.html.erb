@@ -27,12 +27,12 @@
         </tbody>
       </table>
     </div>
-
   </div>
-
 
   <%= render 'public/checklists/camp_for_index', checklists: @checklists %>
 
+</div>
+<div class="container">
   <div class="row">
     <div class="col-4 offset-1">
       <%= link_to "編集する", edit_camp_path(@camp.id), class: "btn btn-outline-primary" %>
@@ -40,3 +40,4 @@
     </div>
   </div>
 </div>
+

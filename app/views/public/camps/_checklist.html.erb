@@ -1,4 +1,5 @@
 <div class="row" style="margin-top:2rem">
+  <div class="col-10 offset-1">
     <%= form_with url: update_checklist_manage_camp_path(camp), local: true, method: :PATCH do |f| %>
     <!--@camp⇨camp-->
     <ul class="nav nav-tabs" id="myTab" role="tablist", style="margin-bottom:30px;">
@@ -72,7 +73,7 @@
          その他
        </button>
      </li>
-     <%= f.submit '更新' %>
+     <%= f.submit '更新',class: "btn btn-outline-success" %>
     </ul>
 
     <div class="tab-content" id="myTabContent">
@@ -181,7 +182,5 @@
 
     </div>
     <% end %>
-
-
-
   </div>
+</div>
