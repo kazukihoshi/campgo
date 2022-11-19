@@ -89,3 +89,30 @@
   height: 120px;
   margin-bottom: 2rem;
 }
+
+// エラーメッセージ
+#error_explanation {
+  width: 450px;
+  border: 2px solid #f2dede;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h3 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0;
+  background-color: #f2dede;
+  color: #a94442;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: #f2dede;
+  display: table;
+}

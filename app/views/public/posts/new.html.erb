@@ -2,48 +2,54 @@
   <div class="row">
     <div class="col-4 offset-1">
       <h2 class="title">新規投稿</h2>
+    </div>
+  </div>
 
-        <% if @post.errors.any? %>
-          <%= @post.errors.count %>件のエラーが発生しました
+  <div class="row">
+    <div class="col-4 offset-1">
+      <% if @post.errors.any? %>
+        <div id="error_explanation">
+          <h3><%= @post.errors.count %>件のエラーが発生しました</h3>
           <ul>
             <% @post.errors.full_messages.each do |message| %>
               <li><%= message %></li>
             <% end %>
           </ul>
-        <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 
   <%= form_with model: @post, url: posts_path, local: true, method: :POST do |f| %>
-  <div class="row" style="margin-bottom:2rem;">
+  <div class="row field" style="margin-bottom:2rem;">
     <div class="col-10 offset-1">
       <%= f.label :camp_site, "キャンプ場" %>
       <%= f.text_field :camp_site, class: "form_field" %>
     </div>
   </div>
 
-  <div class="row" style="margin-bottom:2rem;">
+  <div class="row field" style="margin-bottom:2rem;">
     <div class="col-10 offset-1">
       <%= f.label :title, "タイトル" %>
       <%= f.text_field :title,class: "form_field" %>
     </div>
   </div>
 
-  <div class="row" style="margin-bottom:1rem;">
+  <div class="row field" style="margin-bottom:1rem;">
     <div class="col-10 offset-1">
       <%= f.label :post, "投稿" %>
       <%= f.text_field :post,class: "post_text" %>
     </div>
   </div>
 
-  <div class="row" style="margin-bottom:2rem;">
+  <div class="row field" style="margin-bottom:2rem;">
     <div class="col-10 offset-1">
-      <%= f.label :post_images, "画像" %><br>
+      <%= f.label :post_images, "画像" %>
       <%= f.file_field :post_images, accept: "image/*", multiple: true, class: "form-control-file image form_field" %>
     </div>
   </div>
 
-  <div class="row" style="margin-bottom:2rem;">
+  <div class="row field" style="margin-bottom:2rem;">
     <div class="col-10 offset-1">
       <%= f.label :tag, "タグ" %>
       <!--postのカラムではないためf.を外す-->

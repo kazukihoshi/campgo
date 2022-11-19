@@ -9,7 +9,21 @@ ja:
       invalid_file_type: "は不正なファイル形式です"
 
 
-
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+        user:
+          first_name: 名
+          last_name: 姓
+          email: メールアドレス
+          password: パスワード
+          password_confirmation: パスワード確認
+        post:
+          camp_site: キャンプ場
+          post: 投稿
+          title: タイトル
+          post_images: 画像
 
 
   # activerecord:

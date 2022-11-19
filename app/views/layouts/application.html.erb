@@ -40,7 +40,6 @@
                 <li>
                   <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link' %>
                 </li>
-
               <% elsif user_signed_in? %>
                 <li>
                   <%= link_to ' マイページ', user_path(current_user.id), class: 'nav-link' %>
