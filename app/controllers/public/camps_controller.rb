@@ -112,7 +112,7 @@ class Public::CampsController < ApplicationController
             if checklist_find == nil
               ChecklistManage.create(camp_id: camp.id, user_id: current_user.id, checklist_id: checklist, is_active: true)
             else
-             checklist_find(checklist_id: checklist, camp_id: camp.id, user_id: current_user.id).update(is_active: true)
+             checklist_find.update(is_active: true)
             end
         end
        end
