@@ -50,51 +50,71 @@ class Public::CampsController < ApplicationController
 
      #byebug
      unless site_categories == [""]
-
        site_categories.each do |checklist|
-         unless checklist == ""
-           ChecklistManage.find_by(checklist_id: checklist, camp_id: camp.id, user_id: current_user.id).update(is_active: true)
-         end
+        unless checklist == ""
+          checklist_find = ChecklistManage.find_by(checklist_id: checklist, camp_id: camp.id, user_id: current_user.id)
+          if checklist_find == nil  #新しく作成されたchecklist_manageはcreateされていないためnilであれば再度createする
+            ChecklistManage.create(camp_id: camp.id, user_id: current_user.id, checklist_id: checklist, is_active: true)  #createすると同時にis_activeをtrueに変更
+          else
+            checklist_find.update(is_active: true)
+          end
+        end
        end
      end
 
      unless cook_categories == [""]
-
        cook_categories.each do |checklist|
-         unless checklist == ""
-          # put 'checklist'
-          p camp.id
-          p current_user.id
-           ChecklistManage.find_by!(checklist_id: checklist, camp_id: camp.id, user_id: current_user.id).update(is_active: true)
-         end
+        unless checklist == ""
+          checklist_find = ChecklistManage.find_by(checklist_id: checklist, camp_id: camp.id, user_id: current_user.id)
+          if checklist_find == nil
+            ChecklistManage.create(camp_id: camp.id, user_id: current_user.id, checklist_id: checklist, is_active: true)
+          else
+            checklist_find.update(is_active: true)
+          end
+        end
        end
      end
 
 
      unless tent_categories == [""]
 
-       tent_categories.each do |checklist|
-         unless checklist == ""
-           ChecklistManage.find_by(checklist_id: checklist, camp_id: camp.id, user_id: current_user.id).update(is_active: true)
-         end
+      tent_categories.each do |checklist|
+       unless checklist == ""
+        checklist_find = ChecklistManage.find_by(checklist_id: checklist, camp_id: camp.id, user_id: current_user.id)
+          if checklist_find == nil
+            ChecklistManage.create(camp_id: camp.id, user_id: current_user.id, checklist_id: checklist, is_active: true)
+          else
+            checklist_find.update(is_active: true)
+          end
        end
+      end
      end
 
      unless bonfire_categories == [""]
 
-       bonfire_categories.each do |checklist|
-         unless checklist == ""
-           ChecklistManage.find_by(checklist_id: checklist, camp_id: camp.id, user_id: current_user.id).update(is_active: true)
-         end
+      bonfire_categories.each do |checklist|
+       unless checklist == ""
+        checklist_find = ChecklistManage.find_by(checklist_id: checklist, camp_id: camp.id, user_id: current_user.id)
+          if checklist_find == nil
+            ChecklistManage.create(camp_id: camp.id, user_id: current_user.id, checklist_id: checklist, is_active: true)
+          else
+            checklist_find.update(is_active: true)
+          end
        end
+      end
      end
 
      unless others_categories == [""]
 
        others_categories.each do |checklist|
-         unless checklist == ""
-           ChecklistManage.find_by(checklist_id: checklist, camp_id: camp.id, user_id: current_user.id).update(is_active: true)
-         end
+        unless checklist == ""
+          checklist_find = ChecklistManage.find_by(checklist_id: checklist, camp_id: camp.id, user_id: current_user.id)
+            if checklist_find == nil
+              ChecklistManage.create(camp_id: camp.id, user_id: current_user.id, checklist_id: checklist, is_active: true)
+            else
+             checklist_find(checklist_id: checklist, camp_id: camp.id, user_id: current_user.id).update(is_active: true)
+            end
+        end
        end
      end
      #byebug
@@ -111,6 +131,7 @@ class Public::CampsController < ApplicationController
 
   # camp/editの_list.html.erbでも使用
   def edit
+    #byebug
     @camp = Camp.find(params[:id])
     @checklists = @camp.checklists.where(user_id: nil).or(Checklist.where(user_id: current_user.id))
     @checklist = @camp.checklists.new
