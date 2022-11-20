@@ -24,7 +24,7 @@
   <%= form_with model: @camp, url: camps_path, local: true, method: :POST do |f| %>
   <div class="row field">
     <div class="col-8 offset-1">
-      <%= f.label :schedule, "日程" %>
+      <%= f.label :schedule, "日程" %><br>
       <%= f.date_field :schedule,class: "form-control-file form_field" %>
     </div>
   </div>

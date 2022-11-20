@@ -1,16 +1,33 @@
 <div class="container">
   <div class="row">
+    <div class="text-success">
+      <% if flash[:notice] %>
+         <p id="notice text-success">
+           <%= flash[:notice] %>
+         </p>
+      <% end %>
+    </div>
+  </div>
 
-    <% if @camp.errors.any? %>
-      <%= @camp.errors.count %>件のエラーが発生しました
-      <ul>
-        <% @camp.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    <%end %>
+
+  <div class="row">
     <div class="col-4 offset-1">
       <h2 class="title">キャンプ編集</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4 offset-1">
+      <% if @camp.errors.any? %>
+        <div id="error_explanation">
+          <h3><%= @camp.errors.count %>件のエラーが発生しました</h3>
+            <ul>
+              <% @camp.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+        </div>
+      <% end %>
     </div>
   </div>
 
@@ -46,6 +63,11 @@
 
   <%= render 'public/camps/checklist', checklists: @checklists, camp: @camp, active_checklist_ids: @active_checklist_ids %>
   <!--camp: @campを追加-->
-  <%= render 'public/checklists/list', checklist: @checklist, camp: @camp %>
+  <div class="row">
+    <div class="col-10 offset-1">
+      <%= render 'public/checklists/list', checklist: @checklist, camp: @camp %>
+    </div>
+  </div>
+
 
 </div>
