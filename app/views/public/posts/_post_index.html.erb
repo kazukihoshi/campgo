@@ -20,7 +20,7 @@
     <div class="row">
       <% posts.each do |post| %>
       <!--@posts⇨postに変更-->
-        <div class="col-4">
+        <div class="col-lg-4 col-md-6 col-sm-8">
           <div class="card d-inline-block mt-4 shadow-lg" style= "width: 100%;">
             <%= link_to post_path(post.id) do %>
               <% if post.post_images.attached? %>
@@ -45,7 +45,7 @@
                   <% end %>
                 </div>
                 <div class="card-tag">
-                タグ：
+                タグ
                 <!--post.tags.pluck(:name)から変更,postの中のnameをeachで回していた-->
                   <% post.tags.each do |tag| %>
                     <%= link_to posts_search_tag_path(tag_id: tag.id) do %>

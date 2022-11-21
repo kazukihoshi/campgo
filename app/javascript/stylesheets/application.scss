@@ -1,9 +1,18 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-.login-form {
-  padding-top: 5rem;
+.top_image {
+    width: 100%;
 }
+
+.post_image_center {
+    display: flex;
+    align-items: center;
+}
+
+// .login-form {
+//   padding-top: 5rem;
+// }
 
 .card-item-image {
   height: 15vw;
@@ -42,6 +51,7 @@
   margin-top: 2rem;
   margin-bottom: 2rem;
   border-left: 6px solid #ccc;
+  font-mamily: '851MkPOP_101.ttf'
 }
 
 .field {
@@ -69,11 +79,17 @@
   margin-bottom: 20px;
 }
 
+.item_name:first-child {
+  margin-top: 10px;
+}
+
 .item_name {
   border-bottom: 1px solid #ccc;
   font-size: 20px;
   margin-bottom: 10px;
 }
+
+
 
 .item_comment {
   margin-bottom: 20px;

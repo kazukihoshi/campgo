@@ -11,13 +11,13 @@
 
 
   <div class="row">
-    <div class="col-4 offset-1">
+    <div class="col-10">
       <h2 class="title">キャンプ編集</h2>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-4 offset-1">
+    <div class="col-4">
       <% if @camp.errors.any? %>
         <div id="error_explanation">
           <h3><%= @camp.errors.count %>件のエラーが発生しました</h3>
@@ -33,28 +33,28 @@
 
   <%= form_with model: @camp, url: camp_path(@camp.id), local: true, method: :PATCH do |f| %>
   <div class="row field">
-    <div class="col-8 offset-1">
+    <div class="col-8">
       <%= f.label :schedule, "日程" %><br>
       <%= f.date_field :schedule %>
     </div>
   </div>
 
   <div class="row field">
-    <div class="col-8 offset-1">
+    <div class="col-8">
       <%= f.label :camp_site, "キャンプ場" %>
       <%= f.text_field :camp_site,class: "form_field" %>
     </div>
   </div>
 
   <div class="row field">
-    <div class="col-8 offset-1">
+    <div class="col-8">
       <%= f.label :number_of_people, "人数" %><br>
       <%= f.select :number_of_people, *[1..10] %>
     </div>
   </div>
 
   <div class="row button" style="margin-top:30px;">
-    <div class="col-8 offset-1">
+    <div class="col-8">
       <%= f.submit "更新", class: "btn btn-outline-success" %>
     </div>
   </div>
@@ -64,7 +64,7 @@
   <%= render 'public/camps/checklist', checklists: @checklists, camp: @camp, active_checklist_ids: @active_checklist_ids %>
   <!--camp: @campを追加-->
   <div class="row">
-    <div class="col-10 offset-1">
+    <div class="col-10">
       <%= render 'public/checklists/list', checklist: @checklist, camp: @camp %>
     </div>
   </div>

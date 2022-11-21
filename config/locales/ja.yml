@@ -31,6 +31,14 @@ ja:
           camp_site: キャンプ場
           number_of_people: 人数
 
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."
+
 
   # activerecord:
   #     attributes:

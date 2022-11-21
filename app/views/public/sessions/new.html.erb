@@ -4,17 +4,22 @@
       <h2 class="title">Log in</h2>
     </div>
   </div>
-  <div class="row text-center signin-link login-form">
-    <%= form_with model: @user, url: new_user_session_path do |f| %>
-      <div class="field">
-        <%= f.label :email%><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "40x20"%>
-      </div>
 
-      <div class="field">
-        <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "current-password", size: "40x20" %>
-      </div>
+
+  <%= form_with model: @user, url: new_user_session_path do |f| %>
+    <div class="row login-form">
+      <div class="col-12" style="text-align:center;" >
+        <div class="field">
+          <%= f.label :email%><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "40x20"%>
+        </div>
+
+        <div class="field">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "current-password", size: "40x20" %>
+        </div>
+
+
 
       <!--<%# if devise_mapping.rememberable? %>-->
       <!--  <div class="field">-->
@@ -23,19 +28,20 @@
       <!--  </div>-->
       <!--<%# end %>-->
 
-      <div class="actions">
-        <%= f.submit "Log in" ,class: "btn btn-outline-primary"%>
+        <div class="actions">
+          <%= f.submit "Log in" ,class: "btn btn-outline-primary"%>
+        </div>
       </div>
 
 
-
-    <% end %>
-
-    <div class="actions" style="margin-top: 1rem;">
-      <%= render "public/shared/links" %>
     </div>
+  <% end %>
 
-  </div>
+    <!--<div class="actions" style="margin-top: 1rem;">-->
+    <!--  <%#= render "public/shared/links" %>-->
+    <!--</div>-->
+
+
 </div>
 
 

@@ -7,14 +7,14 @@
          </p>
       <% end %>
     </div>
-    <div class="col-4 offset-1">
+    <div class="col-10">
       <h2 class="title">キャンプの予定</h2>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-4 offset-1">
-      <table class="table" style="width:300px;">
+    <div class="col-4">
+      <table class="table">
         <body>
           <tr>
             <th>日程</th>
@@ -34,7 +34,7 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-4 offset-1">
+    <div class="col-4">
       <%= link_to "編集する", edit_camp_path(@camp.id), class: "btn btn-outline-primary" %>
       <%= link_to "チェックリストへ", user_my_checklist_index_path(@user.id), class: "btn btn-outline-primary" %>
     </div>
