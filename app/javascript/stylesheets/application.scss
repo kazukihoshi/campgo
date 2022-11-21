@@ -1,6 +1,17 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
+.nav-color {
+  background-color:#90ee90;
+}
+
+.main_title {
+  // font-family: 'Lobster', cursive;
+  // font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+}
+
 .top_image {
     width: 100%;
 }
@@ -51,7 +62,8 @@
   margin-top: 2rem;
   margin-bottom: 2rem;
   border-left: 6px solid #ccc;
-  font-mamily: '851MkPOP_101.ttf'
+  // font-family: 'PT Serif', serif;
+  font-family: 'Shadows Into Light', cursive;
 }
 
 .field {
