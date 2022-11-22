@@ -17,9 +17,10 @@
               <li class="item_name">
                 <a><%= checklist.checklist_name %></a>
                 <span class="delete_link" style="float: right;">
-                  <%= link_to "削除",user_checklist_path(@user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"}  %>
-                    <!--<strong><i class="fa-solid fa-trash-can"></i></strong>-->
-                  <%# end %>
+                  <%= link_to user_checklist_path(@user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"} do %>
+                    <!--削除ボタンをアイコンに変更-->
+                    <strong><i class="fas fa-trash-alt"></i></i></strong>
+                  <% end %>
                 </span>
               </li>
               <li class="item_comment">
@@ -35,7 +36,7 @@
                 <a><%= checklist.checklist_name %></a>
                 <span class="delete_link" style="float: right;">
                   <%= link_to user_checklist_path(@user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"} do %>
-                    <strong><i class="fa-solid fa-trash-can"></i></strong>
+                    <strong><i class="fas fa-trash-alt"></i></i></strong>
                   <% end %>
                 </span>
               </li>
@@ -51,7 +52,9 @@
               <li class="item_name">
                 <a><%= checklist.checklist_name %></a>
                 <span class="delete_link" style="float: right;">
-                  <%= link_to '削除', user_checklist_path(@user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"},class: "btn btn-outline-danger" %>
+                  <%= link_to user_checklist_path(@user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"} do %>
+                    <strong><i class="fas fa-trash-alt"></i></i></strong>
+                  <% end %>
                 </span>
               </li>
               <li class="item_comment">
@@ -66,7 +69,10 @@
               <li class="item_name">
                 <a><%= checklist.checklist_name %></a>
                 <span class="delete_link" style="float: right;">
-                  <%= link_to '削除', user_checklist_path(@user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"},class: "btn btn-outline-danger" %>
+                  <%= link_to user_checklist_path(@user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"} do %>
+                    <!--削除ボタンをアイコンに変更-->
+                    <strong><i class="fas fa-trash-alt"></i></i></strong>
+                  <% end %>
                 </span>
               </li>
               <li class="item_comment">
@@ -81,7 +87,9 @@
               <li class="item_name">
                 <a><%= checklist.checklist_name %></a>
                 <span class="delete_link" style="float: right;">
-                  <%= link_to '削除', user_checklist_path(@user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"}, class: "btn btn-outline-danger" %>
+                  <%= link_to user_checklist_path(@user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"} do %>
+                    <strong><i class="fas fa-trash-alt"></i></i></strong>
+                  <% end %>
                 </span>
               </li>
               <li class="item_comment">
