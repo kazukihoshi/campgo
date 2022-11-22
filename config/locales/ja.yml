@@ -18,6 +18,11 @@ ja:
           email: メールアドレス
           password: パスワード
           password_confirmation: パスワード確認
+        admin:
+          name: 名前
+          email: メールアドレス
+          password: パスワード
+          password_confirmation: パスワード確認
         post:
           camp_site: キャンプ場
           post: 投稿
