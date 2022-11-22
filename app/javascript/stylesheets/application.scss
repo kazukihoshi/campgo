@@ -12,6 +12,10 @@
   font-size: 24px;
 }
 
+body {
+  font-family: 'Zen Maru Gothic', sans-serif;
+}
+
 .top_image {
     width: 100%;
 }
@@ -63,8 +67,13 @@
   margin-bottom: 2rem;
   border-left: 6px solid #ccc;
   // font-family: 'PT Serif', serif;
-  font-family: 'Shadows Into Light', cursive;
+  // font-family: 'Shadows Into Light', cursive;
+  font-family: 'Zen Maru Gothic', sans-serif;
 }
+
+// .title-img {
+//   background-image: url("assets/images/flag.jpeg");
+// }
 
 .field {
   margin-bottom: 1rem;
@@ -153,3 +162,13 @@
   text-align: center;
 }
 
+.main-container {
+  background-image: url("<%= asset_path('scott-goodwill-y8Ngwq34_Ak-unsplash.jpg') %>" );
+  height: 800px;
+  background-size:cover;
+}
+
+// .flag {
+//   height: 5px;
+//   wdith: 5px;
+// }
