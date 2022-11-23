@@ -12,14 +12,14 @@
   <div class="row">
     <div class="col-10 offset-1">
         <h2 class="title">キャンプの予定</h2>
-      </div>
     </div>
   </div>
+ 
 
   <div class="row">
     <div class="col-4 offset-1">
       <table class="table">
-        <body>
+        <tbody>
           <tr>
             <th>日程</th>
             <td><%= @camp.schedule %></td>
@@ -34,13 +34,14 @@
   </div>
 
   <div class="row">
-    <div class="col-10 offset-1">
+    <div class="col-10 ">
       <%= render 'public/checklists/camp_for_index', checklists: @checklists %>
     </div>
   </div>
 
 
 </div>
+
 <div class="container">
   <div class="row">
     <div class="col-4 offset-1">
