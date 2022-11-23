@@ -1,63 +1,68 @@
 <div class="container">
   <div class="row">
-    <div class="col">
-      <h2>編集</h2>
+    <div class="col-4 offset-1">
+      <h2 class="title">編集</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4 offset-1">
+      <% if @post.errors.any? %>
+        <div id="error_explanation">
+          <h3><%= @post.errors.count %>件のエラーが発生しました</h3>
+            <ul>
+              <% @post.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+        </div>
+      <% end %>
     </div>
   </div>
 
   <%= form_with model: @post, url: post_path(@post), local: true, method: :PATCH do |f| %>
-  <div class="row">
-    <div class="col-3">
+  <div class="row field" style="margin-bottom:2rem;">
+    <div class="col-10 offset-1">
       <%= f.label :camp_site, "キャンプ場" %>
-    </div>
-    <div class="col-3">
-      <%= f.text_field :camp_site %>
+      <%= f.text_field :camp_site, class: "form_field" %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-3">
+  <div class="row field" style="margin-bottom:2rem;">
+    <div class="col-10 offset-1">
       <%= f.label :title, "タイトル" %>
-    </div>
-    <div class="col-3">
-      <%= f.text_field :title %>
+      <%= f.text_field :title,class: "form_field" %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-3">
+  <div class="row field" style="margin-bottom:1rem;">
+    <div class="col-10 offset-1">
       <%= f.label :post, "投稿" %>
-    </div>
-    <div class="col-3">
-      <%= f.text_field :post %>
+      <%= f.text_field :post,class: "post_text" %>
     </div>
   </div>
 
-　<div class="row">
-　  <div class="col-3">
-　    <%= f.label :post_images, "画像" %>
-　  </div>
-　  <div class="col-3">
-　    <%= f.file_field :post_images, accept: "image/*", multiple: true, class: "form-control-file image" %>
-　  </div>
-　</div>
+  <div class="row field" style="margin-bottom:2rem;">
+    <div class="col-10 offset-1">
+      <%= f.label :post_images, "画像" %>
+      <%= f.file_field :post_images, accept: "image/*", multiple: true, class: "form-control-file image form_field" %>
+    </div>
+  </div>
 
-　<div class="row">
-    <div class="col-3">
+  <div class="row field" style="margin-bottom:2rem;">
+    <div class="col-10 offset-1">
       <%= f.label :tag, "タグ" %>
-    </div>
-    <div class="col-3">
       <!--postのカラムではないためf.を外す-->
-      <%= text_field_tag :tag, @post.tags.pluck(:name) %>
+      <%= text_field_tag :tag, @post.tags.pluck(:name),class: "form_field" %>
+      <%#= hidden_field_tag :tag, @post.tags  %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-3">
-      <%= f.submit "投稿" %>
+  <div class="row button" style="margin-bottom:2rem;">
+    <div class="col-8 offset-1">
+      <%= f.submit "編集", class: "btn btn-outline-primary" %>
     </div>
   </div>
-
   <% end %>
 </div>
 

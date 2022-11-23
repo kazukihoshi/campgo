@@ -64,7 +64,7 @@ Rails.application.routes.draw do
       delete 'checklists/destroy_all' => 'checklists#destroy_all'
     end
     delete 'categories/destroy_all' => 'categories#destroy_all'
-    resources :camps, only: [:index, :show]
+    resources :camps, only: [:index, :show, :destroy]
     get 'camps/search' => 'camps#search'
     get '/' => 'homes#top'
   end

@@ -15,7 +15,7 @@ class Public::PostsController < ApplicationController
       #
       @post.save_tags(params[:tag])
       flash[:notice] = "投稿に成功しました。"
-      redirect_to posts_path
+      redirect_to post_path(@post.id)
       #byebug
     else
       render :new

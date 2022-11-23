@@ -20,7 +20,7 @@
     </div>
     <div class="col-4">
       <div class="form-group mr-5 mt-5">
-      　　<%= f.submit '追加' %>
+      　　<%= f.submit '追加',class: "btn btn-outline-primary" %>
       </div>
     </div>
   </div>
@@ -31,7 +31,9 @@
     <thead>
       <tr>
         <th>チェックリスト一覧</th>
-        <th><%= f.submit '削除', data: {confirm: "本当に削除してもよろしいですか?"}, class: 'btn btn-sussce' %></th>
+        <th></th>
+        <th></th>
+        <th><%= f.submit '削除', data: {confirm: "本当に削除してもよろしいですか?"}, class: 'btn btn-outline-danger' %></th>
       </tr>
     </thead>
     <% @checklists.each do |checklist| %>
@@ -40,7 +42,7 @@
         <th><%= check_box "deletes", checklist.id %></th>
         <th><%= checklist.checklist_name %></th>
         <td><%= checklist.comment %></td>
-        <td><%= link_to "編集", edit_admin_category_checklist_path(@category,checklist.id), class: "btn btn-sussce" %></td>
+        <td><%= link_to "編集", edit_admin_category_checklist_path(@category,checklist.id), class: "btn btn-outline-secondary" %></td>
       </tr>
     </tbody>
     <% end %>

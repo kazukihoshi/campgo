@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="text-success">
+    <div class="col-8 offset-1 text-success">
       <% if flash[:notice] %>
          <p id="notice text-success">
            <%= flash[:notice] %>
@@ -8,10 +8,12 @@
       <% end %>
     </div>
   </div>
+</div>
 
 
+<div class="container">
   <div class="row">
-    <div class="col-10">
+    <div class="col-10 offset-1">
       <h2 class="title">キャンプ編集</h2>
     </div>
   </div>
@@ -32,39 +34,44 @@
   </div>
 
   <%= form_with model: @camp, url: camp_path(@camp.id), local: true, method: :PATCH do |f| %>
-  <div class="row field">
-    <div class="col-8">
-      <%= f.label :schedule, "日程" %><br>
-      <%= f.date_field :schedule %>
+    <div class="row field">
+      <div class="col-8 offset-1">
+        <%= f.label :schedule, "日程" %><br>
+        <%= f.date_field :schedule %>
+      </div>
     </div>
-  </div>
 
-  <div class="row field">
-    <div class="col-8">
-      <%= f.label :camp_site, "キャンプ場" %>
-      <%= f.text_field :camp_site,class: "form_field" %>
+    <div class="row field">
+      <div class="col-8 offset-1">
+        <%= f.label :camp_site, "キャンプ場" %>
+        <%= f.text_field :camp_site,class: "form_field" %>
+      </div>
     </div>
-  </div>
 
-  <div class="row field">
-    <div class="col-8">
-      <%= f.label :number_of_people, "人数" %><br>
-      <%= f.select :number_of_people, *[1..10] %>
+    <div class="row field">
+      <div class="col-8 offset-1">
+        <%= f.label :number_of_people, "人数" %><br>
+        <%= f.select :number_of_people, *[1..10] %>
+      </div>
     </div>
-  </div>
 
-  <div class="row button" style="margin-top:30px;">
-    <div class="col-8">
-      <%= f.submit "更新", class: "btn btn-outline-success" %>
+    <div class="row button" style="margin-top:30px;">
+      <div class="col-8 offset-1">
+        <%= f.submit "更新", class: "btn btn-outline-success" %>
+      </div>
     </div>
-  </div>
 
   <% end %>
 
-  <%= render 'public/camps/checklist', checklists: @checklists, camp: @camp, active_checklist_ids: @active_checklist_ids %>
+  <div class="row">
+    <div class="col-10 offset-1">
+      <%= render 'public/camps/checklist', checklists: @checklists, camp: @camp, active_checklist_ids: @active_checklist_ids %>
+    </div>
+  </div>
+
   <!--camp: @campを追加-->
   <div class="row">
-    <div class="col-10">
+    <div class="col-10 offset-1">
       <%= render 'public/checklists/list', checklist: @checklist, camp: @camp %>
     </div>
   </div>

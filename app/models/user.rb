@@ -18,7 +18,7 @@ class User < ApplicationRecord
   validates :email, presence: true
   # validates :number_of_people, presence: true
 
-  validates :profile_image, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'] }
+  # validates :profile_image, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'] }
 
   def get_profile_image
     unless profile_image.attached?

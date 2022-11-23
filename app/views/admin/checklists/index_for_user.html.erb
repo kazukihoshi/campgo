@@ -12,7 +12,9 @@
           <tr>
             <th>アイテム名</th>
             <th>コメント</th>
-            <th colspan="3"></th>
+            <th>
+              <%= link_to '戻る', admin_users_path, class: "btn btn-outline-secondary" %>
+            </th>
           </tr>
         </thead>
         <% @checklists.each do |checklist| %>

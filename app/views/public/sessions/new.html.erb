@@ -7,6 +7,7 @@
 
 
   <%= form_with model: @user, url: new_user_session_path do |f| %>
+    <%= render "public/shared/error_messages", resource: resource %>
     <div class="row login-form">
       <div class="col-12" style="text-align:center;" >
         <div class="field">

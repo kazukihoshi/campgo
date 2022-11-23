@@ -10,8 +10,8 @@
       <table class="table">
         <thead>
           <tr>
-            <th>名前</th>
             <th>キャンプID</th>
+            <th>名前</th>
             <th>作成日</th>
           </tr>
         </thead>
@@ -20,11 +20,11 @@
           <tr>
             <td>
               <%= link_to admin_camp_path(camp) do %>
-                <%= camp.user.name %>
+                <%= camp.id %>
               <% end %>
             </td>
             <td>
-              <%= camp.id %>
+              <%= camp.user.name %>
             </td>
             <td>
               <%= l camp.created_at %>
