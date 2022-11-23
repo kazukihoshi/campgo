@@ -45,12 +45,13 @@
 
     <div class="row">
       <!--each文で複数のものの中から1つずつ取得する-->
-      <% @post.tags.each do |tag|%>
-        <div class="col-10 offset-1 post_content">
+      <div class="col-10 offset-1 post_content">
+        タグ:
+        <% @post.tags.each do |tag|%>
           <%= tag.name %>
-          <%= link_to "削除", admin_post_tag_path(@post.id, tag.id), method: :delete,"data-confirm"=>"本当に消しますか？", class: "btn-sm btn-danger" %>
-        </div>
-      <% end %>
+          <%= link_to "削除", admin_post_tag_path(@post.id, tag.id), method: :delete,"data-confirm"=>"本当に消しますか？", class: "btn btn-outline-danger" %>
+        <% end %>
+      </div>
     </div>
 
     <%= render 'admin/comments/comment_show', comments: @comments, post: @post %>

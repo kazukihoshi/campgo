@@ -22,7 +22,7 @@
             <tr>
               <td><%= checklist.checklist_name %></td>
               <td><%= checklist.comment %></td>
-              <td><%= link_to '削除', admin_user_checklists_destroy_path(@user.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"} %></td>
+              <td><%= link_to '削除', admin_user_checklists_destroy_path(@user.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"},class: "btn btn-outline-danger" %></td>
             </tr>
           </tbody>
         <% end %>
