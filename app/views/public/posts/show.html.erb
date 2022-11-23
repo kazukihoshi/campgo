@@ -43,15 +43,6 @@
       <% end %>
     </div>
   </div>
-  <div class="row">
-    <div class="button col-8 offset-1 post_content">
-      <% if user_signed_in? && current_user.id == @post.user_id %>
-        <%= link_to '編集', edit_post_path(@post.id),  class: "btn btn-outline-primary" %>
-        <%= link_to '削除', post_path(@post.id), method: :delete, "data-confirm"=>"本当に消しますか？", class: "btn btn-outline-danger"%>
-      <% end %>
-      <%= link_to '一覧へ', posts_path, class: "btn btn-outline-secondary"%>
-    </div>
-  </div>
 
   <div class="row">
     <div class="col-8 offset-1 post_content">
@@ -68,7 +59,7 @@
     <% @comments.each do |comment| %>
       <div class="col-8 offset-1 post_comment">
         <span><i class="fas fa-user"></i> By <%= comment.user.name %> </span>
-        <%= comment.comment %>
+        <span class="comment" style="margin-left:1rem;"><%= comment.comment %></span>
           <% if comment.user == current_user %>
             <span class="text-right">
               <%= link_to post_comment_path(@post.id, comment.id), method: :delete,"data-confirm"=>"本当に消しますか？" do %>
@@ -78,6 +69,16 @@
           <% end %>
       </div>
     <% end %>
+  </div>
+
+　<div class="row">
+    <div class="button col-8 offset-1 post_content">
+      <% if user_signed_in? && current_user.id == @post.user_id %>
+        <%= link_to '編集', edit_post_path(@post.id),  class: "btn btn-outline-primary" %>
+        <%= link_to '削除', post_path(@post.id), method: :delete, "data-confirm"=>"本当に消しますか？", class: "btn btn-outline-danger"%>
+      <% end %>
+      <%= link_to '一覧へ', posts_path, class: "btn btn-outline-secondary"%>
+    </div>
   </div>
 
   <%# if @post.favorited?(current_user) %>

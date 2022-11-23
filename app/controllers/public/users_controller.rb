@@ -21,7 +21,7 @@ class Public::UsersController < ApplicationController
 
   def show
      @user = current_user
-     @posts = current_user.posts.all
+     @posts = current_user.posts.all.order(created_at: :desc).page(params[:page]).per(9)
   end
 
   def unsubscribe

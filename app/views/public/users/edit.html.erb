@@ -21,7 +21,7 @@
   </div>
 
   <%= form_with model: @user, url: user_path(@user), local: true, method: :PATCH do |f| %>
-  <div class="form-group row my-3" style="margin-bottom:2rem;">
+  <div class="form-group row my-3">
     <div class="col-10 offset-1">
       <%= f.label :name, "名前" %>
       <%= f.text_field :name, class: "form-control" %>
@@ -29,28 +29,28 @@
   </div>
 
 
-  <div class="form-group row my-3" style="margin-bottom:2rem;">
+  <div class="form-group row my-3">
     <div class="col-10 offset-1">
       <%= f.label :email, "メールアドレス"%>
       <%= f.text_field :email, class: "form-control" %>
     </div>
   </div>
 
-  <div class="form-group row my-3" style="margin-bottom:2rem;">
+  <div class="form-group row my-3">
     <div class="col-10 offset-1">
       <%= f.label :password, "パスワード" %>
       <%= f.password_field :password, class: "form-control" %>
     </div>
   </div>
 
-  <div class="form-group row my-3" style="margin-bottom:2rem;">
+  <div class="form-group row my-3">
     <div class="col-10 offset-1">
       <%= f.label :password_confirmation, "パスワード確認" %>
       <%= f.password_field :password_confirmation,class: "form-control" %>
     </div>
   </div>
 
-  <div class="form-group row my-3" style="margin-bottom:2rem;">
+  <div class="form-group row my-3">
     <div class="col-10 offset-1">
       <%= f.label :profile_image, "プロフィール画像" %>
       <%= f.file_field :profile_image, accept: "image/*",class: "form-control-file image form_field" %>
