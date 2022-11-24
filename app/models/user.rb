@@ -15,10 +15,10 @@ class User < ApplicationRecord
   has_one_attached :background_image
 
   validates :name, presence: true
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: true
   # validates :number_of_people, presence: true
 
-  # validates :profile_image, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'] }
+  validates :profile_image, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'] }
 
   def get_profile_image
     unless profile_image.attached?

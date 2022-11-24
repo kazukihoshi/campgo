@@ -1,15 +1,20 @@
 <div class="container">
   <div class="row">
-    <div class="col-4 offset-1">
+    <div class="col-10 offset-1">
       <h2 class="title">ログイン</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-10 offset-1">
+      <%= render "public/shared/error_messages", resource: resource %>
     </div>
   </div>
 
 
   <%= form_with model: @user, url: new_user_session_path do |f| %>
-    <%= render "public/shared/error_messages", resource: resource %>
     <div class="row login-form">
-      <div class="col-12" style="text-align:center;" >
+      <div class="col-10 offset-1">
         <div class="field">
           <%= f.label :email%><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "40x20"%>
@@ -19,9 +24,6 @@
           <%= f.label :password %><br />
           <%= f.password_field :password, autocomplete: "current-password", size: "40x20" %>
         </div>
-
-
-
       <!--<%# if devise_mapping.rememberable? %>-->
       <!--  <div class="field">-->
       <!--    <#= f.check_box :remember_me %>-->
@@ -33,8 +35,6 @@
           <%= f.submit "Log in" ,class: "btn btn-outline-primary"%>
         </div>
       </div>
-
-
     </div>
   <% end %>
 

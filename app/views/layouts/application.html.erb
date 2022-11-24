@@ -74,9 +74,18 @@
       </nav>
     </header>
     <main>
+      <div class="container">
+        <div class="row">
+          <div class="col-10 offset-1">
+            <!--<p class="notice"><%#= notice %></p>-->
+            <p class="alert"><%= alert %></p>
+          </div>
+        </div>
+      </div>
+
       <%= yield %>
     </main>
-    
+
     <footer></footer>
 
   </body>
