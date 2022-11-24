@@ -16,6 +16,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
+  #validates :password_confirmation, presence: true
   # validates :number_of_people, presence: true
 
   validates :profile_image, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'] }

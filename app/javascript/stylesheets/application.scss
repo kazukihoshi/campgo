@@ -155,7 +155,7 @@ body {
 .field_with_errors {
   padding: 2px;
   background-color: #f2dede;
-  display: table;
+  display: inline;
 }
 
 .text-success {
@@ -172,3 +172,7 @@ body {
 //   height: 5px;
 //   wdith: 5px;
 // }
+
+label {
+  margin-bottom: 0;
+}
