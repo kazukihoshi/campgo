@@ -46,6 +46,21 @@
 
   <div class="row">
     <div class="col-8 offset-1 post_content">
+      <!--<%# if @post.errors.any? %>-->
+      <!--  <div id="error_explanation">-->
+      <!--    <h3><%#= @comment.errors.count %>エラーが発生しました</h3>-->
+      <!--      <ul>-->
+      <!--        <%# @comment.errors.full_messages.each do |message| %>-->
+      <!--          <li><%#= message %></li>-->
+      <!--        <%# end %>-->
+      <!--      </ul>-->
+      <!--  </div>-->
+      <!--<%# end %>-->
+      <!--<p class="danger danger-primary">-->
+      <p class="danger" style="color:#a94442;">
+        <%= flash[:danger] %>
+      </p>
+
       <% if user_signed_in? %>
         <%= form_with model: [@post, @comment], url: post_comments_path(@post), local: true, method: :POST do |f| %>
           <%= f.text_area :comment, placeholder: "コメントする", style: "width:100%;" %>

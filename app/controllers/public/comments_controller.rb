@@ -9,9 +9,9 @@ class Public::CommentsController < ApplicationController
     if comment.save
       redirect_to post_path(post.id)
       #request.referer, notice: "投稿しました" #遷移前のURLの取得
-    #else
-      #flash[:danger] = "投稿に失敗しました"
-      #redirect_back(fallback_location: root_path)
+    else
+      flash[:danger] = "コメントに失敗しました"
+      redirect_back(fallback_location: root_path)
     end
   end
 
