@@ -9,8 +9,12 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
 
-  devise_scope :users do
-    post 'users/guest_sign_in', to: 'public/sessions#new_guest'
+  # devise_scope :users do
+  #   post 'users/guest_sign_in', to: 'public/sessions#new_guest'
+  # end
+  
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'public/sessions#guest_sign_in'
   end
 
 
