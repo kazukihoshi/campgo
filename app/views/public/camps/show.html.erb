@@ -14,7 +14,7 @@
         <h2 class="title">キャンプの予定</h2>
     </div>
   </div>
- 
+
 
   <div class="row">
     <div class="col-4 offset-1">
@@ -33,11 +33,8 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-10 ">
-      <%= render 'public/checklists/camp_for_index', checklists: @checklists %>
-    </div>
-  </div>
+
+  <%= render 'public/checklists/camp_for_index', checklists: @checklists %>
 
 
 </div>
@@ -46,7 +43,6 @@
   <div class="row">
     <div class="col-4 offset-1">
       <%= link_to "編集する", edit_camp_path(@camp.id), class: "btn btn-outline-primary" %>
-      <%= link_to "チェックリストへ", user_my_checklist_index_path(@user.id), class: "btn btn-outline-primary" %>
     </div>
   </div>
 </div>

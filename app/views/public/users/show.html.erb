@@ -35,12 +35,9 @@
   <div class="row">
     <div class="col-12 d-flex justify-content-around", style="margin-top:2rem;">
       <%= link_to "記事投稿", new_post_path, class: "btn btn-outline-secondary" %>
-
-      <%#= link_to "いいね一覧", favorites_path %>
-
       <%= link_to "マイページ編集", edit_user_path(@user.id),class: "btn btn-outline-secondary" %>
-
       <%= link_to "マイキャンプ", camps_path,class: "btn btn-outline-secondary" %>
+      <%= link_to "チェックリストへ", user_my_checklist_index_path(@user.id), class: "btn btn-outline-secondary" %>
     </div>
   </div>
 </div>
