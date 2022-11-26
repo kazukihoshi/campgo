@@ -5,11 +5,11 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-8 offset-sm-1 post_content">
+    <div class="col-sm-10 offset-sm-1 post_content">
       <% if @post.post_images.attached? %>
 
         <% @post.post_images.each_slice(3) do |post_images| %>
-          <div class="row">
+          <div class="row" style="margin-bottom:1rem;">
 
           <!--<div style="height:180, width:130">-->
             <!--<div class="col-4 item-image", style="height:150px;width:100%;">-->
@@ -30,12 +30,12 @@
   </div>
 
   <div class="row">
-    <div class="col-8 offset-1 post_content">
+    <div class="col-10 offset-1 post_content">
       <%= @post.post %>
     </div>
   </div>
   <div class="row" >
-    <div class="col-8 offset-1 post_content">
+    <div class="col-10 offset-1 post_content">
     タグ:
     <!--each文で複数のものの中から1つずつ取得する-->
       <% @post.tags.pluck(:name).each do |tag_name|%>
@@ -45,7 +45,7 @@
   </div>
 
   <div class="row">
-    <div class="col-8 offset-1 post_content">
+    <div class="col-10 offset-1 post_content">
       <!--<%# if @post.errors.any? %>-->
       <!--  <div id="error_explanation">-->
       <!--    <h3><%#= @comment.errors.count %>エラーが発生しました</h3>-->

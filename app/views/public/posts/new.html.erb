@@ -28,47 +28,39 @@
   <%= form_with model: @post, url: posts_path, local: true, method: :POST do |f| %>
   <div class="row form-group my-3">
     <div class="col-10 offset-1">
-      <%= f.label :camp_site, "キャンプ場" %><br>
+      <div class="field">
+        <%= f.label :camp_site, "キャンプ場" %><br>
       <%= f.text_field :camp_site, class: "post_form"%>
+      </div>
+
+      <div class="field">
+        <%= f.label :title, "タイトル" %><br>
+        <%= f.text_field :title, class: "post_form" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :post, "投稿" %><br>
+        <%= f.text_area :post, class: "post_area"%>
+      </div>
+
+      <div class="field">
+        <%= f.label :post_images, "画像" %><br>
+        <%= f.file_field :post_images, accept: "image/*", multiple: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :tag, "タグ" %><br>
+        <!--postのカラムではないためf.を外す-->
+        <%= text_field_tag :tag, @post.tags.pluck(:name), placeholder: "半角区切りで記載してください", class: "post_form" %>
+        <%#= hidden_field_tag :tag, @post.tags  %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "投稿", class: "btn btn-outline-primary" %>
+      </div>
+
     </div>
   </div>
-
-  <div class="row form-group my-3">
-    <div class="col-10 offset-1">
-      <%= f.label :title, "タイトル" %><br>
-      <%= f.text_field :title, class: "post_form" %>
-    </div>
-  </div>
-
-  <div class="row form-group my-3">
-    <div class="col-10 offset-1">
-      <%= f.label :post, "投稿" %><br>
-      <%= f.text_area :post, class: "post_area"%>
-    </div>
-  </div>
-
-  <div class="row form-group my-3">
-    <div class="col-10 offset-1">
-      <%= f.label :post_images, "画像" %><br>
-      <%= f.file_field :post_images, accept: "image/*", multiple: true %>
-    </div>
-  </div>
-
-  <div class="row form-group my-3">
-    <div class="col-10 offset-1">
-      <%= f.label :tag, "タグ" %><br>
-      <!--postのカラムではないためf.を外す-->
-      <%= text_field_tag :tag, @post.tags.pluck(:name), class: "post_form" %>
-      <%#= hidden_field_tag :tag, @post.tags  %>
-    </div>
-  </div>
-
-  <div class="row button" style="margin-bottom:2rem;">
-    <div class="col-8 offset-1">
-      <%= f.submit "投稿", class: "btn btn-outline-primary" %>
-    </div>
-  </div>
-
   <% end %>
 </div>
 
