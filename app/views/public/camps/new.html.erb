@@ -25,14 +25,14 @@
   <div class="row form-group my-3">
     <div class="col-3 offset-1">
       <%= f.label :schedule, "日程" %><br>
-      <%= f.date_field :schedule,class: "form-control-file form-control" %>
+      <%= f.date_field :schedule,class: "post_form" %>
     </div>
   </div>
 
   <div class="row form-group my-3">
     <div class="col-8 offset-1">
       <%= f.label :camp_site, "キャンプ場" %>
-      <%= f.text_field :camp_site,class: "form-control" %>
+      <%= f.text_field :camp_site,class: "post_form" %>
     </div>
   </div>
 
@@ -43,8 +43,8 @@
     </div>
   </div>
 
-  <div class="row button" style = "margin-top: 30px">
-    <div class="col-8 offset-1">
+  <div class="row button">
+    <div class="col-8 offset-1" style = "margin-bottom: 1rem">
       <%= f.submit "チェックリスト作成", class: "btn btn-outline-primary" %>
     </div>
   </div>
