@@ -11,7 +11,7 @@
 
   <!--エラーメッセージ-->
   <div class="row">
-    <div class="col-4 offset-1">
+    <div class="col-10 offset-1">
       <% if @post.errors.any? %>
         <div id="error_explanation">
           <h3><%= @post.errors.count %>件のエラーが発生しました</h3>
@@ -30,7 +30,7 @@
     <div class="col-10 offset-1">
       <div class="field">
         <%= f.label :camp_site, "キャンプ場" %><br>
-      <%= f.text_field :camp_site, class: "post_form"%>
+        <%= f.text_field :camp_site, class: "post_form"%>
       </div>
 
       <div class="field">
@@ -39,8 +39,10 @@
       </div>
 
       <div class="field">
-        <%= f.label :post, "投稿" %><br>
+        <%= f.label :post, "投稿" %>
+        <div class="post_area_wrapper">
         <%= f.text_area :post, class: "post_area"%>
+        </div>
       </div>
 
       <div class="field">

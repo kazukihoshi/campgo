@@ -38,7 +38,7 @@
                   <%= image_tag post.user.get_profile_image, style: "border-radius: 50%; width: 100px; height: 100px; object-fit:cover;",class:"mt-3 rounded-circle"; %>
                 </div>
               </div>
-              <div class="col-8">
+              <div class="col-8" style= "text-align:center;">
                 <div class="card-title">
                   <%= link_to(post_path(post.id), class:"text-dark") do %>
                     <strong><i class="far fa-flag"></i><span> <%= post.title %></span></strong>
