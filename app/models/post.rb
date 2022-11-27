@@ -16,7 +16,7 @@ class Post < ApplicationRecord
     #validates :tag, presence: true
 
     def save_tags(tags)
-        tag_list = tags.split(/[[:blank:]]+/) #配列を分割する
+        tag_list = tags.split(/[[:blank:]]+/) #配列を分割する(',')
         current_tags =self.tags.pluck(:name) unless self.tags.nil?
         old_tags = current_tags - tag_list
         new_tags = tag_list - current_tags

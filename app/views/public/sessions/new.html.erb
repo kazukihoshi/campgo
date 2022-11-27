@@ -10,6 +10,15 @@
   <!--    <%#= render "public/shared/error_messages", resource: resource %>-->
   <!--  </div>-->
   <!--</div>-->
+  <div class="row">
+    <div class="col-10 offset-1 withdrawn">
+      <% if flash[:danger] %>
+         <p id="notice withdrawn">
+           <%= flash[:danger] %>
+         </p>
+      <% end %>
+    </div>
+  </div>
 
   <% if alert.present? %>
     <div class="row">

@@ -16,10 +16,8 @@
   </div>
 
   <div class="row">
-    <div class="col-2 offset-4">
+    <div class="col text-center">
       <%= link_to "退会しない", user_path(@user), class: "btn btn-outline-primary" %>
-    </div>
-    <div class="col">
       <%= link_to "退会する", users_withdraw_path, method: :PATCH, "data-confirm" => "本当に退会しますか?", class: "btn btn-outline-danger" %>
     </div>
   </div>
