@@ -51,7 +51,7 @@
       <div class="field">
         <%= f.label :tag, "タグ" %><br>
         <!--postのカラムではないためf.を外す-->
-        <%= text_field_tag :tag, @post.tags.pluck(:name), placeholder: "半角区切りで記載してください", class: "post_form" %>
+        <%= text_field_tag :tag, @post.tags.pluck(:name), placeholder: "スペースで区切ることで複数登録できます", class: "post_form" %>
         <%#= hidden_field_tag :tag, @post.tags  %>
       </div>
 
