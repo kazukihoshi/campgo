@@ -72,7 +72,7 @@
 
   <div class="row post_content">
     <% @comments.each do |comment| %>
-      <div class="col-8 offset-1 post_comment">
+      <div class="col-10 offset-1 post_comment">
         <span><i class="fas fa-user"></i> By <%= comment.user.name %> </span>
         <span class="comment" style="margin-left:1rem;"><%= comment.comment %></span>
           <% if comment.user == current_user %>
