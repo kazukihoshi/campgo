@@ -7,7 +7,7 @@
 
   <%= form_with model: @admin, url: new_admin_session_path do |f| %>
     <div class="row login-form">
-      <div class="col-12" style="text-align:center;" >
+      <div class="col-10 offset-1">
         <div class="field">
           <%= f.label :email%><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "40x20"%>
