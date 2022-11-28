@@ -7,26 +7,19 @@
 
   <div class="row">
     <div class="col-10 offset-1">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>アイテム名</th>
-            <th>コメント</th>
-            <th>
-              <%= link_to '戻る', admin_users_path, class: "btn btn-outline-secondary" %>
-            </th>
-          </tr>
-        </thead>
+      <!--<ul class="item_list">-->
         <% @checklists.each do |checklist| %>
-          <tbody>
-            <tr>
-              <td><%= checklist.checklist_name %></td>
-              <td><%= checklist.comment %></td>
-              <td><%= link_to '削除', admin_user_checklists_destroy_path(@user.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"},class: "btn btn-outline-danger" %></td>
-            </tr>
-          </tbody>
+          <li class="item_name">
+            <a><%= checklist.checklist_name %></a>
+            <span class="delete_link" style="float: right;">
+              <%= link_to "削除",user_checklist_path(@user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"},class: "btn btn-outline-danger" %>
+            </span>
+          </li>
+          <li class="item_comment">
+            <%= checklist.comment %>
+          </li>
         <% end %>
-      </table>
+      <!--</ul>-->
     </div>
   </div>
 </div>

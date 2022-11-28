@@ -42,7 +42,7 @@ class Public::ChecklistsController < ApplicationController
     #byebug
     if @checklist.save
       Checklist.all.each do |checklist|
-        ChecklistManage.create(camp_id: @camp.id, user_id: current_user.id, checklist_id: @checklist.id,)
+        ChecklistManage.create(camp_id: @camp.id, user_id: current_user.id, checklist_id: @checklist.id)
         flash[:notice] = "アイテムを作成しました"
       end
        redirect_back(fallback_location: root_path)
@@ -90,14 +90,15 @@ class Public::ChecklistsController < ApplicationController
 
 
   def edit
+    # byebug
     # @camp = Camp.find(params[:camp_id])
     # @checklist = @camp.checklists.new
     # @checklists = @camp.checklists
-    # @active_checklist_ids = @camp.checklist_manages.where(is_active: true).pluck('checklist_id').uniq #[2,3,6,9]
-　　@user = current_user
-　　@checklists = Checklist.all
-　　@checklist = @user.checklists
-
+    @user = current_user
+    # @checklist = Checklist.where(user_id: current_user.id, id: checklist.id)
+    @checklist = Checklist.find(params[:id])
+    @checklist.user_id = current_user.id
+    # @checklist = Checklist.find(params[:id])
   end
 
 
@@ -105,6 +106,14 @@ class Public::ChecklistsController < ApplicationController
     #@checklists = Checklist.where(id: checklist_ids)
 
   def update
+    checklist = Checklist.find(params[:id])
+    user = current_user
+    if checklist.update(checklist_params)
+      flash[:notice] = "更新しました"
+      redirect_to user_my_checklist_index_path(user.id)
+    else
+      render :edit
+    end
 
   end
 

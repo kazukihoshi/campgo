@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-4 offset-1">
+    <div class="col-10 offset-1">
       <h2 class="title">会員一覧</h2>
     </div>
   </div>
@@ -12,8 +12,6 @@
           <tr>
             <th>会員ID</th>
             <th>会員氏名</th>
-            <th>メールアドレス</th>
-            <th></th>
             <th>ステータス</th>
           </tr>
         </thead>
@@ -27,14 +25,6 @@
             </td>
             <td>
               <%= user.name %>
-            </td>
-            <td>
-              <%= user.email %>
-            </td>
-            <td>
-              <%= link_to admin_user_index_for_user_path(user) do %>
-                チェックリスト
-              <% end %>
             </td>
             <td>
               <% if user.is_delete == false %>

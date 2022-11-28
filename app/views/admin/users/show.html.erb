@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-4 offset-1">
+    <div class="col-10 offset-1">
       <h2 class="title">会員詳細</h2>
     </div>
   </div>
@@ -24,6 +24,14 @@
           <tr>
             <th>パスワード</th>
             <td><%= @user.password %></td>
+          </tr>
+          <tr>
+            <th>チェックリスト</th>
+            <td>
+              <%= link_to admin_user_index_for_user_path(@user) do %>
+                チェックリスト
+              <% end %>
+            </td>
           </tr>
           <tr>
             <th>ステータス</th>
