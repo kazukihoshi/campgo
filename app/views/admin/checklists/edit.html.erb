@@ -1,20 +1,28 @@
 <div class="container">
-   <%= form_with model: @checklist, url: admin_category_checklist_path(@category.id, @checklist), local: true, method: :PATCH do |f| %>
-    <div class="row">
-      <div class="col-4">
-        <div class="form-group mr-5 mt-5">
-          <%= f.text_field :checklist_name,placeholder: "アイテム名", class: "form-control" %>
-        </div>
-      </div>
+  <div class="row">
+    <div class="col-10 offset-1">
+      <h2 class="title">チェックリスト編集</h2>
+    </div>
+  </div>
 
-      <div class="col-4">
-        <div class="form-group mr-5 mt-5">
-          <%= f.text_field :comment, placeholder: "コメント", class: "form-control" %>
+  <%= form_with model: @checklist, url: admin_category_checklist_path(@category.id, @checklist), local: true, method: :PATCH do |f| %>
+   　<div class="row form-group mr-5 mt-5">
+      <div class="col-10 offset-1">
+        <div class="field">
+          <%= f.text_field :checklist_name,placeholder: "アイテム名", class: "post_form" %>
         </div>
-      </div>
-      <div class="col-4">
-        <div class="form-group mr-5 mt-5">
-        　　<%= f.submit '更新' %>
+      <!--</div>-->
+
+      <!--<div class="col-5">-->
+        <div class="field">
+          <div class="post_area_wrapper">
+            <%= f.text_area :comment, placeholder: "コメント", class: "post_area" %>
+          </div>
+        </div>
+      <!--</div>-->
+      <!--<div class="col-2">-->
+        <div class="actions" style="margin-left:-1rem;">
+        　<%= f.submit '更新',class: "btn btn-outline-primary" %>
         </div>
       </div>
     </div>
