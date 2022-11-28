@@ -13,49 +13,38 @@
   </div>
 </div>
 
-<div class="row" style="margin-bottom:2rem;">
+<!--<div class="row" style="margin-bottom:2rem;">-->
   <%= form_with model: checklist, url: camp_checklists_path(camp), local: true, method: :POST do |f| %>
 
   <!--@checklist ⇨ checklistに変更、@camp⇨camp-->
-        <div class="row">
-          <div class="col-3">
-            <div class="form-group mr-5 mt-5">
-              <%= f.text_field :checklist_name,placeholder: "アイテム名", class: "form-control" %>
+        <div class="row form-group">
+          <div class="col">
+            <div class="field">
+              <%= f.label :checklist_name, "アイテム名" %><br>
+              <%= f.text_field :checklist_name,placeholder: "アイテム名", class: "post_form" %>
             </div>
-          </div>
 
-          <div class="col-4">
-            <div class="form-group mr-5 mt-5">
-              <%= f.text_field :comment, placeholder: "コメント", class: "form-control" %>
+            <div class="field">
+              <%= f.label :comment, "コメント" %><br>
+              <div class="post_area_wrapper">
+                <%= f.text_area :comment, placeholder: "コメント", class: "post_area" %>
+              </div>
             </div>
-          </div>
 
-          <%= f.fields_for :checklist_manages do |cm| %>
-            <%= cm.hidden_field :camp_id, value: camp.id %>
-            <%= cm.hidden_field :user_id, value: current_user.id %>
-          <% end %>
 
-          <div class="col-2">
-            <div class="form-group  mr-5 mt-5">
+            <%= f.fields_for :checklist_manages do |cm| %>
+              <%= cm.hidden_field :camp_id, value: camp.id %>
+              <%= cm.hidden_field :user_id, value: current_user.id %>
+            <% end %>
+
+            <div class="field">
                <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :category_name) %>
              </div>
-          </div>
 
-          <%#= f.collection_check_boxes(:category_id, Category.all, :id, :category_name, include_hidden: false) do |category| %>
-
-              <!--<div class='form-group'>
-                  <%#= category.label class: 'form-check-label' do %>
-                      <%#= category.check_box class: 'form-check-input' %>
-                      <%#= category.text %>
-                  <%# end %>
-              </div>-->
-          <%# end %>
-
-          <div class="col-1">
-            <div class="form-group mr-5 mt-5">
-                <%= f.submit '追加',class: "btn btn-outline-primary" %>
+            <div class="actions">
+              <%= f.submit '追加',class: "btn btn-outline-primary" %>
             </div>
           </div>
         </div>
   <% end %>
-</div>
+<!--</div>-->

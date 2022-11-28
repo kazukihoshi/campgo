@@ -208,3 +208,58 @@ label {
 input[type="checkbox"] {
   transform: scale(1.5);
 }
+
+// マイキャンプ一覧のtableのデザイン
+// table {
+//   border-collapse: collapse;
+// }
+
+// table td, table th {
+//   display: block;
+//   padding: 10px;
+// }
+
+// table th {
+//   background-color: #eee;
+// }
+
+// table thead {
+//   display: block;
+//   float: left;
+//   width: 30%;
+// }
+// table tbody {
+//   display: block;
+//   float: left;
+//   width: 70%;
+// }
+
+@media only screen and (max-width: 524px) {
+  table {
+    width: 100%;
+  }
+  table tr {
+    display: block;
+    float: left;
+  }
+  table tr td, table tr th {
+    display: block;
+    height: 40px;
+  }
+  table thead {
+    display: block;
+    float: left;
+    width: 30%;
+  }
+  table thead tr {
+    width: 100%;
+  }
+  table tbody {
+    display: block;
+    float: left;
+    width: 70%;
+  }
+  table tbody tr {
+    width: 30%;
+  }
+}
