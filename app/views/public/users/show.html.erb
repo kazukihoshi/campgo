@@ -25,19 +25,22 @@
       <%= image_tag @user.get_profile_image, style: "border-radius: 50%; width: 200px; height: 200px; object-fit:cover;" %>
     </div>
   </div>
-
   <div class="row">
     <div class="col-12 text-center" style="font-size:25px;">
       <%= @user.name %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-12 d-flex justify-content-around", style="margin-top:2rem;">
-      <%= link_to "記事投稿", new_post_path, class: "btn btn-outline-secondary" %>
-      <%= link_to "マイページ編集", edit_user_path(@user.id),class: "btn btn-outline-secondary" %>
+  <div class="row link_button">
+    <div class="col-12 text-center", style="margin-top:2rem;">
+      <%= link_to "編集", edit_user_path(@user.id),class: "btn btn-outline-secondary" %>
+      <%= link_to "投稿", new_post_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+  <div class="row link_button">
+    <div class="col-12 text-center">
       <%= link_to "マイキャンプ", camps_path,class: "btn btn-outline-secondary" %>
-      <%= link_to "チェックリストへ", user_my_checklist_index_path(@user.id), class: "btn btn-outline-secondary" %>
+      <%= link_to "チェックリスト", user_my_checklist_index_path(@user.id), class: "btn btn-outline-secondary" %>
     </div>
   </div>
 </div>
@@ -46,7 +49,7 @@
   <div class="card-list-container py-5">
     <div class="row">
       <% @posts.each do |post| %>
-        <div class="col-4">
+        <div class="col-lg-4 col-md-6 col-sm-8">
           <div class="card d-inline-block mt-4 shadow-lg" style="width:100%;">
             <%= link_to post_path(post.id) do %>
               <% if post.post_images.attached? %>
@@ -68,7 +71,7 @@
                 <% end %>
               </div>
               <div class="card-text">
-                <span><i class="fas fa-user"></i> By <%= post.user.name %> ｜ </span>
+                <span><i class="fas fa-user"></i> By <%= post.user.name %>  </span>
                 <!--コメント数の表示-->
                 <p class="caption"><%= "#{post.comments.count} コメント" %></p>
               </div>

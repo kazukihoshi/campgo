@@ -328,3 +328,16 @@ input[type="checkbox"] {
 //   font-size: 1.4rem;
 //   margin-top: 2px;
 // }
+
+// チェックリストのレスポンシブ
+.tab_area, .table_area {
+  overflow-x: scroll;
+}
+
+.tab_menu, .scroll_table {
+  width: 27rem;
+}
+
+.link_button .btn {
+  width: 40%;
+}

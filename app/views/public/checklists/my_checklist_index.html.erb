@@ -1,14 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-10 offset-1">
-      <h2 class="title">マイチェックリスト</h2>
+      <h2 class="title">チェックリスト</h2>
     </div>
   </div>
 
   <div class="row" style="margin-top:2rem">
     <div class="col-10 offset-1">
-      <nav>
-        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <nav class="tab_area">
+        <div class="nav nav-tabs tab_menu" id="nav-tab" role="tablist">
           <a class="nav-item nav-link active" id="nav-site-tab" data-toggle="tab" href="#nav-site" role="tab" aria-controls="nav-site" aria-selected="true">サイト</a>
           <a class="nav-item nav-link" id="nav-cook-tab" data-toggle="tab" href="#nav-cook" role="tab" aria-controls="nav-cook" aria-selected="false">料理</a>
           <a class="nav-item nav-link" id="nav-tent-tab" data-toggle="tab" href="#nav-tent" role="tab" aria-controls="nav-tent" aria-selected="false">テント泊</a>
@@ -23,11 +23,13 @@
               <li class="item_name">
                 <a><%= checklist.checklist_name %></a>
                 <span class="button_link_wrapper" style="float: right;">
-                  <%= link_to "編集", edit_user_checklist_path(@user.id, checklist.id), class: "btn btn-outline-primary" %>
-                  <%= link_to "削除",user_checklist_path(@user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"},class: "btn btn-outline-danger" %>
+                  <%= link_to edit_user_checklist_path(@user.id, checklist.id) do %>
+                    <strong><i class="fas fa-pen"></i></strong>
+                  <% end %>
+                  <%= link_to user_checklist_path(@user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"} do %>
                     <!--削除ボタンをアイコンに変更-->
-                    <!--<strong><i class="fas fa-trash-alt"></i></i></strong>-->
-                  <%# end %>
+                    <strong><i class="fas fa-trash-alt"></i></strong>
+                  <% end %>
                 </span>
               </li>
               <li class="item_comment">
@@ -42,8 +44,13 @@
               <li class="item_name">
                 <a><%= checklist.checklist_name %></a>
                 <span class="button_link_wrapper" style="float: right;">
-                  <%= link_to "編集", edit_user_checklist_path(@user.id, checklist.id), class: "btn btn-outline-primary" %>
-                  <%= link_to "削除",user_checklist_path(@user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"},class: "btn btn-outline-danger" %>
+                  <%= link_to edit_user_checklist_path(@user.id, checklist.id) do %>
+                    <strong><i class="fas fa-pen"></i></strong>
+                  <% end %>
+                  <%= link_to user_checklist_path(@user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"} do %>
+                    <!--削除ボタンをアイコンに変更-->
+                    <strong><i class="fas fa-trash-alt"></i></strong>
+                  <% end %>
                 </span>
               </li>
               <li class="item_comment">
@@ -58,8 +65,13 @@
               <li class="item_name">
                 <a><%= checklist.checklist_name %></a>
                 <span class="button_link_wrapper" style="float: right;">
-                  <%= link_to "編集", edit_user_checklist_path(@user.id, checklist.id), class: "btn btn-outline-primary" %>
-                  <%= link_to "削除",user_checklist_path(@user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"},class: "btn btn-outline-danger" %>
+                  <%= link_to edit_user_checklist_path(@user.id, checklist.id) do %>
+                    <strong><i class="fas fa-pen"></i></strong>
+                  <% end %>
+                  <%= link_to user_checklist_path(@user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"} do %>
+                    <!--削除ボタンをアイコンに変更-->
+                    <strong><i class="fas fa-trash-alt"></i></strong>
+                  <% end %>
                 </span>
               </li>
               <li class="item_comment">
@@ -74,8 +86,13 @@
               <li class="item_name">
                 <a><%= checklist.checklist_name %></a>
                 <span class="button_link_wrapper" style="float: right;">
-                  <%= link_to "編集", edit_user_checklist_path(@user.id, checklist.id), class: "btn btn-outline-primary" %>
-                  <%= link_to "削除",user_checklist_path(@user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"},class: "btn btn-outline-danger" %>
+                  <%= link_to edit_user_checklist_path(@user.id, checklist.id) do %>
+                    <strong><i class="fas fa-pen"></i></strong>
+                  <% end %>
+                  <%= link_to user_checklist_path(@user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"} do %>
+                    <!--削除ボタンをアイコンに変更-->
+                    <strong><i class="fas fa-trash-alt"></i></strong>
+                  <% end %>
                 </span>
               </li>
               <li class="item_comment">
@@ -90,8 +107,13 @@
               <li class="item_name">
                 <a><%= checklist.checklist_name %></a>
                 <span class="button_link_wrapper" style="float: right;">
-                  <%= link_to "編集", edit_user_checklist_path(@user.id, checklist.id), class: "btn btn-outline-primary" %>
-                  <%= link_to "削除",user_checklist_path(@user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"},class: "btn btn-outline-danger" %>
+                  <%= link_to edit_user_checklist_path(@user.id, checklist.id) do %>
+                    <strong><i class="fas fa-pen"></i></strong>
+                  <% end %>
+                  <%= link_to user_checklist_path(@user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"} do %>
+                    <!--削除ボタンをアイコンに変更-->
+                    <strong><i class="fas fa-trash-alt"></i></strong>
+                  <% end %>
                 </span>
               </li>
               <li class="item_comment">
