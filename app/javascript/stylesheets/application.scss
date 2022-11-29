@@ -51,20 +51,41 @@ body {
 
 .pagination {
   justify-content: center;
+  margin-bottom: 1rem;
 }
+
+.page {
+  padding-right: 5px;
+}
+
+// .pagination>li>a {
+//   border: none;
+//   color: #696969;
+// }
+
+// .pagination>.active>a {
+//   background: #93c9ff;
+//   border-radius: 15px;
+// }
+
+// .pagination>li>a:hover {
+//   border-radius: 15px;
+// }
 
 .pagination>li>a {
-  border: none;
-  color: #696969;
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
 }
 
+/* 表示しているページ番号のデザイン */
 .pagination>.active>a {
-  background: #93c9ff;
-  border-radius: 15px;
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
 }
 
+/*ホバー時のデザイン*/
 .pagination>li>a:hover {
-  border-radius: 15px;
+  border-radius: 15px;    /*角を丸くする*/
 }
 
 .background-image {
@@ -266,4 +287,44 @@ input[type="checkbox"] {
 //   table tbody tr {
 //     width: 30%;
 //   }
+// }
+
+//admin/tableのレスポンシブのレイアウト
+// table-responsive .wrap_scroll_table {
+//   width: 400px;
+//   overflow-x: scroll;
+//   margin: 0 auto;
+// }
+
+// .table-responsive .scroll_table {
+//   margin-top: 10px;
+//   max-width: 400px;
+//   margin: 0 auto;
+// }
+
+// .table-responsive .scroll_table,
+// .table-responsive .scroll_table td,
+// .table-responsive .scroll_table th {
+//   border: 1px solid #cbced2;
+//   border-collapse: collapse;
+//   text-align: center;
+// }
+
+// .table-responsive .scroll_table th {
+//   background: #01214d;
+//   color: #fff;
+//   padding: 4px 12px;
+// }
+
+// .table-responsive .scroll_table td {
+//   background: #f5f6f8;
+//   padding: 4px 12px;
+// }
+
+// .table-responsive .txt {
+//   width: 400px;
+//   margin: 0 auto;
+//   font-size: 14px;
+//   font-size: 1.4rem;
+//   margin-top: 2px;
 // }
