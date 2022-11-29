@@ -1,6 +1,6 @@
 class Admin::CampsController < ApplicationController
   def index
-    @camps = Camp.all
+    @camps = Camp.all.order("created_at").page(params[:page]).per(10)
   end
 
   def show
