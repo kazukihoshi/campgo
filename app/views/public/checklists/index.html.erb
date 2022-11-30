@@ -23,7 +23,6 @@
             <a class="nav-item nav-link" id="nav-tent-tab" data-toggle="tab" href="#nav-tent" role="tab" aria-controls="nav-tent" aria-selected="false">テント泊</a>
             <a class="nav-item nav-link" id="nav-bonfire-tab" data-toggle="tab" href="#nav-bonfire" role="tab" aria-controls="nav-bonfire" aria-selected="false">焚き火</a>
             <a class="nav-item nav-link" id="nav-others-tab" data-toggle="tab" href="#nav-others" role="tab" aria-controls="nav-others" aria-selected="false">その他</a>
-            <%= f.submit '作成', class: "btn btn-outline-primary"%>
           </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
@@ -96,6 +95,7 @@
               <% end %>
             </ul>
           </div>
+          <%= f.submit '作成', class: "btn btn-outline-success"%>
         </div>
       <% end %>
       <!--camp: @campを追加-->

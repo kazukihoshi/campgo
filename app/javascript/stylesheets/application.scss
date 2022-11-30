@@ -16,9 +16,9 @@ body {
   font-family: 'Zen Maru Gothic', sans-serif;
 }
 
-.top_image {
-    width: 100%;
-}
+// .top_image {
+//     width: 80%;
+// }
 
 .post_image_center {
     display: flex;
@@ -110,7 +110,7 @@ body {
 }
 
 .top_image {
-  width: 100%;
+  width: 50%;
   background-size:cover;
   margin: 2rem auto;
 }
@@ -230,105 +230,6 @@ input[type="checkbox"] {
   transform: scale(1.5);
 }
 
-.button_link {
-
-}
-
-// マイキャンプ一覧のtableのデザイン
-// table {
-//   border-collapse: collapse;
-// }
-
-// table td, table th {
-//   display: block;
-//   padding: 10px;
-// }
-
-// table th {
-//   background-color: #eee;
-// }
-
-// table thead {
-//   display: block;
-//   float: left;
-//   width: 30%;
-// }
-// table tbody {
-//   display: block;
-//   float: left;
-//   width: 70%;
-// }
-
-// @media only screen and (max-width: 524px) {
-//   table {
-//     width: 100%;
-//   }
-//   table tr {
-//     display: block;
-//     float: left;
-//   }
-//   table tr td, table tr th {
-//     display: block;
-//     height: 40px;
-//   }
-//   table thead {
-//     display: block;
-//     float: left;
-//     width: 30%;
-//   }
-//   table thead tr {
-//     width: 100%;
-//   }
-//   table tbody {
-//     display: block;
-//     float: left;
-//     width: 70%;
-//   }
-//   table tbody tr {
-//     width: 30%;
-//   }
-// }
-
-//admin/tableのレスポンシブのレイアウト
-// .wrap_scroll_table {
-//   width: 100px;
-//   overflow-x: scroll;
-//   margin: 0 auto;
-// // }
-
-// .table-responsive .scroll_table {
-//   margin-top: 10px;
-//   max-width: 400px;
-//   margin: 0 auto;
-// }
-
-// .table-responsive .scroll_table,
-// .table-responsive .scroll_table td,
-// .table-responsive .scroll_table th {
-//   border: 1px solid #cbced2;
-//   border-collapse: collapse;
-//   text-align: center;
-// }
-
-// .table-responsive .scroll_table th {
-//   background: #01214d;
-//   color: #fff;
-//   padding: 4px 12px;
-// }
-
-// .table-responsive .scroll_table td {
-//   background: #f5f6f8;
-//   padding: 4px 12px;
-// }
-
-// .table-responsive .txt {
-//   width: 400px;
-//   margin: 0 auto;
-//   font-size: 14px;
-//   font-size: 1.4rem;
-//   margin-top: 2px;
-// }
-
 // チェックリストのレスポンシブ
 .tab_area, .table_area {
   overflow-x: scroll;
@@ -341,4 +242,8 @@ input[type="checkbox"] {
 // マイページのレイアウト
 .link_button .btn {
   width: 40%;
+}
+
+.icon {
+  width: 10%;
 }

@@ -6,7 +6,7 @@
   </div>
 
   <div class="row">
-    <div class="col-10 offset-1">
+    <div class="col-lg-6 col-sm-8 offset-1">
       <div class="table_area">
         <table class="scroll_table table">
           <thead>
@@ -28,7 +28,10 @@
                 <%= l camp.created_at %>
               </td>
               <td>
-                <%= link_to '削除', camp_path(camp), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"},class: "btn btn-outline-danger" %>
+                <%= link_to camp_path(camp), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"} do %>
+                  <!--削除ボタンをアイコンに変更-->
+                  <strong><i class="fas fa-trash-alt"></i></strong>
+                <% end %>
               </td>
             </tr>
             <% end %>
@@ -38,5 +41,9 @@
     </div>
   </div>
 
-  <%= paginate @camps %>
+  <div class="row">
+    <div class="col-lg-6 col-sm-8 offset-1">
+      <%= paginate @camps %>
+    </div>
+  </div>
 </div>
