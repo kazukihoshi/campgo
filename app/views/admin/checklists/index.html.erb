@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-10 offset-1">
-      <h2 class="title">チェックリスト作成</h2>
+      <h2 class="title">チェックリスト</h2>
     </div>
   </div>
 
@@ -35,26 +35,28 @@
   <div class="row">
     <div class="col-10 offset-1">
       <%= form_with model: @checklist, url:  admin_category_checklists_destroy_all_path(@category), local: true,method: :DELETE do |f| %>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>一覧</th>
-              <th></th>
-              <th></th>
-              <th><%= f.submit '削除', data: {confirm: "本当に削除してもよろしいですか?"}, class: 'btn btn-outline-danger' %></th>
-            </tr>
-          </thead>
-          <% @checklists.each do |checklist| %>
-          <tbody>
-            <tr>
-              <th><%= check_box "deletes", checklist.id, style: 'transform: scale(2);' %></th>
-              <th><%= checklist.checklist_name %></th>
-              <td><%= checklist.comment %></td>
-              <td><%= link_to "編集", edit_admin_category_checklist_path(@category,checklist.id), class: "btn btn-outline-secondary" %></td>
-            </tr>
-          </tbody>
-          <% end %>
-        </table>
+        <div class="table_area">
+          <table class="scroll_table table">
+            <thead>
+              <tr>
+                <th>一覧</th>
+                <th></th>
+                <th></th>
+                <th><%= f.submit '削除', data: {confirm: "本当に削除してもよろしいですか?"}, class: 'btn btn-outline-danger' %></th>
+              </tr>
+            </thead>
+            <% @checklists.each do |checklist| %>
+            <tbody>
+              <tr>
+                <th><%= check_box "deletes", checklist.id, style: 'transform: scale(2);' %></th>
+                <th><%= checklist.checklist_name %></th>
+                <td><%= checklist.comment %></td>
+                <td><%= link_to "編集", edit_admin_category_checklist_path(@category,checklist.id), class: "btn btn-outline-secondary" %></td>
+              </tr>
+            </tbody>
+            <% end %>
+          </table>
+        </div>
       <% end %>
     </div>
   </div>

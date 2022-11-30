@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-10 offset-1">
-      <h2 class="title">カテゴリー編集</h2>
+      <h2 class="title">編集</h2>
     </div>
   </div>
 
@@ -9,19 +9,13 @@
 　  <div class="col-10 offset-1">
 　    <%= form_with model: @category, url: admin_category_path, local: true, method: :PATCH do |f| %>
         <div class="row">
-          <div class="col-4 ">
-            <div class="form-group mr-5 mt-5">
-              <%= f.label :category_name, "カテゴリー" %>
-            </div>
-          </div>
-
           <div class="col-4">
-            <div class="form-group mr-5 mt-5">
-              <%= f.text_field :category_name,  class: "form-control" %>
+            <div class="form-group">
+              <%= f.text_field :category_name, class: "post_form" %>
             </div>
           </div>
           <div class="col-4">
-            <div class="form-group mr-5 mt-5">
+            <div class="form-group">
             　　<%= f.submit '更新', class: "btn btn-outline-success" %>
             　　<%= link_to '戻る', admin_categories_path, class: "btn btn-outline-secondary"%>
             </div>

@@ -25,21 +25,21 @@
   <div class="row form-group my-3">
     <div class="col-lg-4 col-md-6 col-sm-8 col-6 offset-1">
       <%= f.label :schedule, "日程" %><br>
-      <%= f.date_field :schedule,class: "post_form" %>
+      <%= f.date_field :schedule,class: "form-control" %>
     </div>
   </div>
 
   <div class="row form-group my-3">
     <div class="col-10 offset-1">
       <%= f.label :camp_site, "キャンプ場" %>
-      <%= f.text_field :camp_site,class: "post_form" %>
+      <%= f.text_field :camp_site,class: "form-control" %>
     </div>
   </div>
 
   <div class="row form-group my-3">
-    <div class="col-8 offset-1">
+    <div class="col-lg-4 col-md-6 col-sm-8 col-6 offset-1">
       <%= f.label :number_of_people, "人数" %><br>
-      <%= f.select :number_of_people, *[1..10] %>
+      <%= f.select :number_of_people, *[1..10],{}, {class: 'form-control'} %>
     </div>
   </div>
 

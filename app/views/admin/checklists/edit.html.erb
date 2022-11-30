@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
     <div class="col-10 offset-1">
-      <h2 class="title">チェックリスト編集</h2>
+      <h2 class="title">編集</h2>
     </div>
   </div>
 
   <%= form_with model: @checklist, url: admin_category_checklist_path(@category.id, @checklist), local: true, method: :PATCH do |f| %>
-   　<div class="row form-group mr-5 mt-5">
+   　<div class="row form-group">
       <div class="col-10 offset-1">
         <div class="field">
           <%= f.text_field :checklist_name,placeholder: "アイテム名", class: "post_form" %>
