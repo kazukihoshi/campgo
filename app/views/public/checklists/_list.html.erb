@@ -20,27 +20,27 @@
     <div class="row form-group">
       <div class="col">
         <div class="field">
-          <%= f.label :checklist_name, "アイテム名" %><br>
+          <%#= f.label :checklist_name, "アイテム名" %><br>
           <%= f.text_field :checklist_name,placeholder: "アイテム名", class: "post_form" %>
         </div>
-  
+
         <div class="field">
-          <%= f.label :comment, "コメント" %><br>
+          <%#= f.label :comment, "コメント" %><br>
           <div class="post_area_wrapper">
             <%= f.text_area :comment, placeholder: "コメント", class: "post_area" %>
           </div>
         </div>
-  
-  
+
+
         <%= f.fields_for :checklist_manages do |cm| %>
           <%= cm.hidden_field :camp_id, value: camp.id %>
           <%= cm.hidden_field :user_id, value: current_user.id %>
         <% end %>
-  
+
         <div class="field">
            <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :category_name) %>
          </div>
-  
+
         <div class="actions">
           <%= f.submit '追加',class: "btn btn-outline-primary" %>
         </div>

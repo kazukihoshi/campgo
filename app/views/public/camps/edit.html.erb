@@ -35,14 +35,14 @@
 
   <%= form_with model: @camp, url: camp_path(@camp.id), local: true, method: :PATCH do |f| %>
     <div class="row form-group my-3">
-      <div class="col-3 offset-1">
+      <div class="col-lg-4 col-md-6 col-sm-8 col-6 offset-1">
         <%= f.label :schedule, "日程" %><br>
         <%= f.date_field :schedule, class: "post_form" %>
       </div>
     </div>
 
     <div class="row form-group my-3">
-      <div class="col-8 offset-1">
+      <div class="col-10 offset-1">
         <%= f.label :camp_site, "キャンプ場" %>
         <%= f.text_field :camp_site,class: "post_form" %>
       </div>

@@ -2,8 +2,8 @@
   <div class="col-10">
     <%= form_with url: update_checklist_manage_camp_path(camp), local: true, method: :PATCH do |f| %>
     <!--@camp⇨camp-->
-      <nav>
-        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <nav class="tab_area">
+        <div class="nav nav-tabs tab_menu" id="nav-tab" role="tablist">
           <a class="nav-item nav-link active" id="nav-site-tab" data-toggle="tab" href="#nav-site" role="tab" aria-controls="nav-site" aria-selected="true">サイト</a>
           <a class="nav-item nav-link" id="nav-cook-tab" data-toggle="tab" href="#nav-cook" role="tab" aria-controls="nav-cook" aria-selected="false">料理</a>
           <a class="nav-item nav-link" id="nav-tent-tab" data-toggle="tab" href="#nav-tent" role="tab" aria-controls="nav-tent" aria-selected="false">テント泊</a>
