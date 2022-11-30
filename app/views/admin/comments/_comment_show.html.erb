@@ -4,7 +4,9 @@
         <span><i class="fas fa-user"></i> By <%= comment.user.name %> </span>
         <%= comment.comment %>
           <span class="text-right">
-            <%= link_to "削除", admin_post_comment_path(post.id, comment.id), method: :delete, "data-confirm"=>"本当に消しますか？",  class: "btn btn-outline-danger" %>
+            <%= link_to admin_post_comment_path(post.id, comment.id), method: :delete,"data-confirm"=>"本当に消しますか？" do %>
+              <strong><i class="fas fa-trash-alt"></i></i></strong>
+            <% end %>
           </span>
       </div>
     <% end %>
