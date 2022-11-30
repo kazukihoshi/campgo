@@ -7,52 +7,54 @@
 
   <div class="row field">
     <div class="col-10 offset-1">
-      <table class="table">
-        <tbody>
-          <tr>
-            <th>会員ID</th>
-            <td><%= @user.id %></td>
-          </tr>
-          <tr>
-            <th>ユーザーネーム</th>
-            <td><%= @user.name %></td>
-          </tr>
-          <tr>
-            <th>メールアドレス</th>
-            <td><%= @user.email %></td>
-          </tr>
-          <!--<tr>-->
-          <!--  <th>パスワード</th>-->
-          <!--  <td><%#= @user.password %></td>-->
-          <!--</tr>-->
-          <tr>
-            <th>チェックリスト</th>
-            <td>
-              <%= link_to admin_user_index_for_user_path(@user) do %>
-                チェックリスト
-              <% end %>
-            </td>
-          </tr>
-          <tr>
-            <th>ステータス</th>
-            <td>
-              <% if @user.is_delete == false %>
-                有効
-              <% else %>
-                退会
-              <% end %>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <%= link_to "編集", edit_admin_user_path(@user.id),class: "btn btn-outline-secondary"  %>
-            </th>
-            <th>
-              <%= link_to '戻る', admin_users_path, class: "btn btn-outline-secondary" %>
-            </th>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table_area">
+        <table class="scroll_table table">
+          <tbody>
+            <tr>
+              <th>会員ID</th>
+              <td><%= @user.id %></td>
+            </tr>
+            <tr>
+              <th>ユーザーネーム</th>
+              <td><%= @user.name %></td>
+            </tr>
+            <tr>
+              <th>メールアドレス</th>
+              <td><%= @user.email %></td>
+            </tr>
+            <!--<tr>-->
+            <!--  <th>パスワード</th>-->
+            <!--  <td><%#= @user.password %></td>-->
+            <!--</tr>-->
+            <tr>
+              <th>チェックリスト</th>
+              <td>
+                <%= link_to admin_user_index_for_user_path(@user) do %>
+                  チェックリスト
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <th>ステータス</th>
+              <td>
+                <% if @user.is_delete == false %>
+                  有効
+                <% else %>
+                  退会
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <%= link_to "編集", edit_admin_user_path(@user.id),class: "btn btn-outline-secondary"  %>
+              </th>
+              <th>
+                <%= link_to '戻る', admin_users_path, class: "btn btn-outline-secondary" %>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 
