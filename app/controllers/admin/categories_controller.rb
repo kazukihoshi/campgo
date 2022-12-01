@@ -26,14 +26,22 @@ class Admin::CategoriesController < ApplicationController
 
   def create
     category = Category.new(category_params)
-    category.save
-    redirect_to admin_categories_path
+    if category.save
+      flash[:notice] = "作成しました"
+      redirect_to admin_categories_path
+    else
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   def update
     category = Category.find(params[:id])
-    category.update(category_params)
-    redirect_to admin_categories_path
+    if category.update(category_params)
+      flash[:notice] = "更新しました"
+      redirect_to admin_categories_path
+    else
+      render :edit
+    end
   end
 
   def edit

@@ -22,8 +22,8 @@
                 <tr>
                   <td><%= check_box "deletes", category.id %>
                   <%= category.category_name %></td>
-                  <td><%= link_to "編集", edit_admin_category_path(category.id), class: "btn btn-outline-primary" %></td>
-                  <td><%= link_to "チェックリスト", admin_category_checklists_path(category.id), class: "btn btn-outline-primary"%></td>
+                  <td><%= link_to "編集", edit_admin_category_path(category.id), class: "btn btn-outline-secondary" %></td>
+                  <td><%= link_to "チェックリスト", admin_category_checklists_path(category.id), class: "btn btn-outline-secondary"%></td>
                 </tr>
               <% end %>
             </tbody>
@@ -33,6 +33,21 @@
     </div>
   <% end %>
 
+  <!--<div class="row">-->
+  <!--  <div class="col-10 offset-1">-->
+  <!--    <%# if @category.errors.any? %>-->
+  <!--      <div id="error_explanation">-->
+  <!--        <h3><%#= @category.errors.count %>件のエラーが発生しました</h3>-->
+  <!--          <ul>-->
+  <!--            <%# @category.errors.full_messages.each do |message| %>-->
+  <!--              <li><%#= message %></li>-->
+  <!--            <%# end %>-->
+  <!--          </ul>-->
+  <!--      </div>-->
+  <!--    <%# end %>-->
+  <!--  </div>-->
+  <!--</div>-->
+
   <%= form_with model: @category, url: admin_categories_path, local: true, method: :POST do |f| %>
     <div class="row">
       <div class="col-lg-5 col-md-8 col-sm-10 offset-1">
@@ -40,7 +55,7 @@
           <%= f.text_field :category_name, placeholder: "カテゴリー名", class: "form-control" %>
         </div>
         <div class="field">
-          <%= f.submit '登録', class: "btn btn-outline-primary" %>
+          <%= f.submit '登録', class: "btn btn-outline-secondary" %>
         </div>
       </div>
     </div>

@@ -9,20 +9,21 @@
    　<div class="row form-group">
       <div class="col-10 offset-1">
         <div class="field">
-          <%= f.text_field :checklist_name,placeholder: "アイテム名", class: "post_form" %>
+          <%= f.text_field :checklist_name,placeholder: "アイテム名", class: "form-control" %>
         </div>
       <!--</div>-->
 
       <!--<div class="col-5">-->
         <div class="field">
           <div class="post_area_wrapper">
-            <%= f.text_area :comment, placeholder: "コメント", class: "post_area" %>
+            <%= f.text_area :comment, placeholder: "コメント", class: "form-control" %>
           </div>
         </div>
       <!--</div>-->
       <!--<div class="col-2">-->
         <div class="actions" style="margin-left:-1rem;">
-        　<%= f.submit '更新',class: "btn btn-outline-primary" %>
+        　<%= f.submit '更新',class: "btn btn-outline-success" %>
+        　<%= link_to '戻る', admin_category_checklists_path(@category.id), class: "btn btn-outline-secondary" %>
         </div>
       </div>
     </div>

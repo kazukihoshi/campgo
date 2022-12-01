@@ -1,6 +1,19 @@
 <div class="container">
   <div class="row">
     <div class="col-10 offset-1">
+      <div class="text-success">
+        <% if flash[:notice] %>
+           <p id="notice text-success">
+             <%= flash[:notice] %>
+           </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-10 offset-1">
       <h2 class="title">チェックリスト</h2>
     </div>
   </div>
@@ -11,20 +24,21 @@
       <div class="row form-group">
         <div class="col-10 offset-1">
           <div class="field">
-            <%= f.text_field :checklist_name,placeholder: "アイテム名", class: "post_form" %>
+            <%= f.text_field :checklist_name,placeholder: "アイテム名", class: "form-control" %>
           </div>
         <!--</div>-->
 
         <!--<div class="col-5">-->
           <div class="field">
             <div class="post_area_wrapper">
-              <%= f.text_area :comment, placeholder: "コメント", class: "post_area" %>
+              <%= f.text_area :comment, placeholder: "コメント", class: "form-control" %>
             </div>
           </div>
         <!--</div>-->
         <!--<div class="col-2">-->
           <div class="actions" style="margin-left:-1rem;">
-          　<%= f.submit '追加',class: "btn btn-outline-primary" %>
+          　<%= f.submit '追加',class: "btn btn-outline-success" %>
+          　<%= link_to '戻る', admin_categories_path, class: "btn btn-outline-secondary" %>
           </div>
         </div>
       </div>

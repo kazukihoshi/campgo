@@ -16,9 +16,14 @@ class Admin::ChecklistsController < ApplicationController
     category = Category.find(params[:category_id])
     checklist.category = category
     #byebug
-    checklist.save
+    if checklist.save
     #byebug
-    redirect_to admin_category_checklists_path(category)
+      flash[:notice] = "作成しました"
+      redirect_to admin_category_checklists_path(category)
+    else
+      redirect_back(fallback_location: root_path)
+    end
+
   end
 
   def show
@@ -34,13 +39,15 @@ class Admin::ChecklistsController < ApplicationController
   def update
     checklist = Checklist.find(params[:id])
     category = Category.find(params[:category_id])
-    checklist.update(checklist_params)
-    redirect_to admin_category_checklists_path(category)
+    if checklist.update(checklist_params)
+      flash[:notice] = "更新しました"
+      redirect_to admin_category_checklists_path(category)
+    else
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   def destroy_all
-
-
     deletes_hash = params[:deletes].to_unsafe_hash
     deletes_hash.select {|_, v| v == "1" }.each do |k, _|
       checklist = Checklist.find(k)
