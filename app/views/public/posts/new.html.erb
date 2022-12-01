@@ -53,12 +53,12 @@
       <div class="field">
         <%= f.label :tag, "タグ" %><br>
         <!--postのカラムではないためf.を外す-->
-        <%= text_field_tag :tag, @post.tags.pluck(:name), placeholder: "スペースで区切ることで複数登録できます", class: "post_form" %>
+        <%= text_field_tag :tag, @post.tags.pluck(:name), placeholder: "スペースで区切ることで複数登録", class: "post_form" %>
         <%#= hidden_field_tag :tag, @post.tags  %>
       </div>
 
       <div class="actions">
-        <%= f.submit "投稿", class: "btn btn-outline-primary" %>
+        <%= f.submit "投稿", class: "btn btn-outline-success" %>
       </div>
 
     </div>

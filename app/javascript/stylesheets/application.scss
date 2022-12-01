@@ -44,9 +44,15 @@ body {
   object-fit:cover;
 }
 
+// 検索フォーム
 .search_form {
-  text-align: right;
+  // text-align: right;
+  justify-content: end;
   padding: 2rem;
+}
+
+.w40 {
+  width: 40%;
 }
 
 .pagination {
@@ -271,3 +277,7 @@ input[type="checkbox"] {
 //   display: block;
 //   width: 100%;
 // }
+
+.w40 {
+  width: 40%;
+}

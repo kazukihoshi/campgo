@@ -12,7 +12,7 @@ class Public::UsersController < ApplicationController
     #byebug
     if @user.update(user_params)
       #byebug
-      flash[:notice] = "更新しました。再度ログインしてください"
+      flash[:notice] = "更新しました 再度ログインしてください"
       redirect_to root_path
     else
       render :edit

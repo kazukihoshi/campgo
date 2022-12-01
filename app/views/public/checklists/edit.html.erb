@@ -14,7 +14,7 @@
 
   <div class="row">
     <div class="col-10 offset-1">
-      <h2 class="title">チェックリスト編集</h2>
+      <h2 class="title">編集</h2>
     </div>
   </div>
 
@@ -23,26 +23,32 @@
   <!--@checklist ⇨ checklistに変更、@camp⇨camp-->
       <div class="row form-group">
         <div class="col-10 offset-1">
-          <div class="field">
-            <%= f.label :checklist_name, "アイテム名" %><br>
-            <%= f.text_field :checklist_name,placeholder: "アイテム名", class: "post_form" %>
-          </div>
-          <div class="field">
+            <%= f.label :checklist_name, "アイテム名" %>
+            <%= f.text_field :checklist_name,placeholder: "アイテム名",class: "form-control" %>
+        </div>
+      </div>
+      <div class="row form-group">
+        <div class="col-10 offset-1">
             <%= f.label :comment, "コメント" %><br>
             <div class="post_area_wrapper">
-              <%= f.text_area :comment, placeholder: "コメント", class: "post_area" %>
-            </div>
+              <%= f.text_area :comment, placeholder: "コメント", class: " form-control" %>
           </div>
+        </div>
+      </div>
+
           <%#= f.fields_for :checklist_manages do |cm| %>
             <%#= cm.hidden_field :camp_id, value: camp.id %>
             <%#= cm.hidden_field :user_id, value: current_user.id %>
           <%# end %>
-
-          <div class="field">
-             <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :category_name) %>
-           </div>
+      <div class="row form-group">
+        <div class="col-lg-4 col-md-6 col-sm-8 col-6 offset-1">
+             <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :category_name),{}, {class: 'form-control'} %>
+        </div>
+      </div>
+      <div class="row button">
+        <div class="col-8 offset-1">
           <div class="actions">
-            <%= f.submit '更新',class: "btn btn-outline-primary" %>
+            <%= f.submit '更新',class: "btn btn-outline-success" %>
             <%=link_to "戻る", :back, class: "btn btn-outline-secondary" %>
           </div>
         </div>
