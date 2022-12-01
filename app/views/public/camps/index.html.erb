@@ -1,5 +1,16 @@
 <div class="container">
   <div class="row">
+    <div class="col-10 offset-1 text-success">
+      <% if flash[:notice] %>
+         <p id="notice text-success">
+           <%= flash[:notice] %>
+         </p>
+      <% end %>
+    </div>
+  </div>
+
+
+  <div class="row">
     <div class="col-10 offset-1">
       <h2 class="title">マイキャンプ一覧</h2>
     </div>

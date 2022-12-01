@@ -142,7 +142,7 @@ class Public::CampsController < ApplicationController
     @camp =Camp.find(params[:id])
     #byebug
     if @camp.update(camp_params)
-      flash[:notice] = "更新しました。"
+      flash[:notice] = "更新しました"
       redirect_to camp_path(@camp.id)
     else
       @checklist = @camp.checklists.new
@@ -155,6 +155,7 @@ class Public::CampsController < ApplicationController
   def destroy
     camp = Camp.find(params[:id])
     camp.destroy
+    flash[:notice] = "削除しました"
     redirect_to camps_path
   end
 
