@@ -4,11 +4,6 @@ class Admin::ChecklistsController < ApplicationController
     @checklists = @category.checklists.where(user_id: nil)
     @checklist = Checklist.new
 
-    # if user.id == nil
-    #   # user_idがcurrent_userのものを検索
-    #   @checklist = Checklist.new
-    # end
-
   end
 
   def create
@@ -54,32 +49,20 @@ class Admin::ChecklistsController < ApplicationController
       checklist.destroy
     end
     category = Category.find(params[:category_id])
-    # checked_date = params[:deletes].keys
-    # if Checklist.destroy_by(checked_date)
       redirect_to admin_category_checklists_path(category)
-    # else
-    #   render :index
-    # end
   end
 
 
   def index_for_user
     #byebug
     @user = User.find(params[:user_id])
-    #@checklist = Checklist.find(params[:id])
-    #@checklist = Checklist.new
+    
     @checklists = @user.checklists.where(user_id: @user.id)
-    # userがログインしているかどうかの確認
-    # if user_signed_in?
-    #   # user_idがcurrent_userのものを検索
-    #   @checklists = Checklist.where(user_id: current_user.id)
-    # end
   end
 
   def destroy
     #byebug
     user = User.find(params[:user_id])
-    #checklist = Checklist.new
     #byebug
     Checklist.find_by(user_id: user).destroy
     redirect_back(fallback_location: root_path)

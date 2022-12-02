@@ -1,10 +1,5 @@
 class Admin::CommentsController < ApplicationController
 
-  # def destroy
-  #   Comment.find_by(id: params[:id], post_id: @post).destroy
-  #   redirect_to admin_posts_path
-  # end
-
     def destroy
       post = Post.find(params[:post_id])
       Comment.find_by(id: params[:id], post_id: post).destroy

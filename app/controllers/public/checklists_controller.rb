@@ -32,11 +32,7 @@ class Public::ChecklistsController < ApplicationController
     @checklist = Checklist.new(checklist_params)
     @camp = Camp.find(params[:camp_id])
     @checklists = @camp.checklists.where(user_id: nil).or(Checklist.where(user_id: current_user.id))#user.idがnilとcurrent_userのものを抽出
-    #@checklists = @camp.checklists
-    #puts current_user
-    #category = Category.find(params[:category_id])
     #byebug
-    #unless category == [""]
     @checklist.user_id = current_user.id
 
     #byebug
@@ -57,53 +53,14 @@ class Public::ChecklistsController < ApplicationController
       # いずれでもない場合はテンプレートエラーになる。
       # urlはcamp/:id/checklistsとなるが問題なし
     end
-    # ChecklistManage.create(
-    #     user_id: current_user.id,
-    #     camp_id: camp.id,
-    #     checklist_id: checklist.id
-    #   )
-    #end
-    #byebug
-    #redirect_to update_checklist_manage_camp_path(camp)
-    #redirect_to camp_checklists_path(camp)
-    # redirect_toからredirect_backに変更
-    #redirect_back(fallback_location: root_path)
-    #creates_hash = params[:creates].to_unsafe_hash
-    #creates_hash.select {|_, v| v == "1" }.each do |k, _|
-      #checklist = Checklist.find(k)
-      #checklist.save
-    #end
-
-    #checklist = Checklist.new(checklist_params)
-    #Sbyebug
-    #checklist.save
-    #redirect_to root_path
-
-    #checklist_manage = ChecklistManage.new(checklist_manage_params)
-    #checklist_manage.save
-    #redirect_to camp_checklists_path(camp.id)
-    #Checklist.all.each do |checklist|
-      #ChecklistManage.create(camp_id: camp.id, user_id: current_user.id, checklist_id: checklist.id,)
-    #end
   end
-
-
 
   def edit
     # byebug
-    # @camp = Camp.find(params[:camp_id])
-    # @checklist = @camp.checklists.new
-    # @checklists = @camp.checklists
     @user = current_user
-    # @checklist = Checklist.where(user_id: current_user.id, id: checklist.id)
     @checklist = Checklist.find(params[:id])
     @checklist.user_id = current_user.id
-    # @checklist = Checklist.find(params[:id])
   end
-
-
-    #checklist_ids = @camp.checklist_manages.where(is_active: true).pluck('checklist_id').uniq #[2,3,6,9]
-    #@checklists = Checklist.where(id: checklist_ids)
 
   def update
     checklist = Checklist.find(params[:id])
@@ -114,7 +71,6 @@ class Public::ChecklistsController < ApplicationController
     else
       render :edit
     end
-
   end
 
 
@@ -125,11 +81,7 @@ class Public::ChecklistsController < ApplicationController
     #campに紐づいたchecklist_manages(is_active: true)を取得,checklist_idのみ
     active_checklist_ids = @camp.checklist_manages.where(is_active: true).pluck('checklist_id').uniq #[2,3,6,9]
     @checklists = Checklist.where(id: active_checklist_ids)
-
-
-
     #byebug
-
   end
 
   def update_checklist_manage

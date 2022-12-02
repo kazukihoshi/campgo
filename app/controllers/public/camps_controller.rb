@@ -6,9 +6,6 @@ class Public::CampsController < ApplicationController
   def show
     @camp = Camp.find(params[:id])
     @user = current_user
-    #@checklists = @camp.checklists.all
-    #@checklist = Checklist.find(params[:id])
-    #@checklist_manages = @checklist.checklist_manages
     #campに紐づいたchecklist_manages(is_active: true)を取得,checklist_idのみ
     active_checklist_ids = @camp.checklist_manages.where(is_active: true).pluck('checklist_id').uniq #[2,3,6,9]
     @checklists = Checklist.where(id: active_checklist_ids)
@@ -119,12 +116,6 @@ class Public::CampsController < ApplicationController
      end
      #byebug
 
-    # if ChecklistManage.update(checklist_manage_params)
-    #     checklist_manage.save_checklists(params[:camp][:checklist])
-    #     redirect_to camp_path(camp.id)
-    # else
-    #     render :edit
-    # end
      flash[:notice] = "作成しました"
      redirect_to camp_path(camp)
   end
