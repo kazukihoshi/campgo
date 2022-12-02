@@ -19,11 +19,4 @@ class Checklist < ApplicationRecord
     validates :comment, presence: true
 
 
-    # def save_checklist_manages
-    #   active_checklist_ids = camp.checklist_manages.where(is_active: true).pluck('checklist_id').uniq
-    #   checklists = Checklist.where(id: active_checklist_ids)
-
-    #   old_checklists = checklists -
-    # end
-
 end
