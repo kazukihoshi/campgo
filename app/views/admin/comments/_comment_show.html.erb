@@ -1,14 +1,14 @@
 <div class="row post_content">
-    <% comments.each do |comment| %>
-      <div class="col-8 offset-1 post_comment">
-        <span><i class="fas fa-user"></i> By <%= comment.user.name %> </span>
-        <%= comment.comment %>
-          <span class="text-right">
-            <%= link_to admin_post_comment_path(post.id, comment.id), method: :delete,"data-confirm"=>"本当に消しますか？" do %>
-              <strong><i class="fas fa-trash-alt"></i></i></strong>
-            <% end %>
-          </span>
-      </div>
-    <% end %>
+  <% comments.each do |comment| %>
+    <div class="col-8 offset-1 post_comment">
+      <span><i class="fas fa-user"></i> By <%= comment.user.name %> </span>
+      <%= comment.comment %>
+        <span class="text-right">
+          <%= link_to admin_post_comment_path(post.id, comment.id), method: :delete,"data-confirm"=>"本当に消しますか？" do %>
+            <strong><i class="fas fa-trash-alt"></i></i></strong>
+          <% end %>
+        </span>
+    </div>
+  <% end %>
 </div>
 
