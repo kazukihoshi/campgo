@@ -18,54 +18,50 @@
     </div>
   </div>
 
- 
+
   <%= form_with model: @checklist, url: admin_category_checklists_path(@category), local: true, method: :POST do |f| %>
     <div class="row form-group">
       <div class="col-10 offset-1">
         <div class="field">
           <%= f.text_field :checklist_name,placeholder: "アイテム名", class: "form-control" %>
         </div>
-     
+
         <div class="field">
           <div class="post_area_wrapper">
             <%= f.text_area :comment, placeholder: "コメント", class: "form-control" %>
           </div>
         </div>
-      
-        <div class="actions" style="margin-left:-1rem;">
+
+        <div class="actions">
           <%= f.submit '追加',class: "btn btn-outline-success" %>
           <%= link_to '戻る', admin_categories_path, class: "btn btn-outline-secondary" %>
         </div>
       </div>
     </div>
   <% end %>
-  
 
   <div class="row">
     <div class="col-10 offset-1">
       <%= form_with model: @checklist, url:  admin_category_checklists_destroy_all_path(@category), local: true,method: :DELETE do |f| %>
-        <div class="table_area">
-          <table class="scroll_table table">
-            <thead>
-              <tr>
-                <th>一覧</th>
-                <th></th>
-                <th></th>
-                <th><%= f.submit '削除', data: {confirm: "本当に削除してもよろしいですか?"}, class: 'btn btn-outline-danger' %></th>
-              </tr>
-            </thead>
-            <% @checklists.each do |checklist| %>
-            <tbody>
-              <tr>
-                <th><%= check_box "deletes", checklist.id, style: 'transform: scale(2);' %></th>
-                <th><%= checklist.checklist_name %></th>
-                <td><%= checklist.comment %></td>
-                <td><%= link_to "編集", edit_admin_category_checklist_path(@category,checklist.id), class: "btn btn-outline-secondary" %></td>
-              </tr>
-            </tbody>
-            <% end %>
-          </table>
-        </div>
+        <h2 class="title">一覧
+          <span class="delete" style="float: right;" >
+            <%= f.submit '削除', data: {confirm: "本当に削除してもよろしいですか?"}, class: 'btn btn-outline-danger' %>
+          </span>
+        </h2>
+        <!--<ul class="item_list">-->
+        <% @checklists.each do |checklist| %>
+          <li class="item_name">
+            <%= check_box "deletes", checklist.id, style: 'transform: scale(1.5);' %>
+            <a><%= checklist.checklist_name %></a>
+            <span class="link" style="float: right;">
+              <%= link_to "編集", edit_admin_category_checklist_path(@category,checklist.id), class: "btn btn-outline-secondary" %>
+            </span>
+          </li>
+          <li class="item_comment">
+            <%= checklist.comment %>
+          </li>
+        <% end %>
+        <!--</ul>-->
       <% end %>
     </div>
   </div>

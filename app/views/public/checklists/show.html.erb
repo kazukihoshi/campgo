@@ -74,9 +74,7 @@
      <%= link_to '編集', edit_camp_checklist_path(@camp) %>
     </ul>
 
-    <%#= form_with model: @checklist_manage, url: checklist_manage_path(@checklist_manage.id), local: true, method: :PATCH do |f| %>
     <div class="tab-content" id="myTabContent">
-      <%# @camp.checklists.group_by { |c| c.category.category_name }.each do |key, values| %>
       <div
         class="tab-pane fade show active"
         id="site"

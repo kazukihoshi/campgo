@@ -29,7 +29,6 @@
         <div class="tab-pane fade" id="nav-cook" role="tabpanel" aria-labelledby="nav-cook-tab">
           <ul class="item_list">
             <%= f.collection_check_boxes :cook_categories ,@checklists.cook_category , :id, :checklist_name do |checklist| %>
-             <%# @camp.checklists.cook_category.each do |checklist| %>
               <li class="item_name">
                 <a><%= checklist.check_box %></a>
                 <a><%= checklist.object.checklist_name %></a>
@@ -56,7 +55,6 @@
         <div class="tab-pane fade" id="nav-bonfire" role="tabpanel" aria-labelledby="nav-bonfire-tab">
           <ul class="item_list">
             <%= f.collection_check_boxes :bonfire_categories ,@checklists.bonfire_category , :id, :checklist_name do |checklist| %>
-             <%# @camp.checklists.cook_category.each do |checklist| %>
               <li class="item_name">
                 <a><%= checklist.check_box %></a>
                 <a><%= checklist.object.checklist_name %></a>
@@ -70,7 +68,6 @@
         <div class="tab-pane fade" id="nav-others" role="tabpanel" aria-labelledby="nav-others-tab">
           <ul class="item_list">
             <%= f.collection_check_boxes :others_categories ,@checklists.others_category , :id, :checklist_name do |checklist| %>
-             <%# @camp.checklists.cook_category.each do |checklist| %>
               <li class="item_name">
                 <a><%= checklist.check_box %></a>
                 <a><%= checklist.object.checklist_name %></a>

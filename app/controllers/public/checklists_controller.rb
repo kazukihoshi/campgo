@@ -57,18 +57,23 @@ class Public::ChecklistsController < ApplicationController
 
   def edit
     # byebug
+    # @camp = Camp.find(params[:camp_id])
     @user = current_user
     @checklist = Checklist.find(params[:id])
-    @checklist.user_id = current_user.id
+    #@checklists = Checklist.where(user_id: current_user.id)#user.idがcurrent_userのものを抽出
+    #@checklist.user_id = current_user.id
   end
 
   def update
-    checklist = Checklist.find(params[:id])
-    user = current_user
-    if checklist.update(checklist_params)
+    @checklist = Checklist.find(params[:id])
+    @user = current_user
+    @checklist.user = @user
+    #byebug
+    if @checklist.update(checklist_params)
       flash[:notice] = "更新しました"
-      redirect_to user_my_checklist_index_path(user.id)
+      redirect_to user_my_checklist_index_path(@user.id)
     else
+      #renderした際にformがインスタンス変数のためインスタンス変数にする
       render :edit
     end
   end

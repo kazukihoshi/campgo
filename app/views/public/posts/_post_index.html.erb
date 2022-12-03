@@ -27,10 +27,8 @@
           <div class="card d-inline-block mt-4 shadow-lg" style= "width: 100%;">
             <%= link_to post_path(post.id) do %>
               <% if post.post_images.attached? %>
-                <!--<div style="height:180, width:130">-->
                 <!--  複数の写真の一枚目の取得-->
-                  <%= image_tag post.post_images.first, class: "card-img-top img-fluid card-item-image" %>
-                <!--</div>-->
+                <%= image_tag post.post_images.first, class: "card-img-top img-fluid card-item-image" %>
               <% else %>
                 <%= image_tag 'no_image_yoko.jpeg', class: "card-img-top img-fluid card-item-image" %>
               <% end %>
@@ -57,7 +55,6 @@
                   <% end %>
                 </div>
                 <span><i class="fas fa-user"></i> By <%= post.user.name %>  </span>
-                <!--<span><%#= link_to "#{post.comments.comment.count} コメント", post_path(post.id), class:"text-dark" %></span>-->
                 <div class="caption"><%= "#{post.comments.count} コメント" %></div>
               </div>
             </div>

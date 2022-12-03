@@ -1,16 +1,4 @@
 <div class="container">
-  <div class="col-4">
-    <% if @checklist.errors.any? %>
-      <div id="error_explanation">
-        <h3><%= @checklist.errors.count %>件のエラーが発生しました</h3>
-          <ul>
-            <% @checklist.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-      </div>
-    <% end %>
-  </div>
 
   <div class="row">
     <div class="col-10 offset-1">
@@ -18,41 +6,50 @@
     </div>
   </div>
 
-    <%= form_with model: @checklist, url: user_checklist_path(@user, @checklist), local: true, method: :PATCH do |f| %>
-
-  <!--@checklist ⇨ checklistに変更、@camp⇨camp-->
-      <div class="row form-group">
-        <div class="col-10 offset-1">
-            <%= f.label :checklist_name, "アイテム名" %>
-            <%= f.text_field :checklist_name,placeholder: "アイテム名",class: "form-control" %>
+  <div class="row">
+    <div class="col-lg-4 col-sm-10 offset-1">
+      <% if @checklist.errors.any? %>
+        <div id="error_explanation">
+          <h3><%= @checklist.errors.count %>件のエラーが発生しました</h3>
+            <ul>
+              <% @checklist.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
         </div>
-      </div>
-      <div class="row form-group">
-        <div class="col-10 offset-1">
-            <%= f.label :comment, "コメント" %><br>
-            <div class="post_area_wrapper">
-              <%= f.text_area :comment, placeholder: "コメント", class: " form-control" %>
-          </div>
-        </div>
-      </div>
-
-          <%#= f.fields_for :checklist_manages do |cm| %>
-            <%#= cm.hidden_field :camp_id, value: camp.id %>
-            <%#= cm.hidden_field :user_id, value: current_user.id %>
-          <%# end %>
-      <div class="row form-group">
-        <div class="col-lg-4 col-md-6 col-sm-8 col-6 offset-1">
-             <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :category_name),{}, {class: 'form-control'} %>
-        </div>
-      </div>
-      <div class="row button">
-        <div class="col-8 offset-1">
-          <div class="actions">
-            <%= f.submit '更新',class: "btn btn-outline-success" %>
-            <%=link_to "戻る", :back, class: "btn btn-outline-secondary" %>
-          </div>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
+
+  <%= form_with model: @checklist, url: user_checklist_path(@user, @checklist), local: true, method: :PATCH do |f| %>
+
+    <div class="row form-group">
+      <div class="col-10 offset-1">
+          <%= f.label :checklist_name, "アイテム名" %>
+          <%= f.text_field :checklist_name,placeholder: "アイテム名",class: "form-control" %>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-10 offset-1">
+          <%= f.label :comment, "コメント" %><br>
+          <div class="post_area_wrapper">
+            <%= f.text_area :comment, placeholder: "コメント", class: " form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-lg-4 col-md-6 col-sm-8 col-6 offset-1">
+           <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :category_name),{}, {class: 'form-control'} %>
+      </div>
+    </div>
+    <div class="row button">
+      <div class="col-8 offset-1">
+        <div class="actions">
+          <%= f.submit '更新',class: "btn btn-outline-success" %>
+          <%=link_to "戻る", :back, class: "btn btn-outline-secondary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
