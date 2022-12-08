@@ -49,7 +49,7 @@
 
       <% if user_signed_in? %>
         <%= form_with model: [@post, @comment], url: post_comments_path(@post), local: true, method: :POST do |f| %>
-          <%= f.text_area :comment, placeholder: "コメントする", style: "width:100%;" %>
+          <%= f.text_area :comment, placeholder: "コメントする", style: "width:100%;margin-bottom:0.5rem;", class: "form-control" %>
           <%= f.submit 'コメントする' %>
         <% end %>
       <% end %>

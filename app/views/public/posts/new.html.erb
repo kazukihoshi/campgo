@@ -26,18 +26,18 @@
     <div class="col-10 offset-1">
       <div class="field">
         <%= f.label :camp_site, "キャンプ場" %><br>
-        <%= f.text_field :camp_site, class: "post_form"%>
+        <%= f.text_field :camp_site, class: "form-control"%>
       </div>
 
       <div class="field">
         <%= f.label :title, "タイトル" %><br>
-        <%= f.text_field :title, class: "post_form" %>
+        <%= f.text_field :title, class: "form-control" %>
       </div>
 
       <div class="field">
         <%= f.label :post, "投稿" %>
         <div class="post_area_wrapper">
-          <%= f.text_area :post, class: "post_area"%>
+          <%= f.text_area :post, class: "form-control"%>
         </div>
       </div>
 
@@ -49,7 +49,7 @@
       <div class="field">
         <%= f.label :tag, "タグ" %><br>
         <!--postのカラムではないためf.を外す-->
-        <%= text_field_tag :tag, @post.tags.pluck(:name), placeholder: "スペースで区切ることで複数登録", class: "post_form" %>
+        <%= text_field_tag :tag, @post.tags.pluck(:name), placeholder: "スペースで区切ることで複数登録", class: "form-control" %>
         <%#= hidden_field_tag :tag, @post.tags  %>
       </div>
 
