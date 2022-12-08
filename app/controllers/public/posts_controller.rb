@@ -71,7 +71,6 @@ class Public::PostsController < ApplicationController
       @posts = Post.search(params[:key_word])
     else
       @posts = Post.all.order(created_at: :desc)
-      #flash[:notice] = "検索結果がありません"
     end
     @tag_lists = Tag.all
     @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(9)
