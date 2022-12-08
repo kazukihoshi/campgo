@@ -35,7 +35,9 @@
 
       <div class="field">
         <%= f.label :post, "投稿" %>
-        <%= f.text_field :post,class: "form-control" %>
+        <div class="post_area_wrapper">
+          <%= f.text_area :post,class: "form-control" %>
+        </div>
       </div>
 
       <div class="field">

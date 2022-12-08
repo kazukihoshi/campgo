@@ -8,7 +8,7 @@ class Public::PostsController < ApplicationController
     @post.user_id = current_user.id
     if @post.save
       @post.save_tags(params[:tag])
-      flash[:notice] = "投稿に成功しました。"
+      flash[:notice] = "投稿に成功しました"
       redirect_to post_path(@post.id)
       #byebug
     else
@@ -46,11 +46,13 @@ class Public::PostsController < ApplicationController
   end
 
   def update
-    post = Post.find(params[:id])
+    @post = Post.find(params[:id])
     tag_list = params[:tag]
-    if post.update(post_params)
-      post.save_tags(tag_list)
-      redirect_to post_path(post.id)
+    #byebug
+    if @post.update(post_params)
+      @post.save_tags(tag_list)
+      flash[:notice] = "投稿を編集しました"
+      redirect_to post_path(@post.id)
     else
       render :edit
     end
