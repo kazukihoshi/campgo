@@ -3,7 +3,11 @@
   <%= render 'public/posts/post_index', posts: @posts %>
 
   <% if @posts.count == 0 %>
-    <p>検索結果がありませんでした</p>
+    <div class="row">
+      <div class="col-10" style="padding-left:3rem">
+        <p>検索結果がありませんでした</p>
+      </div>
+    </div>
   <% end %>
 
 </div>
