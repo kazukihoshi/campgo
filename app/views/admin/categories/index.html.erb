@@ -32,20 +32,20 @@
     </div>
   <% end %>
 
-  <!--<div class="row">-->
-  <!--  <div class="col-10 offset-1">-->
-  <!--    <%# if @category.errors.any? %>-->
-  <!--      <div id="error_explanation">-->
-  <!--        <h3><%#= @category.errors.count %>件のエラーが発生しました</h3>-->
-  <!--          <ul>-->
-  <!--            <%# @category.errors.full_messages.each do |message| %>-->
-  <!--              <li><%#= message %></li>-->
-  <!--            <%# end %>-->
-  <!--          </ul>-->
-  <!--      </div>-->
-  <!--    <%# end %>-->
-  <!--  </div>-->
-  <!--</div>-->
+  <div class="row">
+    <div class="col-10 offset-1">
+      <% if @category.errors.any? %>
+        <div id="error_explanation">
+          <h3><%= @category.errors.count %>件のエラーが発生しました</h3>
+            <ul>
+              <% @category.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
   <%= form_with model: @category, url: admin_categories_path, local: true, method: :POST do |f| %>
     <div class="row">

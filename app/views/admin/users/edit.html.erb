@@ -5,6 +5,22 @@
     </div>
   </div>
 
+  <!--エラーメッセージ-->
+  <div class="row">
+    <div class="col-lg-4 col-sm-10 offset-1">
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h3><%= @user.errors.count %>件のエラーが発生しました</h3>
+            <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
   <%= form_with model: @user, url: admin_user_path(@user.id), local: true, method: :patch do |f| %>
     <div class="form-group row my-3">
       <div class="col-10 offset-1">

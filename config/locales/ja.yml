@@ -35,6 +35,8 @@ ja:
           schedule: 日程
           camp_site: キャンプ場
           number_of_people: 人数
+        category:
+          category_name: カテゴリー名
 
   views:
     pagination:

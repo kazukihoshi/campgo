@@ -13,10 +13,10 @@ class Admin::UsersController < ApplicationController
 
   def update
     #byebug
-    user = User.find(params[:id])
-    if user.update(user_params)
+    @user = User.find(params[:id])
+    if @user.update(user_params)
       flash[:notice] = "更新しました"
-     redirect_to admin_user_path(user)
+     redirect_to admin_user_path(@user)
     else
       render :edit
     end

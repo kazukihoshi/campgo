@@ -27,6 +27,7 @@ class ApplicationController < ActionController::Base
         request.fullpath.include?(new_user_registration_path) == false && # 二重リダイレクト防止
         request.fullpath.include?(users_guest_sign_in_path) == false && # 二重リダイレクト防止
         request.fullpath.include?(new_admin_session_path) == false # 二重リダイレクト防止
+        redirect_to new_user_session_path #コメントアウトするとURL直打ちで画面遷移される。入れておくと新規登録画面からログイン画面へ遷移する
         return false
       end
     end

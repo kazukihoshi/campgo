@@ -7,14 +7,14 @@ class Admin::ChecklistsController < ApplicationController
   end
 
   def create
-    checklist = Checklist.new(checklist_params)
-    category = Category.find(params[:category_id])
-    checklist.category = category
+    @checklist = Checklist.new(checklist_params)
+    @category = Category.find(params[:category_id])
+    @checklist.category = @category
     #byebug
-    if checklist.save
+    if @checklist.save
     #byebug
       flash[:notice] = "作成しました"
-      redirect_to admin_category_checklists_path(category)
+      redirect_to admin_category_checklists_path(@category)
     else
       redirect_back(fallback_location: root_path)
     end
@@ -56,7 +56,7 @@ class Admin::ChecklistsController < ApplicationController
   def index_for_user
     #byebug
     @user = User.find(params[:user_id])
-    
+
     @checklists = @user.checklists.where(user_id: @user.id)
   end
 
