@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate, except: [:top]
+  # before_action :authenticate, except: [:top]
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -12,25 +12,25 @@ class ApplicationController < ActionController::Base
   end
 
 
-  def authenticate
-    if admin_signed_in?
-      return true
-    elsif user_signed_in?
-      if request.fullpath.include?("/admin") &&
-        request.fullpath.include?(new_admin_session_path) == false # 二重リダイレクト防止
-        redirect_to new_admin_session_path
-        return false
-      end
-      return true
-    else
-      if request.fullpath.include?(new_user_session_path) == false && # 二重リダイレクト防止
-        request.fullpath.include?(new_user_registration_path) == false && # 二重リダイレクト防止
-        request.fullpath.include?(users_guest_sign_in_path) == false && # 二重リダイレクト防止
-        request.fullpath.include?(new_admin_session_path) == false # 二重リダイレクト防止
-        redirect_to new_user_session_path #コメントアウトするとURL直打ちで画面遷移される。入れておくと新規登録画面からログイン画面へ遷移する
-        return false
-      end
-    end
-  end
+  # def authenticate
+  #   if admin_signed_in?
+  #     return true
+  #   elsif user_signed_in?
+  #     if request.fullpath.include?("/admin") &&
+  #       request.fullpath.include?(new_admin_session_path) == false # 二重リダイレクト防止
+  #       redirect_to new_admin_session_path
+  #       return false
+  #     end
+  #     return true
+  #   else
+  #     if request.fullpath.include?(new_user_session_path) == false && # 二重リダイレクト防止
+  #       request.fullpath.include?(new_user_registration_path) == false && # 二重リダイレクト防止
+  #       request.fullpath.include?(users_guest_sign_in_path) == false && # 二重リダイレクト防止
+  #       request.fullpath.include?(new_admin_session_path) == false # 二重リダイレクト防止
+  #       redirect_to new_user_session_path #コメントアウトするとURL直打ちで画面遷移される。入れておくと新規登録画面からログイン画面へ遷移する
+  #       return false
+  #     end
+  #   end
+  # end
 
 end

@@ -1,4 +1,5 @@
 class Public::ChecklistsController < ApplicationController
+   before_action :authenticate_user!
   def new
     @checklist = Checklist.new
   end

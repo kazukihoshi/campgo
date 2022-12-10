@@ -1,4 +1,5 @@
 class Admin::CampsController < ApplicationController
+  before_action :authenticate_admin!
   def index
     @camps = Camp.all.order("created_at").page(params[:page]).per(10)
   end

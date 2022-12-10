@@ -1,4 +1,5 @@
 class Admin::ChecklistsController < ApplicationController
+  before_action :authenticate_admin!
   def index
     @category = Category.find(params[:category_id])
     @checklists = @category.checklists.where(user_id: nil)

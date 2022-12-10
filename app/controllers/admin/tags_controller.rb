@@ -1,5 +1,5 @@
 class Admin::TagsController < ApplicationController
-
+  before_action :authenticate_admin!
   def destroy
     post = Post.find(params[:post_id])
     #byebug
