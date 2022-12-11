@@ -50,7 +50,8 @@ class Admin::ChecklistsController < ApplicationController
       checklist.destroy
     end
     category = Category.find(params[:category_id])
-      redirect_to admin_category_checklists_path(category)
+    flash[:notice] = "削除しました"
+    redirect_to admin_category_checklists_path(category)
   end
 
 
