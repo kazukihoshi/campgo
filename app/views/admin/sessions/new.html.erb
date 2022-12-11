@@ -5,6 +5,19 @@
     </div>
   </div>
 
+  <% if alert.present? %>
+    <div class="row">
+      <div class="col-lg-6 col-sm-10 offset-1">
+        <div id="error_explanation">
+          <ul>
+            <li><%= alert %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% else %>
+  <% end %>
+
   <%= form_with model: @admin, url: new_admin_session_path do |f| %>
     <div class="row login-form">
       <div class="col-10 offset-1">

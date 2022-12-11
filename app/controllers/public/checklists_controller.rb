@@ -97,6 +97,7 @@ class Public::ChecklistsController < ApplicationController
     user = current_user
     checklist = Checklist.find(params[:id])
     checklist.destroy
+    flash[:notice] = "削除しました"
     redirect_to user_my_checklist_index_path(user.id)
   end
 

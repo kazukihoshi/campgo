@@ -34,9 +34,11 @@
           <%= cm.hidden_field :user_id, value: current_user.id %>
         <% end %>
 
-        <div class="field">
-           <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :category_name) %>
-         </div>
+        <div class="row form-group my-3">
+          <div class="col-lg-4 col-md-6 col-sm-8 col-6">
+           <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :category_name),{}, {class: 'form-control'} %>
+          </div>
+        </div>
 
         <div class="actions">
           <%= f.submit '追加',class: "btn btn-outline-success" %>

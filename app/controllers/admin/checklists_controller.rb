@@ -66,6 +66,7 @@ class Admin::ChecklistsController < ApplicationController
     user = User.find(params[:user_id])
     #byebug
     Checklist.find_by(user_id: user).destroy
+    flash[:notice] = "削除しました"
     redirect_back(fallback_location: root_path)
   end
 

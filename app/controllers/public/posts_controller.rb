@@ -53,7 +53,7 @@ class Public::PostsController < ApplicationController
     #byebug
     if @post.update(post_params)
       @post.save_tags(tag_list)
-      flash[:notice] = "投稿を編集しました"
+      flash[:notice] = "更新しました"
       redirect_to post_path(@post.id)
     else
       render :edit
@@ -63,6 +63,7 @@ class Public::PostsController < ApplicationController
   def destroy
     post = Post.find(params[:id])
     post.destroy
+    flash[:notice] = "削除しました"
     redirect_to posts_path
   end
 

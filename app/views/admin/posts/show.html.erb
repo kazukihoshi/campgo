@@ -1,10 +1,22 @@
 <div class="container">
   <div class="row">
+    <div class="col-10 offset-1 text-success">
+      <% if flash[:notice] %>
+         <p id="notice text-success">
+           <%= flash[:notice] %>
+         </p>
+      <% end %>
+    </div>
+  </div>
+
+
+
+  <div class="row">
     <div class="col-8 offset-1 post_content">
       <h2 class="title"><%= @post.title %></h2>
     </div>
   </div>
-  
+
   <div class="row">
     <div class="col-sm-8 offset-sm-1 post_content">
       <% if @post.post_images.attached? %>

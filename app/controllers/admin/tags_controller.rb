@@ -5,6 +5,7 @@ class Admin::TagsController < ApplicationController
     #byebug
     tag = Tag.find(params[:id])
     tag.destroy
+    flash[:notice] = "タグを削除しました"
     redirect_to admin_post_path(post.id)
   end
 

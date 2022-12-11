@@ -1,5 +1,16 @@
 <div class="container">
   <div class="row">
+    <div class="col-10 offset-1 text-success">
+      <% if flash[:notice] %>
+         <p id="notice text-success">
+           <%= flash[:notice] %>
+         </p>
+      <% end %>
+    </div>
+  </div>
+
+
+  <div class="row">
     <div class="col-10 offset-1">
       <h2 class="title"><%= @user.name %>さんのチェックリスト</h2>
     </div>
@@ -11,12 +22,12 @@
         <% @checklists.each do |checklist| %>
           <li class="item_name">
             <a><%= checklist.checklist_name %></a>
-            <span class="delete_link" style="float: right;">
-              <%= link_to "削除",admin_user_checklists_destroy_path(@user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"},class: "btn btn-outline-danger" %>
-            </span>
           </li>
           <li class="item_comment">
             <%= checklist.comment %>
+            <span class="delete_link" style="float: right;">
+              <%= link_to "削除",admin_user_checklists_destroy_path(@user.id, checklist.id), method: :delete, data: { confirm: "本当に削除してもよろしいですか?"},class: "btn btn-outline-danger" %>
+            </span>
           </li>
         <% end %>
       </ul>
