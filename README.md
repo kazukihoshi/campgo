@@ -18,6 +18,7 @@ campgo
 キャンプに行く前の準備、行った後の共有
 
 ## 設計書
+https://drive.google.com/drive/recent
 
 ## 開発環境
 - OS：Linux(CentOS)
