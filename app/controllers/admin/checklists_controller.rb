@@ -17,7 +17,9 @@ class Admin::ChecklistsController < ApplicationController
       flash[:notice] = "作成しました"
       redirect_to admin_category_checklists_path(@category)
     else
-      redirect_back(fallback_location: root_path)
+      @checklists = @category.checklists.where(user_id: nil)
+      render :index
+      #redirect_back(fallback_location: root_path)
     end
 
   end
@@ -33,13 +35,13 @@ class Admin::ChecklistsController < ApplicationController
   end
 
   def update
-    checklist = Checklist.find(params[:id])
-    category = Category.find(params[:category_id])
-    if checklist.update(checklist_params)
+    @checklist = Checklist.find(params[:id])
+    @category = Category.find(params[:category_id])
+    if @checklist.update(checklist_params)
       flash[:notice] = "更新しました"
-      redirect_to admin_category_checklists_path(category)
+      redirect_to admin_category_checklists_path(@category)
     else
-      redirect_back(fallback_location: root_path)
+      render :edit
     end
   end
 

@@ -24,7 +24,9 @@ class Admin::CategoriesController < ApplicationController
       flash[:notice] = "作成しました"
       redirect_to admin_categories_path
     else
-      redirect_back(fallback_location: root_path)
+      @categories = Category.all
+      render :index
+      #redirect_back(fallback_location: root_path)
     end
   end
 
