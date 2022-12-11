@@ -23,17 +23,6 @@ class Public::PostsController < ApplicationController
     @posts = Post.all.order(created_at: :desc).page(params[:page]).per(9)
     @tag_list = Tag.all
     @comments = Comment.all
-    #検索
-    # if params[:key_word].present?
-    #   @posts = Post.posts_serach(params[:key_word])
-    # # elsif params[:tag_id].present?
-    # #   @tag = Tag.find(params[:tag_id])
-    # #   @posts = @tag.posts.order(created_at: :desc)
-    # else
-    #   @posts = Post.all.order(created_at: :desc)
-    # end
-    #@tag_lists = Tag.all
-    # @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(10)
   end
 
   def show
