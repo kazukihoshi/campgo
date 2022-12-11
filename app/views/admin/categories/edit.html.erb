@@ -26,18 +26,17 @@
 　  <div class="col-10 offset-1">
 　    <%= form_with model: @category, url: admin_category_path, local: true, method: :PATCH do |f| %>
         <div class="row">
-          <div class="col-4">
-            <div class="form-group">
-              <%= f.text_field :category_name, class: "form-control" %>
+          <div class="col-lg-5 col-md-8 col-sm-10">
+            <div class="field">
+              <%= f.text_field :category_name, placeholder: "カテゴリー名", class: "form-control" %>
             </div>
-          </div>
-          <div class="col-4">
-            <div class="form-group">
-            　　<%= f.submit '更新', class: "btn btn-outline-success" %>
-            　　<%= link_to '戻る', admin_categories_path, class: "btn btn-outline-secondary"%>
+            <div class="field">
+              <%= f.submit '登録', class: "btn btn-outline-success" %>
+              <%= link_to '戻る', admin_categories_path, class: "btn btn-outline-secondary"%>
             </div>
           </div>
         </div>
+
       <% end %>
 　  </div>
 　</div>

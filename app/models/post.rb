@@ -45,7 +45,7 @@ class Post < ApplicationRecord
     end
 
     def self.search_tag(name)
-      byebug
+      # byebug
       if name != ""
         Tag.where(name: search)
         tag[0].posts
