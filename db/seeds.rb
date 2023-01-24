@@ -11,3 +11,9 @@ Admin.create!(
     password: 'adminadmin',
     email: 'admin@admin'
     )
+
+User.create!(
+    email: 'camp@test.com',
+    name: 'camp太郎',
+    password: '123456'
+    )
